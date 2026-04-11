@@ -2,9 +2,9 @@
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(14,28,50,.82) 0%, rgba(14,28,50,.9) 100%),
+    linear-gradient(180deg, rgba(14,49,104,.82) 0%, rgba(8,31,73,.86) 52%, rgba(7,26,61,.9) 100%),
     url('../images/americanfortress_fortress_flag_1.webp') center 108% / 105% auto no-repeat;
-  background-color: #0E1C32;
+  background-color: #071A3D;
   padding: 80px 0 110px;
 }
 
