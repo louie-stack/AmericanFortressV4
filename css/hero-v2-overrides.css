@@ -142,6 +142,18 @@
   border-top: 1px solid rgba(152, 180, 224, .22);
   border-bottom: none;
   background: rgba(12, 30, 63, .95);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-stats-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 54px;
+  background: #1a4f84 url('../images/bottom.png') center top / 100% 54px no-repeat;
 }
 
 .hero-stat-item {
@@ -171,11 +183,11 @@
 /* clean transition into next section */
 .section_hero.hero-v2 + .section-2 {
   margin-top: 0;
-  padding-top: 150px;
-  background-image: url('../images/bottom.png'), url('../images/halftone.png');
-  background-position: 50% -78px, 50% 100%;
-  background-repeat: no-repeat, repeat-x;
-  background-size: 100% 128px, auto 720px;
+  padding-top: 204px;
+  background-image: url('../images/halftone.png');
+  background-position: 50% 100%;
+  background-repeat: repeat-x;
+  background-size: auto 720px;
 }
 
 .section_hero.hero-v2 + .section-2 .image.divider-1-bottom {
