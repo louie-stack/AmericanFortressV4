@@ -5,7 +5,7 @@
   background-color: #071a3d;
   background-image:
     radial-gradient(circle at 50% 18%, rgba(110, 163, 246, .22) 0%, rgba(110, 163, 246, 0) 32%),
-    linear-gradient(180deg, #0e3168 0%, #081f49 52%, #071a3d 100%);
+    linear-gradient(180deg, #0A1B2B 0%, #143758 100%);
   position: relative;
   overflow: hidden;
   padding-left: 0 !important;
