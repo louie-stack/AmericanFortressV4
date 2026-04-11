@@ -140,7 +140,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid rgba(152, 180, 224, .22);
-  border-bottom: 1px solid rgba(152, 180, 224, .16);
+  border-bottom: none;
   background: rgba(12, 30, 63, .95);
 }
 
@@ -173,9 +173,9 @@
   margin-top: 0;
   padding-top: 150px;
   background-image: url('../images/bottom.png'), url('../images/halftone.png');
-  background-position: 50% -26px, 50% 100%;
+  background-position: 50% -78px, 50% 100%;
   background-repeat: no-repeat, repeat-x;
-  background-size: 100% 72px, auto 720px;
+  background-size: 100% 128px, auto 720px;
 }
 
 .section_hero.hero-v2 + .section-2 .image.divider-1-bottom {
