@@ -20,7 +20,7 @@
   top: 0;
   height: 58%;
   background-color: #143758;
-  opacity: .95;
+  opacity: .5;
   mix-blend-mode: screen;
   -webkit-mask-image: url('../images/halftone.png');
   mask-image: url('../images/halftone.png');
