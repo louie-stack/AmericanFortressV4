@@ -15,7 +15,7 @@ Status key: [ ] not started · [~] in progress · [x] done
 
 ## Phase 2 — Core Narrative
 - [x] Problem section (full replace)
-- [ ] How It Works (3 steps)
+- [x] How It Works (3 steps)
 - [ ] Confidentiality Machine section
 - [ ] Four Pillars section
 - [ ] Competitive comparison table
