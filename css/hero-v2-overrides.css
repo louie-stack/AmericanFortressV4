@@ -17,7 +17,7 @@
   position: absolute;
   inset: 0 0 auto;
   height: 54%;
-  background: linear-gradient(to bottom, rgba(140, 188, 255, .36) 0%, rgba(140, 188, 255, .3) 45%, rgba(140, 188, 255, 0) 100%);
+  background: linear-gradient(to top, rgba(140, 188, 255, .36) 0%, rgba(140, 188, 255, .3) 45%, rgba(140, 188, 255, 0) 100%);
   -webkit-mask-image: url('../images/halftone.png');
   mask-image: url('../images/halftone.png');
   -webkit-mask-position: 50% 0;
@@ -26,8 +26,6 @@
   mask-repeat: repeat-x;
   -webkit-mask-size: auto 360px;
   mask-size: auto 360px;
-  transform: scaleY(-1);
-  transform-origin: top;
   pointer-events: none;
 }
 
