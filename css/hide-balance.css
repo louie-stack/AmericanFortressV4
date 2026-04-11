@@ -1,0 +1,69 @@
+.hide-balance-section {
+  background: linear-gradient(180deg, #071a3d 0%, #0a224c 100%);
+  padding: 72px 0 88px;
+  border-top: 1px solid rgba(154, 181, 226, .15);
+}
+
+.hide-balance-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.hide-balance-kicker {
+  color: #e4d6a3;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.hide-balance-title {
+  color: #bfd9ff;
+  margin: 0 0 10px;
+  font-family: Monumentextended, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.hide-balance-text { color: #fdfaf4; max-width: 500px; }
+
+.hide-balance-card {
+  background: rgba(6, 25, 58, .82);
+  border: 1px solid rgba(154, 181, 226, .25);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.hb-row { display: flex; justify-content: space-between; color: #d2e2ff; padding: 10px 0; border-bottom: 1px solid rgba(154, 181, 226, .15); }
+.hb-row strong { color: #fff; }
+.hb-row em { color: #e4d6a3; font-style: normal; }
+
+.hb-toggle {
+  margin: 16px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(20, 55, 88, .6);
+  color: #fdfaf4;
+  border: 1px solid rgba(154, 181, 226, .25);
+  border-radius: 999px;
+  padding: 12px 14px;
+}
+
+.hb-switch { width: 52px; height: 28px; background: #0f2c55; border-radius: 999px; position: relative; }
+.hb-knob { width: 22px; height: 22px; border-radius: 50%; background: #fff; position: absolute; top: 3px; left: 3px; transition: .2s ease; }
+
+.hide-balance-card[data-hidden="true"] .hb-knob { left: 27px; background: #15c26b; }
+
+.hb-stealth { background: rgba(11, 35, 74, .7); border: 1px solid rgba(154, 181, 226, .2); border-radius: 10px; padding: 12px; margin-bottom: 14px; }
+.hb-stealth-label { color: #c0d6fc; font-size: .85rem; margin-bottom: 6px; }
+.hb-stealth code { color: #fdfaf4; font-family: "OCR A Std", monospace; }
+
+.hb-footer { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.hb-state { color: #ffb4b4; font-weight: 700; }
+.hide-balance-card[data-hidden="true"] .hb-state { color: #7bf4ad; }
+
+@media screen and (max-width: 991px) {
+  .hide-balance-wrap { grid-template-columns: 1fr; }
+}
