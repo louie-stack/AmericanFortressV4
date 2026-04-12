@@ -17,11 +17,11 @@ Status key: [ ] not started · [~] in progress · [x] done
 - [x] Problem section (full replace)
 - [x] How It Works (3 steps)
 - [x] Confidentiality Machine section
-- [ ] Four Pillars section
-- [ ] Competitive comparison table
+- [x] Four Pillars section
+- [x] Competitive comparison table
 
 ## Phase 3 — Trust + Authority
-- [ ] IP / Patent section
+- [x] IP / Patent section
 - [ ] $AF Token section (full replace)
 - [ ] Roadmap (full replace)
 - [ ] Team section (full replace)
