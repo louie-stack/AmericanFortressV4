@@ -22,9 +22,9 @@ Status key: [ ] not started · [~] in progress · [x] done
 
 ## Phase 3 — Trust + Authority
 - [x] IP / Patent section
-- [ ] $AF Token section (full replace)
-- [ ] Roadmap (full replace)
-- [ ] Team section (full replace)
+- [x] $AF Token section (full replace)
+- [x] Roadmap (full replace)
+- [x] Team section (full replace)
 - [ ] Publications update
 - [ ] FAQs update
 - [ ] Footer CTA (full replace)
