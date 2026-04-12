@@ -80,8 +80,8 @@
 
 .af-ip-patent-new {
   background: linear-gradient(180deg, #11335f 0%, #102f58 100%);
-  padding-top: 78px;
-  padding-bottom: 84px;
+  padding-top: 96px;
+  padding-bottom: 108px;
 }
 
 #af-ip-patent .container.w-container { max-width: 1140px; }
@@ -94,7 +94,7 @@
 }
 
 .af-ip-new-title {
-  margin: 0 0 18px;
+  margin: 0 0 30px;
   font-family: Monumentextended, Arial, sans-serif;
   font-size: clamp(1.6rem, 2.8vw, 3rem);
   line-height: 0.96;
@@ -117,11 +117,11 @@
 }
 
 .af-ip-new-copy p {
-  margin: 0 0 18px;
+  margin: 0 0 24px;
   color: rgba(232, 239, 251, 0.95);
-  font-size: 1.08rem;
-  line-height: 1.38;
-  max-width: 620px;
+  font-size: 1.22rem;
+  line-height: 1.52;
+  max-width: 690px;
 }
 
 .af-ip-new-badge-wrap {
