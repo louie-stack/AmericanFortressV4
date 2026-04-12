@@ -97,10 +97,12 @@
   font-size: clamp(2rem, 3.7vw, 3.5rem);
   line-height: 1.02;
   color: #f1f6ff;
+  white-space: nowrap;
 }
 
 .af-ip-new-title span {
   color: #7db2ff;
+  white-space: nowrap;
 }
 
 .af-ip-new-copy p {
