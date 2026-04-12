@@ -284,6 +284,14 @@
   margin-right: -44px;
 }
 
+.roadmap-content .roadmap-item:nth-child(3) .map-content-item.red:last-child > div {
+  align-items: flex-start;
+}
+
+.roadmap-content .roadmap-item:nth-child(3) .map-content-item.red:last-child .status-dot {
+  margin-top: 0.52em;
+}
+
 @media (max-width: 640px) {
   .af-team-grid { grid-template-columns: 1fr; }
 }
