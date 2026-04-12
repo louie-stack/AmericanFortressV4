@@ -261,8 +261,9 @@
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  margin-right: 8px;
-  vertical-align: middle;
+  margin-right: 10px;
+  margin-top: 0.42em;
+  flex: 0 0 auto;
   box-shadow: 0 0 0 2px rgba(9, 29, 54, 0.28);
 }
 .status-dot.done { background: #54d28b; }
@@ -271,10 +272,12 @@
 
 .map-content-item > div {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
   width: 100%;
+  padding-left: 16px;
+  line-height: 1.25;
 }
 
 @media (max-width: 640px) {
