@@ -25,10 +25,10 @@ Status key: [ ] not started · [~] in progress · [x] done
 - [x] $AF Token section (full replace)
 - [x] Roadmap (full replace)
 - [x] Team section (full replace)
-- [ ] Publications update
-- [ ] FAQs update
-- [ ] Footer CTA (full replace)
-- [ ] Footer/nav update (include `/store`)
+- [x] Publications update
+- [x] FAQs update
+- [x] Footer CTA (full replace)
+- [x] Footer/nav update (include `/store`)
 
 ## Phase 4 — QA
 - [ ] Responsive pass (desktop/tablet/mobile)
