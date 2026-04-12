@@ -7,6 +7,73 @@
 }
 
 .af-pillars-section { background: radial-gradient(circle at 20% 10%, rgba(206, 32, 49, 0.15), transparent 45%), #081629; }
+
+.af-pillars-wins {
+  background: #e6dfc8;
+  padding-top: 4.2rem;
+  padding-bottom: 4.8rem;
+}
+
+.af-pillars-head-wins { margin-bottom: 1.25rem; }
+
+.af-pillars-title-wins {
+  margin: 0;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.45rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #15437a;
+}
+
+.af-pillars-title-wins em {
+  font-style: normal;
+  color: #e92c34;
+}
+
+.af-pillars-grid-wins {
+  gap: 1.35rem;
+}
+
+.af-pillar-card-wins {
+  position: relative;
+  border-radius: 22px;
+  border: 1px solid rgba(20, 54, 99, 0.16);
+  box-shadow: 0 8px 24px rgba(14, 37, 67, 0.18);
+  padding: 2.2rem 1.9rem 1.7rem;
+  overflow: hidden;
+}
+
+.af-pillar-card-wins.is-blue { background: #29548a; }
+.af-pillar-card-wins.is-red { background: #be3239; }
+
+.af-pillar-card-wins h3 {
+  color: #f6f5ef;
+  margin: 0 0 0.95rem;
+  font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-family: Space Grotesk, sans-serif;
+  font-weight: 700;
+}
+
+.af-pillar-card-wins p {
+  color: rgba(241, 246, 255, 0.95);
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  max-width: 95%;
+}
+
+.af-ghost-num {
+  position: absolute;
+  top: -4px;
+  right: 16px;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: clamp(3.8rem, 6.5vw, 7rem);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
 .af-competitive-section { background: #0f2b52; }
 .af-ip-section { background: linear-gradient(180deg, #091a30 0%, #0a1f38 100%); }
 
