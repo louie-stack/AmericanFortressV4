@@ -289,7 +289,7 @@
 }
 
 .roadmap-content .roadmap-item:nth-child(3) .map-content-item.red:last-child .status-dot {
-  margin-top: 0.52em;
+  margin-top: 0.38em;
 }
 
 @media (max-width: 640px) {
