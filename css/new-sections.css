@@ -246,7 +246,8 @@
 }
 
 .af-token-brief {
-  margin-top: -26px;
+  margin-top: -64px;
+  margin-bottom: 96px;
   color: rgba(232, 241, 255, 0.9);
   text-align: center;
 }
