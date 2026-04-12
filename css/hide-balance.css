@@ -3,7 +3,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(8,29,67,.82) 0%, rgba(8,29,67,.9) 100%),
-    url('../images/americanfortress_fortress_flag_1.webp') center 108% / 105% auto no-repeat;
+    url('../images/americanfortress_fortress_flag_1.webp') center 72% / 105% auto no-repeat;
   background-color: #081D43;
   padding: 80px 0 110px;
 }
