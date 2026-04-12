@@ -142,47 +142,6 @@
   font-size: 0.8rem;
 }
 
-.af-token-section,
-.af-roadmap-section,
-.af-team-section {
-  background: #081629;
-}
-
-.af-token-grid {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 1rem;
-  align-items: stretch;
-}
-
-.af-token-metrics { display: grid; gap: 0.75rem; }
-.af-token-metric {
-  background: rgba(8, 28, 52, 0.92);
-  border: 1px solid rgba(120, 162, 245, 0.25);
-  border-radius: 12px;
-  padding: 0.9rem 1rem;
-}
-.af-token-metric span { display: block; color: #9dc9ff; font-size: 0.85rem; }
-.af-token-metric strong { color: #fff; font-size: 1.1rem; }
-
-.af-token-chart {
-  background: rgba(6, 21, 38, 0.85);
-  border: 1px solid rgba(140, 177, 255, 0.2);
-  border-radius: 12px;
-  padding: 1rem;
-}
-
-.af-token-note { color: rgba(224, 236, 255, 0.7); font-size: 0.9rem; margin-top: 0.5rem; }
-.af-token-burn {
-  margin-top: 1rem;
-  background: rgba(10, 34, 62, 0.78);
-  border: 1px solid rgba(236, 47, 69, 0.25);
-  border-radius: 12px;
-  padding: 1rem;
-}
-.af-token-burn h3 { margin: 0 0 0.5rem; color: #fff; }
-.af-token-burn p { margin: 0; color: rgba(236, 243, 255, 0.88); }
-
 .af-roadmap-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -284,6 +243,17 @@
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.5rem 0.75rem;
+}
+
+.af-token-brief {
+  margin-top: 1rem;
+  color: rgba(232, 241, 255, 0.9);
+  text-align: center;
+}
+
+.af-token-brief p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 640px) {
