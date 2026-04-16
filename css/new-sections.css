@@ -83,8 +83,45 @@
   overflow: hidden;
 }
 
-.af-pillar-card-wins.is-blue { background: #29548a; }
-.af-pillar-card-wins.is-red { background: #be3239; }
+/* Beveled pillar cards — blue variant */
+.af-pillar-card-wins.is-blue {
+  background: linear-gradient(160deg, #2f5fa0 0%, #29548a 50%, #1d3f6c 100%);
+  border: 1px solid rgba(90, 155, 240, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(180, 215, 255, 0.28),
+    inset 0 0 0 1px rgba(80, 140, 210, 0.1),
+    0 22px 42px rgba(4, 12, 30, 0.48),
+    0 4px 10px rgba(4, 12, 30, 0.32);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.af-pillar-card-wins.is-blue:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(180, 215, 255, 0.28),
+    inset 0 0 0 1px rgba(80, 140, 210, 0.1),
+    0 28px 52px rgba(4, 12, 30, 0.56),
+    0 5px 14px rgba(4, 12, 30, 0.38);
+  transform: translateY(-2px);
+}
+
+/* Beveled pillar cards — red variant */
+.af-pillar-card-wins.is-red {
+  background: linear-gradient(160deg, #cc3a42 0%, #be3239 50%, #9a2530 100%);
+  border: 1px solid rgba(240, 100, 110, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 175, 180, 0.28),
+    inset 0 0 0 1px rgba(210, 80, 90, 0.12),
+    0 22px 42px rgba(18, 4, 4, 0.5),
+    0 4px 10px rgba(18, 4, 4, 0.32);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.af-pillar-card-wins.is-red:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 175, 180, 0.28),
+    inset 0 0 0 1px rgba(210, 80, 90, 0.12),
+    0 28px 52px rgba(18, 4, 4, 0.58),
+    0 5px 14px rgba(18, 4, 4, 0.38);
+  transform: translateY(-2px);
+}
 
 .af-pillar-card-wins h3 {
   color: #f6f5ef;
@@ -583,20 +620,28 @@
 }
 
 .af-team-card {
-  background: linear-gradient(180deg, #1a3058 0%, #13274a 100%);
-  border: 1px solid rgba(126, 163, 224, 0.24);
+  background: linear-gradient(180deg, #1c3e72 0%, #132c57 55%, #0e2447 100%);
+  border: 1px solid rgba(154, 192, 252, 0.3);
   border-radius: 18px;
   padding: 24px 22px 26px;
-  box-shadow: inset 0 2px 8px rgba(196, 221, 255, 0.08), 0 10px 28px rgba(6, 21, 45, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(198, 224, 255, 0.22),
+    inset 0 0 0 1px rgba(108, 150, 210, 0.12),
+    0 18px 36px rgba(3, 13, 34, 0.5),
+    0 3px 8px rgba(3, 13, 34, 0.36);
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
   display: flex;
   flex-direction: column;
 }
 
 .af-team-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(170, 203, 252, 0.55);
-  box-shadow: inset 0 2px 8px rgba(196, 221, 255, 0.14), 0 16px 36px rgba(6, 21, 45, 0.38);
+  transform: translateY(-3px);
+  border-color: rgba(180, 210, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(198, 224, 255, 0.22),
+    inset 0 0 0 1px rgba(108, 150, 210, 0.12),
+    0 26px 48px rgba(3, 13, 34, 0.58),
+    0 4px 10px rgba(3, 13, 34, 0.42);
 }
 
 .af-team-photo {
@@ -1355,13 +1400,25 @@
 }
 
 .af-tokenomics-metric {
-  background: #fbf3dd;
-  border: 1px solid rgba(18, 73, 131, 0.18);
+  background: linear-gradient(180deg, #fefbf0 0%, #f5ecd3 100%);
+  border: 1px solid rgba(18, 73, 131, 0.2);
   border-radius: 14px;
   padding: 20px 22px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 20px rgba(75, 48, 10, 0.12),
+    0 2px 5px rgba(75, 48, 10, 0.07);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.af-tokenomics-metric:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 14px 28px rgba(75, 48, 10, 0.16),
+    0 3px 7px rgba(75, 48, 10, 0.1);
+  transform: translateY(-1px);
 }
 
 .af-tokenomics-metric-label {
@@ -1526,13 +1583,26 @@
 }
 
 .af-roadmap-body {
-  background: linear-gradient(180deg, #16305a 0%, #0f2547 100%);
-  border: 1px solid rgba(126, 163, 224, 0.26);
+  background: linear-gradient(180deg, #1c3e72 0%, #132c57 55%, #0e2447 100%);
+  border: 1px solid rgba(154, 192, 252, 0.3);
   border-radius: 14px;
   padding: 20px 24px;
   color: #fdfaf4;
-  box-shadow: 0 10px 24px rgba(6, 21, 45, 0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(198, 224, 255, 0.22),
+    inset 0 0 0 1px rgba(108, 150, 210, 0.12),
+    0 16px 34px rgba(3, 13, 34, 0.5),
+    0 3px 8px rgba(3, 13, 34, 0.38);
   margin-left: 8px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.af-roadmap-body:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(198, 224, 255, 0.22),
+    inset 0 0 0 1px rgba(108, 150, 210, 0.12),
+    0 22px 44px rgba(3, 13, 34, 0.58),
+    0 4px 10px rgba(3, 13, 34, 0.44);
+  transform: translateY(-2px);
 }
 
 .af-roadmap-body h3 {
