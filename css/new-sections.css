@@ -1,4 +1,43 @@
 .af-pillars-section,
+/* ==========================================================================
+   Shared bevel / elevation tokens — used across card-type elements
+   to give the site consistent depth rather than flat borders.
+   ========================================================================== */
+:root {
+  /* Dark surfaces (navy backgrounds) */
+  --af-bevel-dark-bg: linear-gradient(180deg, #1c3e72 0%, #132c57 55%, #0e2447 100%);
+  --af-bevel-dark-border: 1px solid rgba(154, 192, 252, 0.3);
+  --af-bevel-dark-highlight: inset 0 1px 0 rgba(198, 224, 255, 0.22), inset 0 0 0 1px rgba(108, 150, 210, 0.12);
+  --af-bevel-dark-shadow: 0 24px 44px rgba(3, 13, 34, 0.55), 0 3px 8px rgba(3, 13, 34, 0.45);
+  --af-bevel-dark-hover-shadow: 0 28px 52px rgba(3, 13, 34, 0.6), 0 4px 10px rgba(3, 13, 34, 0.5);
+
+  /* Cream / beige surfaces */
+  --af-bevel-cream-bg: linear-gradient(180deg, #fdf6e0 0%, #f4e8c6 100%);
+  --af-bevel-cream-border: 1px solid rgba(18, 73, 131, 0.2);
+  --af-bevel-cream-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --af-bevel-cream-shadow: 0 16px 32px rgba(75, 48, 10, 0.14), 0 2px 6px rgba(75, 48, 10, 0.08);
+}
+
+/* Reusable beveled card classes */
+.af-card-bevel-dark {
+  background: var(--af-bevel-dark-bg);
+  border: var(--af-bevel-dark-border);
+  box-shadow: var(--af-bevel-dark-highlight), var(--af-bevel-dark-shadow);
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+.af-card-bevel-dark:hover {
+  box-shadow: var(--af-bevel-dark-highlight), var(--af-bevel-dark-hover-shadow);
+  transform: translateY(-2px);
+}
+
+.af-card-bevel-cream {
+  background: var(--af-bevel-cream-bg);
+  border: var(--af-bevel-cream-border);
+  box-shadow: var(--af-bevel-cream-highlight), var(--af-bevel-cream-shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
 .af-competitive-section,
 .af-ip-section {
   position: relative;
@@ -79,95 +118,106 @@
 .af-ip-section { background: linear-gradient(180deg, #091a30 0%, #0a1f38 100%); }
 
 .af-ip-patent-new {
-  background: linear-gradient(180deg, #11335f 0%, #102f58 100%);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(40, 86, 148, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(20, 50, 96, 0.35), transparent 45%),
+    linear-gradient(180deg, #0f2b55 0%, #0b2147 100%);
   padding-top: 96px;
   padding-bottom: 108px;
 }
 
-#af-ip-patent .container.w-container { max-width: 1140px; }
+.af-ip-patent-v2 .container.w-container { max-width: 1080px; }
 
-.af-ip-new-grid {
-  display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 20px;
-  align-items: start;
+/* Centered badge row (shield + red banner), matching Figma */
+.af-ip-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: -28px;
+  margin-bottom: 34px;
+}
+
+.af-ip-badge-shield-v2 {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.45));
+}
+
+.af-ip-badge-shield-v2 img {
+  display: block;
+  width: 86px;
+  height: auto;
+}
+
+.af-ip-badge-banner {
+  background: linear-gradient(180deg, #d22931 0%, #a3202a 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(241, 167, 171, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 16px 26px rgba(112, 14, 22, 0.45);
+  padding: 14px 22px 14px 44px;
+  margin-left: -22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 320px;
+  position: relative;
+  z-index: 1;
+}
+
+.af-ip-badge-banner-small {
+  color: rgba(255, 240, 240, 0.9);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+  margin-bottom: 2px;
+}
+
+.af-ip-badge-banner-big {
+  color: #fff5f5;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+/* Centered copy block under the badge */
+.af-ip-patent-copy {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .af-ip-new-title {
-  margin: 0 0 30px;
+  margin: 0 auto 28px;
   font-family: Monumentextended, Arial, sans-serif;
-  font-size: clamp(1.6rem, 2.8vw, 3rem);
-  line-height: 0.96;
-  color: #f4f7ff;
-  white-space: nowrap;
+  font-size: clamp(1.85rem, 3.4vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .af-ip-line-top {
   display: inline-block;
-  letter-spacing: 0.05em;
-  color: #f4f7ff;
-  white-space: nowrap;
+  color: #fdfaf4;
 }
 
 .af-ip-line-bottom {
   display: inline-block;
-  letter-spacing: 0.01em;
-  color: #83b6ff;
-  white-space: nowrap;
+  color: #8ebaff;
 }
 
-.af-ip-new-copy p {
-  margin: 0 0 24px;
-  color: rgba(232, 239, 251, 0.95);
-  font-size: 1.22rem;
-  line-height: 1.52;
-  max-width: 690px;
+.af-ip-patent-copy p {
+  margin: 0 auto 22px;
+  color: rgba(230, 238, 252, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 920px;
 }
 
-.af-ip-new-badge-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: flex-end;
-  padding-top: 20px;
-}
-
-.af-ip-badge-shield {
-  width: 88px;
-  height: 88px;
-  border-radius: 18px;
-  border: 2px solid #cfb880;
-  display: grid;
-  place-items: center;
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: #cfb880;
-  background: #153a67;
-  box-shadow: 0 7px 16px rgba(0,0,0,0.28);
-}
-
-.af-ip-badge-card {
-  background: #c6353f;
-  border-radius: 14px;
-  padding: 14px 18px;
-  min-width: 340px;
-  max-width: 380px;
-  box-shadow: 0 7px 16px rgba(0,0,0,0.32);
-}
-
-.af-ip-badge-small {
-  color: #fff3f3;
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.af-ip-badge-big {
-  color: #ffe7e7;
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.08;
-  margin-top: 6px;
+.af-ip-patent-copy p:last-child {
+  margin-bottom: 0;
 }
 
 .af-section-head {
@@ -178,39 +228,53 @@
 .af-ip-stats-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 48px;
+  gap: 22px;
+  margin-top: 64px;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .af-ip-stat {
-  background: rgba(9, 32, 59, 0.7);
-  border: 1px solid rgba(148, 181, 255, 0.2);
-  border-radius: 16px;
-  padding: 24px 20px;
+  border-radius: 18px;
+  padding: 34px 20px 28px;
   text-align: center;
+  /* Visual depth comes from the shared .af-card-bevel-dark class now
+     (background, border, and shadows). This section just adds layout rules. */
 }
 
 .af-ip-stat-num {
   display: block;
   font-family: Monumentextended, Arial, sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 700;
-  color: #fff;
+  color: #fdfaf4;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .af-ip-stat-label {
   display: block;
-  color: rgba(180, 210, 255, 0.85);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  color: rgba(185, 213, 253, 0.92);
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 991px) {
+  .af-ip-badge-row { flex-direction: column; gap: 0; margin-bottom: 26px; }
+  .af-ip-badge-banner { margin-left: 0; margin-top: -18px; padding: 18px 22px 14px; text-align: center; align-items: center; }
+  .af-ip-badge-banner-small, .af-ip-badge-banner-big { text-align: center; }
+  .af-ip-patent-copy p { font-size: 0.98rem; }
+}
+
 @media screen and (max-width: 767px) {
-  .af-ip-stats-bar { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+  .af-ip-stats-bar { grid-template-columns: 1fr; gap: 14px; margin-top: 38px; }
+  .af-ip-stat { padding: 26px 18px 22px; }
+  .af-ip-new-title { margin-bottom: 20px; }
 }
 
 .af-section-title {

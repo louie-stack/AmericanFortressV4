@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <defs>
+    <linearGradient id="shieldFill" x1="60" y1="6" x2="60" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1f4b85"/>
+      <stop offset="1" stop-color="#0f2a54"/>
+    </linearGradient>
+    <linearGradient id="shieldRim" x1="60" y1="0" x2="60" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7fa8da" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#5583b8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#0b1f3f" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield outline -->
+  <path d="M60 6 L110 22 L110 70 C110 100 88 122 60 134 C32 122 10 100 10 70 L10 22 Z"
+        fill="url(#shieldFill)" stroke="url(#shieldRim)" stroke-width="2"/>
+  <!-- Inner highlight for bevel -->
+  <path d="M60 10 L106 24 L106 70 C106 97 86 117 60 128 C34 117 14 97 14 70 L14 24 Z"
+        fill="none" stroke="#86b0e0" stroke-opacity="0.28" stroke-width="1"/>
+
+  <!-- @ symbol -->
+  <g transform="translate(60,66)" fill="#f0e1b6">
+    <text text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700"
+          font-size="56" y="18" letter-spacing="-1">@</text>
+  </g>
+
+  <!-- Checkmark award medal bottom-right -->
+  <g transform="translate(82,94)">
+    <circle r="14" fill="#c53037" stroke="#f0e1b6" stroke-width="2"/>
+    <path d="M-6 0 L-2 4 L6 -4" stroke="#f0e1b6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>
