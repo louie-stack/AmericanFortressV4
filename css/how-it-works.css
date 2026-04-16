@@ -65,6 +65,6 @@
 
 @media screen and (max-width: 991px) {
   .how-works-section { padding-top: 24px; }
-  .how-works-head p { white-space: normal; }
+  .how-works-head p { white-space: normal; font-size: 1rem; }
   .how-works-grid { grid-template-columns: 1fr; margin-top: 16px; }
 }

@@ -164,6 +164,10 @@
   margin-top: 0;
 }
 
+@media screen and (max-width: 991px) {
+  .hide-balance-text { white-space: normal; }
+}
+
 @media screen and (max-width: 767px) {
   .hide-balance-section { padding-top: 72px; }
   .hide-balance-text { font-size: 1.05rem; white-space: normal; }

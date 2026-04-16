@@ -227,7 +227,8 @@
 @media screen and (max-width: 767px) {
   .h1_hero.h1-hero-v2 { font-size: clamp(2.25rem, 12vw, 3.2rem) !important; }
   .hero-patent-label { font-size: .68rem; letter-spacing: .1em; }
-  .hero-cta-grid-v2 { grid-template-columns: 1fr; max-width: 420px; }
+  .hero-cta-grid-v2 { grid-template-columns: 1fr; max-width: 100%; justify-content: stretch; }
+  .hero-cta-grid-v2 .cta.hero { width: 100%; min-width: 0; padding-left: 20px; padding-right: 20px; }
   .hero-stats-bar { grid-template-columns: 1fr; }
   .hero-stat-item { border-right: none; border-bottom: 1px solid rgba(152, 180, 224, .2); }
   .hero-stat-item:last-child { border-bottom: none; }
