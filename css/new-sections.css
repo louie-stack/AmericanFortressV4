@@ -468,6 +468,44 @@
   display: inline-block;
 }
 
+.af-team-subhead {
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #124983;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 auto 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(18, 73, 131, 0.22);
+  max-width: 1180px;
+  position: relative;
+}
+
+.af-team-subhead::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #124983;
+  margin-right: 12px;
+  vertical-align: middle;
+  transform: translateY(-2px);
+}
+
+.af-advisors-subhead {
+  margin-top: 64px;
+}
+
+.af-advisors-subhead::before {
+  background: #e62028;
+}
+
+.af-advisors-subhead {
+  color: #ab2027;
+  border-bottom-color: rgba(230, 32, 40, 0.24);
+}
+
 .af-team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -476,19 +514,54 @@
   margin: 0 auto;
 }
 
+.af-advisors-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .af-team-card {
   background: linear-gradient(180deg, #1a3058 0%, #13274a 100%);
   border: 1px solid rgba(126, 163, 224, 0.24);
   border-radius: 18px;
-  padding: 28px 26px;
+  padding: 24px 22px 26px;
   box-shadow: inset 0 2px 8px rgba(196, 221, 255, 0.08), 0 10px 28px rgba(6, 21, 45, 0.28);
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .af-team-card:hover {
   transform: translateY(-4px);
   border-color: rgba(170, 203, 252, 0.55);
   box-shadow: inset 0 2px 8px rgba(196, 221, 255, 0.14), 0 16px 36px rgba(6, 21, 45, 0.38);
+}
+
+.af-team-photo {
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid rgba(152, 190, 246, 0.45);
+  background: linear-gradient(180deg, rgba(35, 78, 138, 0.9) 0%, rgba(20, 49, 92, 0.95) 100%);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.af-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.af-team-photo--initials span {
+  color: #fdfaf4;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
 }
 
 .af-avatar {
@@ -530,10 +603,52 @@
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.55;
+  flex-grow: 1;
 }
 
-.af-team-card span {
+.af-team-card > span {
   display: none;
+}
+
+.af-team-socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(156, 192, 246, 0.18);
+}
+
+.af-team-socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(152, 190, 246, 0.12);
+  color: #b9d5fb;
+  border: 1px solid rgba(156, 192, 246, 0.28);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.af-team-socials a:hover {
+  background: rgba(152, 190, 246, 0.24);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.af-team-socials svg {
+  display: block;
+}
+
+@media screen and (max-width: 991px) {
+  .af-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .af-advisors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 640px) {
+  .af-team-grid, .af-advisors-grid { grid-template-columns: 1fr; }
+  .af-advisors-subhead { margin-top: 48px; }
 }
 
 @media (max-width: 991px) {
@@ -1097,4 +1212,345 @@
 
 @media (max-width: 640px) {
   .af-team-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Tokenomics — Figma-matched (cream background, 2-col grid)
+   ========================================================================== */
+.af-tokenomics-new {
+  background: #f0e7cf !important;
+  background-image: none !important;
+  padding: 110px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.af-tokenomics-head {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 64px;
+}
+
+.af-tokenomics-title {
+  margin: 0 0 28px;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: clamp(1.85rem, 3.4vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.af-tokenomics-line-top,
+.af-tokenomics-line-bottom {
+  display: block;
+}
+
+.af-tokenomics-line-top { color: #124983; }
+.af-tokenomics-line-bottom { color: #e62028; }
+
+.af-tokenomics-lead {
+  margin: 0 auto;
+  max-width: 780px;
+  color: #2a3652;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.af-tokenomics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.af-tokenomics-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.af-tokenomics-piechart {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  filter: drop-shadow(0 18px 38px rgba(13, 26, 60, 0.22));
+}
+
+.af-tokenomics-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.af-tokenomics-metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.af-tokenomics-metric {
+  background: #fbf3dd;
+  border: 1px solid rgba(18, 73, 131, 0.18);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.af-tokenomics-metric-label {
+  color: rgba(18, 73, 131, 0.78);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.af-tokenomics-metric-value {
+  color: #0f2d54;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.af-tokenomics-burn {
+  background: #f5dada;
+  border: 1px solid rgba(230, 32, 40, 0.22);
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+
+.af-tokenomics-burn-heading {
+  display: block;
+  color: #b8262c;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.af-tokenomics-burn p {
+  margin: 0;
+  color: #3e1f22;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+@media screen and (max-width: 991px) {
+  .af-tokenomics-new { padding: 78px 0 72px; }
+  .af-tokenomics-head { margin-bottom: 42px; }
+  .af-tokenomics-grid { grid-template-columns: 1fr; gap: 42px; max-width: 600px; }
+  .af-tokenomics-piechart { max-width: 380px; }
+}
+
+@media screen and (max-width: 640px) {
+  .af-tokenomics-metric-grid { grid-template-columns: 1fr; }
+  .af-tokenomics-metric { padding: 16px 18px; }
+  .af-tokenomics-piechart { max-width: 300px; }
+}
+
+/* ==========================================================================
+   Roadmap — Figma-matched (cream background, vertical timeline)
+   ========================================================================== */
+.af-roadmap-new {
+  background: #f0e7cf !important;
+  background-image: none !important;
+  padding: 100px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.af-roadmap-head {
+  text-align: center;
+  margin-bottom: 68px;
+}
+
+.af-roadmap-title {
+  margin: 0;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.af-roadmap-line-top,
+.af-roadmap-line-bottom {
+  display: block;
+}
+
+.af-roadmap-line-top { color: #124983; }
+.af-roadmap-line-bottom { color: #e62028; }
+
+.af-roadmap-timeline {
+  max-width: 1020px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.af-roadmap-timeline::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 175px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(18, 73, 131, 0.4) 0,
+    rgba(18, 73, 131, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index: 0;
+}
+
+.af-roadmap-row {
+  display: grid;
+  grid-template-columns: 150px 50px 1fr;
+  gap: 0;
+  align-items: flex-start;
+  padding-bottom: 32px;
+  position: relative;
+}
+
+.af-roadmap-row:last-child {
+  padding-bottom: 0;
+}
+
+.af-roadmap-period {
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f2d54;
+  letter-spacing: 0.04em;
+  padding-top: 16px;
+  text-align: right;
+  padding-right: 18px;
+  line-height: 1.2;
+}
+
+.af-roadmap-marker {
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.af-roadmap-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #124983;
+  border: 3px solid #f0e7cf;
+  box-shadow: 0 0 0 2px rgba(18, 73, 131, 0.4);
+  display: block;
+}
+
+.af-roadmap-row[data-status="in-progress"] .af-roadmap-dot {
+  background: #e62028;
+  box-shadow: 0 0 0 2px rgba(230, 32, 40, 0.4);
+}
+
+.af-roadmap-row[data-status="upcoming"] .af-roadmap-dot {
+  background: #fbf3dd;
+  box-shadow: 0 0 0 2px rgba(18, 73, 131, 0.35);
+}
+
+.af-roadmap-body {
+  background: linear-gradient(180deg, #16305a 0%, #0f2547 100%);
+  border: 1px solid rgba(126, 163, 224, 0.26);
+  border-radius: 14px;
+  padding: 20px 24px;
+  color: #fdfaf4;
+  box-shadow: 0 10px 24px rgba(6, 21, 45, 0.2);
+  margin-left: 8px;
+}
+
+.af-roadmap-body h3 {
+  margin: 0 0 8px;
+  color: #fdfaf4;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.af-roadmap-body p {
+  margin: 0 0 14px;
+  color: rgba(216, 230, 252, 0.86);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.af-roadmap-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: Monumentextended, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.af-roadmap-pill.is-completed {
+  background: #1cb06b;
+  color: #fff;
+}
+
+.af-roadmap-pill.is-progress {
+  background: #f0b520;
+  color: #2a1c00;
+}
+
+.af-roadmap-pill.is-upcoming {
+  background: transparent;
+  color: rgba(216, 230, 252, 0.85);
+  border: 1px solid rgba(216, 230, 252, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+  .af-roadmap-new { padding: 66px 0 80px; }
+  .af-roadmap-head { margin-bottom: 42px; }
+
+  .af-roadmap-timeline::before {
+    left: 14px;
+  }
+
+  .af-roadmap-row {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas: "marker body" "period body";
+    gap: 0 14px;
+    padding-bottom: 26px;
+  }
+
+  .af-roadmap-marker {
+    grid-area: marker;
+    justify-content: flex-start;
+    padding-top: 18px;
+    padding-left: 7px;
+  }
+
+  .af-roadmap-period {
+    grid-area: period;
+    text-align: left;
+    padding-right: 0;
+    padding-top: 4px;
+    font-size: 0.88rem;
+    align-self: flex-start;
+  }
+
+  .af-roadmap-body {
+    grid-area: body;
+    margin-left: 0;
+    padding: 16px 18px;
+  }
+
+  .af-roadmap-body h3 { font-size: 0.95rem; }
+  .af-roadmap-body p { font-size: 0.88rem; }
 }
