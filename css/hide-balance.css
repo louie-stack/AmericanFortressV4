@@ -164,6 +164,38 @@
   margin-top: 0;
 }
 
+.hide-balance-logos .logo-grid img.logo,
+.hide-balance-logos .logo-grid .logo-litvm img {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.hide-balance-logos .logo-grid a:hover img.logo,
+.hide-balance-logos .logo-grid .logo-litvm:hover img {
+  opacity: 1;
+}
+
+.hide-balance-logos .logo-grid .logo-litvm {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 3rem;
+  max-height: 3rem;
+  width: auto;
+  max-width: 250px;
+}
+
+.hide-balance-logos .logo-grid .logo-litvm img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.hide-balance-logos .logo-grid .logo-litvm img:first-child {
+  height: 80%;
+}
+
 @media screen and (max-width: 991px) {
   .hide-balance-text { white-space: normal; }
 }
