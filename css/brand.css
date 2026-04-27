@@ -258,6 +258,32 @@ h2 { text-transform: none; }
   border-color: rgba(201, 168, 76, 0.85);
 }
 
+/* ---------- Comparison + Patent section ----------
+   #7 'wins every row' (.af-compare-title-gradient): red gradient
+      → solid white, Sora 700.
+   #8 'Patent-protected. Impossible to copy.': bottom line was
+      light blue (#8ebaff), now solid white. Sora 800.
+*/
+.af-compare-title-gradient {
+  background: none;
+  -webkit-text-fill-color: #fff;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  color: #fff;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.af-ip-line-bottom {
+  color: #fff;
+}
+.af-ip-new-title {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
