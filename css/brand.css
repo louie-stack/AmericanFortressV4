@@ -30,6 +30,30 @@ h2 { text-transform: none; }
 .partner-title { text-transform: none; }
 .h1-contact { text-transform: none; }
 .conf-machine-head h2 { text-transform: none; }
+.problem-title { text-transform: none; }
+.hide-balance-title { text-transform: none; }
+.how-works-head h2 { text-transform: none; }
+.af-section-title { text-transform: none; }
+.af-pillars-title-wins { text-transform: none; }
+.af-compare-title-gradient { text-transform: none; }
+.af-ip-new-title { text-transform: none; }
+.af-team-title { text-transform: none; }
+.af-infrastructure-title { text-transform: none; }
+.af-tokenomics-title { text-transform: none; }
+.af-roadmap-title { text-transform: none; }
+.token-title { text-transform: none; }
+.h2-why { text-transform: none; }
+.h2-usecase { text-transform: none; }
+.gradient-offer { text-transform: none; }
+
+/* Inline-style headings on press.html and use-cases.html — these
+   sit in <style> blocks at the top of those documents but are still
+   plain class selectors, so a normal cascade override works. */
+.press-hero h1 { text-transform: none; }
+.press-section-title { text-transform: none; }
+.press-contact h2 { text-transform: none; }
+.uc-hero h1 { text-transform: none; }
+.uc-section-title { text-transform: none; }
 
 /* ---------- 2. Ghost secondary CTAs ----------
    The hero "Reserve" CTA stays red (it's the one allowed primary
