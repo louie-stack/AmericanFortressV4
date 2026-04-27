@@ -1,0 +1,23 @@
+/* ============================================================
+   brand.css — AmericanFortress brand elevation
+   Loaded last so the cascade resolves cleanly. Each rule
+   matches the specificity of the original it overrides
+   (no !important sprinkling).
+   ============================================================ */
+
+/* ---------- 1. Sentence-case headlines ----------
+   Headings drop the uppercase transform. Small UI labels
+   (eyebrows, buttons, navbar, badges) keep theirs.
+*/
+h2 { text-transform: none; }
+.h2 { text-transform: none; }
+.text-6 { text-transform: none; }
+.h1_hero { text-transform: none; }
+.h1_hero.h1-hero-v2 { text-transform: none; }
+.h1_hero.sdk { text-transform: none; }
+.h1_hero-sdk.sdk { text-transform: none; }
+.h1-hero-fortress.sdk,
+.h1-hero-fortress.fortress { text-transform: none; }
+.partner-title { text-transform: none; }
+.h1-contact { text-transform: none; }
+.conf-machine-head h2 { text-transform: none; }
