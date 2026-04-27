@@ -161,6 +161,48 @@ h2 { text-transform: none; }
   letter-spacing: 0.08em;
 }
 
+/* ---------- Hero CTAs ----------
+   Sentence-case all .cta button labels (the .cta-text wrapper).
+   Convert the hero "Explore the SDK" (which is .cta.hero.blue) to
+   ghost with a Blue Haze border. The primary .cta.hero (Reserve)
+   stays red — already correct. Footer .af-inf-btn-primary
+   (Reserve at the bottom) stays its existing blue gradient since
+   the brief says one primary per section and that's the section's
+   primary.
+*/
+.cta-text {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Hero "Explore the SDK" (.cta.hero.blue but not the footer primary
+   .af-inf-btn-primary) becomes ghost. */
+.cta.hero.blue:not(.af-inf-btn-primary) {
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(133, 186, 255, 0.55);
+  box-shadow: none;
+}
+.cta.hero.blue:not(.af-inf-btn-primary):hover {
+  background-color: rgba(133, 186, 255, 0.10);
+  border-color: var(--color-blue-haze);
+}
+
+/* Hero stat labels: Inter 600 tracked, uppercase OK per brief */
+.hero-stat-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.hero-stat-value {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
