@@ -47,3 +47,70 @@ h2 { text-transform: none; }
   border-color: var(--color-blue-haze);
   transform: translateY(-1px);
 }
+
+/* ---------- 3. Red accents → gold ----------
+   Stat numbers, headline accent spans, decorative bars and dots
+   that previously read red move to Institutional Gold. Logo,
+   primary CTA, and error states (.m-none, .wallet-pill is-exposed)
+   keep their red on purpose.
+*/
+
+/* Conf-machine subtitle "One toggle. Total privacy." span */
+.conf-machine-head h2 span { color: var(--color-gold); }
+
+/* Problem section title accent + stat-item left rule */
+.problem-title span { color: var(--color-gold); }
+.problem-stat-item { border-left-color: var(--color-gold); }
+
+/* How-it-works step number was red */
+.how-step-number { color: var(--color-gold); }
+
+/* Hero stat values — were white, brief calls for gold metrics */
+.hero-stat-value { color: var(--color-gold); }
+
+/* Pillar ghost numerals (decorative 01-04 watermarks) */
+.af-ghost-num { color: rgba(201, 168, 76, 0.18); }
+
+/* Use-cases card icons / arrows / kickers were red */
+.uc-card-dark .uc-card-icon {
+  background: linear-gradient(160deg, var(--color-gold) 0%, #a8893a 100%);
+}
+.uc-card-dark .uc-feature-list li::before,
+.uc-card-cream .uc-feature-list li::before { color: var(--color-gold); }
+.uc-section-kicker { color: var(--color-gold); }
+
+/* The "wins" italic em in the pillars title */
+.af-pillars-title-wins em { color: var(--color-gold); font-style: italic; }
+
+/* Tokenomics + roadmap red accent lines */
+.af-tokenomics-line-bottom,
+.af-roadmap-line-bottom { color: var(--color-gold); }
+
+/* Red link hover on navbar → blue-haze (interactive token) */
+.navbar1_link:hover { color: var(--color-blue-haze); }
+
+/* Random red text spans / number labels on interior pages */
+.span-red,
+.bold-text-3,
+.text-block-3,
+.for-every-user-every-use-case-1 { color: var(--color-gold); }
+
+/* Rich-text links (terms / privacy paragraphs) → blue-haze */
+.text-rich-text a { color: var(--color-blue-haze); }
+
+/* Patent badge banner was red — gold institutional credential */
+.af-ip-badge-banner {
+  background: linear-gradient(180deg, var(--color-midnight-indigo) 0%, #0d1730 100%);
+  border: 1px solid rgba(201, 168, 76, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 26px rgba(4, 10, 24, 0.55);
+}
+
+/* Conf-icon red tile → gold */
+.conf-icon.red { background: var(--color-gold); }
+
+/* The red gradient title clip (partner.html "American Fortress") */
+.gradient-title-red {
+  -webkit-text-fill-color: #fff;
+  background-image: none;
+  color: #fff;
+}
