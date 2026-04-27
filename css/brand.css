@@ -132,6 +132,35 @@ h2 { text-transform: none; }
 /* Conf-icon red tile → gold */
 .conf-icon.red { background: var(--color-gold); }
 
+/* ---------- Nav buttons (.button-2) ----------
+   Sentence-case labels. Keep .button-2 red as the nav primary
+   (Reserve FortressName). Convert .button-2.blue (Explore SDK,
+   Download wallet) to ghost so the nav doesn't have two
+   competing filled buttons.
+*/
+.button-2 {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+.button-2.blue {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+.button-2.blue:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #fff;
+}
+
+/* Nav links: confirm Inter 600 tracked uppercase per brief.
+   Inherit Inter from body; set weight + tracking explicitly. */
+.navbar1_link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
