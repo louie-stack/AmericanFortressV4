@@ -284,6 +284,24 @@ h2 { text-transform: none; }
   color: #fff;
 }
 
+/* ---------- Team section ----------
+   #9 'Secured by Experts.' second line was solid red — now matches
+      the first line's navy (cream-bg section).
+   #10 'Advisors' label dot + text + underline switch from red to
+      gold so it parallels the 'Team' label's navy treatment but
+      uses the brand's primary accent.
+*/
+.af-team-line-bottom {
+  color: #124983;
+}
+.af-advisors-subhead {
+  color: var(--color-gold);
+  border-bottom-color: rgba(201, 168, 76, 0.45);
+}
+.af-advisors-subhead::before {
+  background: var(--color-gold);
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
