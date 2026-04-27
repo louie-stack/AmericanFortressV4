@@ -5,6 +5,15 @@
    (no !important sprinkling).
    ============================================================ */
 
+:root {
+  --color-abyss: #060F1F;
+  --color-deep-navy: #0D1B35;
+  --color-midnight-indigo: #182145;
+  --color-gold: #C9A84C;
+  --color-blue-haze: #85BAFF;
+  --color-red: #DD1E21;
+}
+
 /* ---------- 1. Sentence-case headlines ----------
    Headings drop the uppercase transform. Small UI labels
    (eyebrows, buttons, navbar, badges) keep theirs.
@@ -21,3 +30,20 @@ h2 { text-transform: none; }
 .partner-title { text-transform: none; }
 .h1-contact { text-transform: none; }
 .conf-machine-head h2 { text-transform: none; }
+
+/* ---------- 2. Ghost secondary CTAs ----------
+   The hero "Reserve" CTA stays red (it's the one allowed primary
+   per section). Every other formerly-red CTA gets the .cta--ghost
+   class added in HTML; this rule paints it as a transparent
+   outline button with a Blue Haze border.
+*/
+.cta.cta--ghost {
+  background-color: transparent;
+  border: 1px solid rgba(133, 186, 255, 0.55);
+  box-shadow: none;
+}
+.cta.cta--ghost:hover {
+  background-color: rgba(133, 186, 255, 0.10);
+  border-color: var(--color-blue-haze);
+  transform: translateY(-1px);
+}
