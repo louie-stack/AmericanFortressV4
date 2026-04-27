@@ -18,7 +18,7 @@
 .problem-copy { text-align: center; margin-bottom: 48px; }
 .problem-title {
   margin: 0 0 16px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   text-transform: uppercase;
   color: #124983;
   letter-spacing: .01em;
@@ -102,7 +102,7 @@
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 14px 28px rgba(75,48,10,0.15), 0 3px 7px rgba(75,48,10,0.09);
   transform: translateX(3px);
 }
-.problem-stat-item .value { font-family: Monumentextended, Arial, sans-serif; font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1; margin-bottom: 7px; }
+.problem-stat-item .value { font-family: Sora, Arial, sans-serif; font-size: clamp(1.9rem, 3.2vw, 2.6rem); line-height: 1; margin-bottom: 7px; }
 .problem-stat-item .desc { font-size: 1.1rem; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
 .problem-stat-item .source { color: #6d6e69; font-size: .88rem; }
 

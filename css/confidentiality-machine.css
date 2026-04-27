@@ -11,7 +11,7 @@
 .conf-machine-head h2 {
   margin: 0 0 14px;
   color: #124983;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   text-transform: uppercase;
   line-height: 0.97;
   letter-spacing: 0.008em;
@@ -65,7 +65,7 @@
 .conf-text h3 {
   margin: 0 0 8px;
   color: #124983;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.08rem, 1.95vw, 1.72rem);
   line-height: 1.06;
   letter-spacing: 0.001em;

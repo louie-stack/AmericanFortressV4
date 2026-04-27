@@ -35,7 +35,7 @@
   margin: 0 0 10px;
   text-transform: uppercase;
   letter-spacing: .02em;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(2.1rem, 4.2vw, 3.3rem);
   line-height: 1;
   background: linear-gradient(180deg, #ffd7d7 0%, #ff9a9a 100%);

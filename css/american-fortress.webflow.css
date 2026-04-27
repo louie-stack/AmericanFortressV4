@@ -39,7 +39,7 @@
 }
 
 @font-face {
-  font-family: Monumentextended;
+  font-family: Sora;
   src: url('../fonts/MonumentExtended-Regular.otf') format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -109,7 +109,7 @@ h2 {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 2.8125rem;
   font-weight: 400;
   line-height: 1.2;
@@ -226,7 +226,7 @@ ul {
 
 .cta.contact {
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1.25rem;
 }
 
@@ -240,7 +240,7 @@ ul {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 100%;
@@ -321,7 +321,7 @@ ul {
   color: var(--white);
   letter-spacing: .05em;
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3rem;
   line-height: 1.1;
 }
@@ -358,7 +358,7 @@ ul {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 48px;
   font-weight: 400;
   line-height: 114%;
@@ -376,7 +376,7 @@ ul {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 64px;
   font-weight: 400;
   line-height: 114%;
@@ -442,7 +442,7 @@ ul {
   text-transform: capitalize;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 125%;
@@ -508,7 +508,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   display: flex;
 }
 
@@ -561,7 +561,7 @@ ul {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 114%;
@@ -625,7 +625,7 @@ ul {
   text-align: center;
   width: 100%;
   max-width: 570px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .usecases {
@@ -669,7 +669,7 @@ ul {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 125%;
@@ -783,7 +783,7 @@ ul {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 124%;
@@ -800,7 +800,7 @@ ul {
   background-clip: text;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 4rem;
   font-weight: 400;
   line-height: 120%;
@@ -845,7 +845,7 @@ ul {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 100%;
@@ -974,7 +974,7 @@ ul {
 .h1_hero {
   color: #fff;
   text-shadow: 1px 1px 8px #000000d9;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.1;
@@ -1182,7 +1182,7 @@ ul {
   text-shadow: none;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 2.8125rem;
   line-height: 100%;
 }
@@ -1233,7 +1233,7 @@ ul {
   text-transform: uppercase;
   border-radius: 1.6875rem;
   padding: 1.5rem 2rem;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .map-title.white {
@@ -1370,7 +1370,7 @@ ul {
   align-items: center;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1.5rem;
   line-height: 120%;
   display: flex;
@@ -1490,7 +1490,7 @@ ul {
   background-image: linear-gradient(#b4d5ff, #0c75ff);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1.5rem;
   line-height: 120%;
 }
@@ -1681,7 +1681,7 @@ ul {
   background-image: linear-gradient(90deg, #103c69, #19538f);
   border: 1px solid #19538fb3;
   padding: 1rem 3rem;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1rem;
   line-height: 100%;
 }
@@ -1715,7 +1715,7 @@ ul {
   background-image: linear-gradient(#b4d5ff, #0c75ff);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .padding-section-xsmall {
@@ -1763,7 +1763,7 @@ ul {
 .h1-contact {
   color: var(--blue);
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3rem;
   font-weight: 400;
   line-height: 1.1em;
@@ -1867,7 +1867,7 @@ ul {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 2rem;
 }
 
@@ -2158,7 +2158,7 @@ ul {
   text-align: center;
   text-transform: uppercase;
   padding: 1rem;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: .85rem;
   line-height: 1;
   transition: transform .2s;
@@ -2314,7 +2314,7 @@ ul {
 .h1_hero-sdk {
   color: #fff;
   text-shadow: 1px 1px 8px #000000d9;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.1;
@@ -2339,7 +2339,7 @@ ul {
   color: var(--white);
   letter-spacing: .05em;
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3rem;
   line-height: 1.1;
 }
@@ -2362,7 +2362,7 @@ ul {
 
 .name-sub {
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 2.25rem;
 }
 
@@ -2581,7 +2581,7 @@ ul {
 
 .text-block-4 {
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .text-block-5 {
@@ -2589,7 +2589,7 @@ ul {
   background-image: linear-gradient(#b4d5ff, #0c75ff);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 4rem;
   line-height: 1;
   position: relative;
@@ -2853,7 +2853,7 @@ ul {
 .h1-hero-fortress {
   color: #fff;
   text-shadow: 1px 1px 8px #000000d9;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.1;
@@ -3161,7 +3161,7 @@ ul {
   color: var(--white);
   letter-spacing: .05em;
   text-transform: uppercase;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 3rem;
   line-height: 1.1;
 }
@@ -4978,7 +4978,7 @@ ul {
   font-display: swap;
 }
 @font-face {
-  font-family: 'Monumentextended';
+  font-family: Sora;
   src: url('../fonts/MonumentExtended-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;

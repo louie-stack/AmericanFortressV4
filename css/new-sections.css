@@ -57,7 +57,7 @@
 
 .af-pillars-title-wins {
   margin: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.7rem, 3.1vw, 3.05rem);
   letter-spacing: 0.01em;
   line-height: 1;
@@ -145,7 +145,7 @@
   position: absolute;
   top: -4px;
   right: 16px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(3.8rem, 6.5vw, 7rem);
   line-height: 1;
   color: rgba(255, 255, 255, 0.12);
@@ -212,7 +212,7 @@
 
 .af-ip-badge-banner-big {
   color: #fff5f5;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1.18rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -228,7 +228,7 @@
 
 .af-ip-new-title {
   margin: 0 auto 28px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.85rem, 3.4vw, 3rem);
   line-height: 1.02;
   letter-spacing: 0.01em;
@@ -282,7 +282,7 @@
 
 .af-ip-stat-num {
   display: block;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 700;
   color: #fdfaf4;
@@ -294,7 +294,7 @@
 .af-ip-stat-label {
   display: block;
   color: rgba(185, 213, 253, 0.92);
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -402,7 +402,7 @@
   color: #f0f6ff;
   font-size: clamp(1.7rem, 3vw, 2.7rem);
   letter-spacing: 0.04em;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .af-compare-title-gradient {
@@ -552,7 +552,7 @@
 
 .af-team-title {
   margin: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(2rem, 3.8vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: 0.01em;
@@ -570,7 +570,7 @@
 }
 
 .af-team-subhead {
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 0.95rem;
   color: #124983;
   letter-spacing: 0.12em;
@@ -667,7 +667,7 @@
 
 .af-team-photo--initials span {
   color: #fdfaf4;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
@@ -682,7 +682,7 @@
   background: linear-gradient(180deg, rgba(35, 78, 138, 0.9) 0%, rgba(20, 49, 92, 0.95) 100%);
   border: 1px solid rgba(152, 190, 246, 0.55);
   color: #fff;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.02em;
@@ -692,7 +692,7 @@
 .af-team-card h3 {
   color: #fdfaf4;
   margin: 0 0 4px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1rem;
   letter-spacing: 0.01em;
   line-height: 1.2;
@@ -915,7 +915,7 @@
   border-radius: 999px;
   padding: 8px 18px;
   color: #b9d0f7;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -925,7 +925,7 @@
 
 .af-infrastructure-title {
   margin: 0 0 22px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.55rem, 2.4vw, 2.15rem);
   line-height: 1.08;
   color: #fdfaf4;
@@ -1098,7 +1098,7 @@
   letter-spacing: 0.03em;
   line-height: 1;
   color: #f1f6ff;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
 }
 
 .af-compare-title-gradient {
@@ -1106,7 +1106,7 @@
   font-size: clamp(2.35rem, 4.45vw, 4.2rem);
   line-height: 0.96;
   letter-spacing: 0.018em;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   background: linear-gradient(180deg, #ffe2d9 0%, #ffb8a8 46%, #ff7b78 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1342,7 +1342,7 @@
 
 .af-tokenomics-title {
   margin: 0 0 28px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.85rem, 3.4vw, 3rem);
   line-height: 1.02;
   letter-spacing: 0.01em;
@@ -1430,7 +1430,7 @@
 
 .af-tokenomics-metric-value {
   color: #0f2d54;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -1447,7 +1447,7 @@
 .af-tokenomics-burn-heading {
   display: block;
   color: #b8262c;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 0.95rem;
   margin-bottom: 6px;
   letter-spacing: 0.02em;
@@ -1491,7 +1491,7 @@
 
 .af-roadmap-title {
   margin: 0;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: clamp(2rem, 3.8vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: 0.01em;
@@ -1543,7 +1543,7 @@
 }
 
 .af-roadmap-period {
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #0f2d54;
@@ -1608,7 +1608,7 @@
 .af-roadmap-body h3 {
   margin: 0 0 8px;
   color: #fdfaf4;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 1rem;
   letter-spacing: 0.01em;
   line-height: 1.2;
@@ -1625,7 +1625,7 @@
   display: inline-block;
   padding: 6px 14px;
   border-radius: 999px;
-  font-family: Monumentextended, Arial, sans-serif;
+  font-family: Sora, Arial, sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
