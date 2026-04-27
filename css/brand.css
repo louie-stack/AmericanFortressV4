@@ -203,6 +203,45 @@ h2 { text-transform: none; }
   letter-spacing: -0.02em;
 }
 
+/* ---------- Hide My Balance section ----------
+   #1 Title: drop the red gradient → solid white, Sora 700 -0.02em.
+   #2 "Trusted by the industry's best" eyebrow: drop gradient →
+      solid white, Sora 700.
+   #3 Active "Send" tab: red bg → gold bg with deep navy text.
+   #4 Toggle switch: red → gold (when on / default).
+   #5 Balance exposed warning: keep red — error state is allowed.
+*/
+.hide-balance-title {
+  background: none;
+  -webkit-text-fill-color: #fff;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  color: #fff;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-6 {
+  background: none;
+  -webkit-text-fill-color: #fff;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  color: #fff;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hb-tab.is-active {
+  background: var(--color-gold);
+  color: var(--color-deep-navy);
+}
+
+.hb-switch {
+  background: var(--color-gold);
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
