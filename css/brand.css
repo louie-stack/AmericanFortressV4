@@ -242,6 +242,22 @@ h2 { text-transform: none; }
   background: var(--color-gold);
 }
 
+/* ---------- Pillar cards (Why AF wins) ----------
+   #6 Cards 02 + 03 (.is-red) match cards 01 + 04 (.is-blue) navy.
+   All four get a 1px gold stroke at 60% opacity for hierarchy.
+*/
+.af-pillar-card-wins.is-red {
+  background: linear-gradient(160deg, #2f5fa0 0%, #29548a 50%, #1d3f6c 100%);
+}
+.af-pillar-card-wins.is-blue,
+.af-pillar-card-wins.is-red {
+  border: 1px solid rgba(201, 168, 76, 0.6);
+}
+.af-pillar-card-wins.is-blue:hover,
+.af-pillar-card-wins.is-red:hover {
+  border-color: rgba(201, 168, 76, 0.85);
+}
+
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
    Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
