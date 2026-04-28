@@ -38,14 +38,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: Sora;
-  src: url('../fonts/MonumentExtended-Regular.otf') format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --beige: #f0e0b2;
   --blue: #103f6e;
@@ -4973,13 +4965,6 @@ ul {
 @font-face {
   font-family: 'Spacegrotesk';
   src: url('../fonts/SpaceGrotesk-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Sora;
-  src: url('../fonts/MonumentExtended-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

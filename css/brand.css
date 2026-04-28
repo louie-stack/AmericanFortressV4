@@ -89,8 +89,8 @@ h2 { text-transform: none; }
 /* How-it-works step number was red */
 .how-step-number { color: var(--color-gold); }
 
-/* Hero stat values — were white, brief calls for gold metrics */
-.hero-stat-value { color: var(--color-gold); }
+/* Hero stat values — kept white per design call */
+.hero-stat-value { color: #fff; }
 
 /* Pillar ghost numerals (decorative 01-04 watermarks) */
 .af-ghost-num { color: rgba(201, 168, 76, 0.18); }
@@ -103,12 +103,56 @@ h2 { text-transform: none; }
 .uc-card-cream .uc-feature-list li::before { color: var(--color-gold); }
 .uc-section-kicker { color: var(--color-gold); }
 
-/* The "wins" italic em in the pillars title */
-.af-pillars-title-wins em { color: var(--color-gold); font-style: italic; }
+/* Editorial pulls — all gold-italic emphasis across titles uses
+   DM Serif Display Italic per the brief, not Sora synth-italic
+   (which renders chunky/heavy). One unified rule covers every
+   gold accent inside a section title. */
+.conf-machine-head h2 span,
+.editorial-pull {
+  color: var(--color-gold) !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
+}
 
-/* Tokenomics + roadmap red accent lines */
+/* Problem section title — sits on its own cream surface (#dfd8bf),
+   so the title and its span are dark navy in normal Sora (no
+   italic, no gold). */
+.problem-title,
+.problem-title span {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+/* Pillars title "Why AmericanFortress wins" — also on a cream
+   surface (.af-pillars-wins #e6dfc8). Plain Sora dark navy, no
+   italic on "wins", no gold. */
+.af-pillars-title-wins,
+.af-pillars-title-wins span,
+.af-pillars-title-wins em {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+/* "powering the protocol." + "Shipping on time." — editorial italic
+   per the brief, matches "Secured by experts." / "Impossible to copy."
+   treatment. */
 .af-tokenomics-line-bottom,
-.af-roadmap-line-bottom { color: var(--color-gold); }
+.af-roadmap-line-bottom {
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
+}
 
 /* Red link hover on navbar → blue-haze (interactive token) */
 .navbar1_link:hover { color: var(--color-blue-haze); }
@@ -122,11 +166,24 @@ h2 { text-transform: none; }
 /* Rich-text links (terms / privacy paragraphs) → blue-haze */
 .text-rich-text a { color: var(--color-blue-haze); }
 
-/* Patent badge banner was red — gold institutional credential */
+/* Patent badge banner was red — gold institutional credential.
+   Also constrain its width so it doesn't stretch the row, and
+   even out the asymmetric left padding/offset so it centers
+   relative to the page. */
 .af-ip-badge-banner {
   background: linear-gradient(180deg, var(--color-midnight-indigo) 0%, #0d1730 100%);
   border: 1px solid rgba(201, 168, 76, 0.55);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 26px rgba(4, 10, 24, 0.55);
+  max-width: 360px !important;
+  min-width: 0 !important;
+  padding: 14px 22px !important;
+  margin-left: 0 !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+.af-ip-badge-row {
+  justify-content: center !important;
+  gap: 14px !important;
 }
 
 /* Conf-icon red tile → gold */
@@ -140,25 +197,67 @@ h2 { text-transform: none; }
 */
 .button-2 {
   text-transform: none;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  font-family: 'Inter', system-ui, sans-serif;
   font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.55rem 0.95rem;
+  max-width: none;
+  border-radius: 6px;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 .button-2.blue {
   background-color: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-}
-.button-2.blue:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: #fff;
+  color: var(--blue);
+  border: 1px solid rgba(16, 63, 110, 0.35);
 }
 
-/* Nav links: confirm Inter 600 tracked uppercase per brief.
-   Inherit Inter from body; set weight + tracking explicitly. */
+/* Hero CTA grid — left column was minmax(400px, 500px), almost double
+   the right column's width. Tighten so Reserve sits in better
+   proportion to Explore SDK and doesn't read as a banner. */
+.hero-cta-grid-v2 {
+  grid-template-columns: minmax(280px, 340px) minmax(240px, 290px) !important;
+}
+.button-2.blue:hover {
+  background-color: rgba(16, 63, 110, 0.06);
+  border-color: var(--blue);
+}
+
+/* ---------- Navbar surface & scale ----------
+   Keep the original cream (#f0e7cf) navbar surface — it's the
+   established brand mark for the page-top. We tighten the height
+   from 5rem to 3.5rem and shrink the logo from 3.2rem to 2rem so
+   the row reads as a proper institutional nav rather than a tall
+   marketing header. Link color stays dark navy for cream-bg
+   contrast; hover moves to Blue Haze (the interactive token).
+*/
+.div-block-14 {
+  height: 3.5rem;
+}
+.navbar1_logo {
+  height: 2rem;
+}
+
+/* Tighten the gap between the nav-link row and the button group. */
+.navbar1_menu-buttons {
+  grid-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* Nav links: Inter 600 tracked uppercase per brief.
+   Inter has wider letterforms than the original Monument, so this
+   sizes down further than typical to keep the row tight. 13px /
+   0.03em / minimal padding matches the dense institutional nav
+   feel of the pre-brand V3.
+*/
 .navbar1_link {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.6rem;
 }
 
 /* ---------- Hero CTAs ----------
@@ -211,26 +310,35 @@ h2 { text-transform: none; }
    #4 Toggle switch: red → gold (when on / default).
    #5 Balance exposed warning: keep red — error state is allowed.
 */
-.hide-balance-title {
-  background: none;
-  -webkit-text-fill-color: #fff;
-  background-clip: initial;
-  -webkit-background-clip: initial;
-  color: #fff;
+/* Section display headlines: solid Blue Haze (#85BAFF) — same
+   palette family as the hero treatment, so the display tier reads
+   unified across the page. Gold stays reserved for metrics and
+   editorial accents. */
+.hide-balance-title,
+.text-6 {
   font-family: 'Sora', system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--color-blue-haze);
+  -webkit-text-fill-color: var(--color-blue-haze);
 }
 
-.text-6 {
-  background: none;
-  -webkit-text-fill-color: #fff;
-  background-clip: initial;
-  -webkit-background-clip: initial;
-  color: #fff;
-  font-family: 'Sora', system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+/* Disable Webflow IX2 fade-in / slide-in entrance animations
+   site-wide. Institutional pages read better with content that's
+   present on load rather than animating in piecemeal as the user
+   scrolls. This also fixes the litvm logo fade-in (it shared a
+   parent IX2 trigger with the "Trusted by..." title). Hover and
+   intentional UI transitions still work — this only neutralizes
+   the IX2-set initial opacity:0 / transform inline styles. */
+[data-w-id],
+[data-wf-target] {
+  opacity: 1 !important;
+}
+.hide-balance-logos .logo-grid .logo-litvm:hover img {
+  opacity: 1 !important;
 }
 
 .hb-tab.is-active {
@@ -264,18 +372,47 @@ h2 { text-transform: none; }
    #8 'Patent-protected. Impossible to copy.': bottom line was
       light blue (#8ebaff), now solid white. Sora 800.
 */
+/* "The only solution that" — kicker line above the gold italic. Was
+   shipping with positive letter-spacing (0.025-0.04em) and a different
+   font-size than the rest of the section titles. Align to the unified
+   section heading metrics. Compound + #id selectors needed to beat the
+   per-section CSS. */
+.af-compare-kicker,
+#competitive .af-compare-kicker {
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Compound selector to beat the unified .af-section-title rule's
+   font-weight: 700 !important. DM Serif Display only ships at
+   weight 400; any "700 italic" forces the browser to synthesize a
+   fake bold from the 400, which looks visibly thick. */
+.af-section-title.af-compare-title-gradient,
 .af-compare-title-gradient {
   background: none;
-  -webkit-text-fill-color: #fff;
   background-clip: initial;
   -webkit-background-clip: initial;
-  color: #fff;
-  font-family: 'Sora', system-ui, sans-serif;
-  font-weight: 700;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.005em !important;
+  margin-bottom: 1.25rem !important;
 }
 
 .af-ip-line-bottom {
-  color: #fff;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
 }
 .af-ip-new-title {
   font-family: 'Sora', system-ui, sans-serif;
@@ -292,7 +429,18 @@ h2 { text-transform: none; }
       uses the brand's primary accent.
 */
 .af-team-line-bottom {
-  color: #124983;
+  color: var(--color-gold) !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Team section — slightly darker beige than the default cream so
+   it reads as its own surface, distinct from the section above. */
+.af-team-section,
+.section_story.af-team-section {
+  background-color: #e6dcc0 !important;
 }
 .af-advisors-subhead {
   color: var(--color-gold);
@@ -323,16 +471,50 @@ h2 { text-transform: none; }
 }
 
 /* ---------- 4. Typography — Inter for body, Sora for headings ----------
-   Sora is already in via the Monument→Sora bulk replace in the CSS files.
    Body and paragraph text move to Inter. Small UI labels (navbar links,
    button text, badges, table headers) inherit body or are explicitly
    styled by their own rules — they read fine in Inter too.
 */
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  background-color: var(--color-abyss);
+  color: rgba(255, 255, 255, 0.92);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 p {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ---------- 4c. Interaction polish ----------
+   Smooth out the hover transitions across the brand's CTAs. Match
+   the ghost CTA's translateY(-1px) lift on the primary so they feel
+   like one button family rather than two systems.
+*/
+.cta,
+.button-2,
+.cta--ghost {
+  transition: background-color .18s ease,
+              border-color .18s ease,
+              color .18s ease,
+              box-shadow .18s ease,
+              transform .18s ease;
+}
+.cta.hero:not(.cta--ghost):not(.blue):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(221, 30, 33, 0.28);
+}
+.cta.hero.blue.af-inf-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(16, 63, 110, 0.40);
+}
+.button-2:not(.blue):hover {
+  transform: translateY(-1px);
 }
 
 /* The red gradient title clip (partner.html "American Fortress") */
@@ -340,4 +522,212 @@ p {
   -webkit-text-fill-color: #fff;
   background-image: none;
   color: #fff;
+}
+
+/* Generic section heading fallback — base .h2 in webflow.css uses
+   color: var(--blue) = #103F6E which was readable on the cream body
+   but disappears on the new Abyss body. Default to white for any
+   .h2 that isn't claimed by a section-specific rule (like
+   hide-balance-title or text-6 which use Blue Haze). */
+.h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* "Every wallet is an open book" section — the left column has the
+   wallet-scan card (tall) and the right column has 3 stats. Default
+   layout used align-items: start + a fixed 108px top padding on the
+   right column, so the 3 stats clumped near the top and didn't fill
+   the available height. Stretch the right column to match the left's
+   height and distribute the 3 stats evenly top-to-bottom. */
+.problem-main {
+  align-items: stretch !important;
+}
+.problem-right {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding-top: 0 !important;
+  gap: 22px;
+}
+
+/* Sections that intentionally keep a cream surface (FAQ, story,
+   testimonial blocks) need their .h2 to stay dark navy so it
+   reads against cream — not white-on-cream. Override the white
+   default for those. */
+.section_faq .h2,
+.section_story .h2,
+.section_testimonial .h2,
+.section_testimonials .h2,
+.section_why .h2,
+.section_how .h2,
+.section_cta-name .h2,
+.section_why-offer .h2 {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+
+/* Publications section — cards shipped with a cream gradient bg
+   (#fefbf0 → #f5ecd3) which is off-palette and produces white-on-
+   beige text. Move to Deep Navy elevated-surface gradient to match
+   the rest of the dark theme; text inside the card stays white,
+   meta lines softened. h3 article titles use Inter (UI/card tier),
+   not Sora — the brief reserves Sora for display headings. */
+.publication {
+  background: linear-gradient(180deg, #122a52 0%, #0d1f3e 100%) !important;
+  border: 1px solid rgba(133, 186, 255, 0.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.08),
+    0 10px 24px rgba(4, 10, 24, 0.45),
+    0 2px 5px rgba(4, 10, 24, 0.30) !important;
+  color: #fff !important;
+}
+.publication:hover {
+  border-color: rgba(133, 186, 255, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.10),
+    0 18px 36px rgba(4, 10, 24, 0.55),
+    0 3px 8px rgba(4, 10, 24, 0.35) !important;
+}
+.publication-h3 {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.005em !important;
+  color: #fff !important;
+}
+.publication .div-block-2,
+.publication .div-block-2 div,
+.publication .text-block-3 {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.85rem !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+.publication .separator {
+  border-left-color: rgba(255, 255, 255, 0.22) !important;
+}
+.publication:hover .publication-h3 {
+  color: var(--color-blue-haze) !important;
+}
+
+/* ---------- 6. The 10% Red Rule — clear prohibited uses ----------
+   Brief: red is reserved for logo + one primary CTA per section
+   (and critical errors). Strip red from card backgrounds, decorative
+   shapes, and incidental hovers. Replace with navy surfaces, gold
+   accents, or Blue Haze interactive states.
+*/
+
+/* Footer social icons: red hover → Blue Haze (interactive token). */
+.social:hover {
+  color: var(--color-blue-haze);
+}
+
+/* fortressname.html "Why" cards — .why-card.red used a red-secondary
+   bg. Move to deep navy with a gold stroke so the cards read as a
+   single elevated-surface family with the existing blue cards. */
+.why-card.red {
+  background-color: var(--color-deep-navy);
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+}
+
+/* download.html / partner-wallets.html — wallet cards. Same treatment
+   as the Why cards: navy surface, gold stroke. */
+.wallet-card.is-red {
+  background-color: var(--color-deep-navy);
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+}
+
+/* "Coming soon" badges → gold pill on deep-navy. Reads as a label,
+   not as an alert (which is what red-secondary used to imply). */
+.coming.red {
+  background-color: rgba(201, 168, 76, 0.14);
+  color: var(--color-gold);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+}
+
+/* partner.html — .div-block-22 was a 1:1 red circle used as a
+   decorative tile. Decorative red is prohibited; switch to gold at
+   the brand's standard accent opacity. */
+.div-block-22 {
+  background-color: rgba(201, 168, 76, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.5);
+}
+
+/* ---------- 4b. Focus states — Blue Haze ring ----------
+   Brief specifies Blue Haze (#85BAFF) for interactive states. Add a
+   visible focus ring on interactive elements for keyboard a11y.
+   Uses :focus-visible so mouse clicks don't show the ring, only
+   keyboard tabbing.
+*/
+a:focus-visible,
+button:focus-visible,
+.cta:focus-visible,
+.button-2:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-blue-haze);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- 5. Display weight — Sora 700/800 per brief ----------
+   The base .h1_hero from webflow.css ships at weight 400. Brief calls
+   for Sora 700/800 for display headlines. The headliner ("One @name.
+   Any chain. Zero exposure.") is the largest hierarchy on the page,
+   so it gets 800 with the brand's -0.02em tracking. Section h2 and
+   sibling display titles step down to 700.
+*/
+.h1_hero,
+.h1_hero.h1-hero-v2,
+.h1_hero.sdk,
+.h1_hero-sdk,
+.h1_hero-sdk.sdk,
+.h1-hero-fortress,
+.h1-hero-fortress.sdk,
+.h1-hero-fortress.fortress,
+.h1-contact,
+.partner-title,
+.press-hero h1,
+.uc-hero h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Section-level display headings — one canonical size + weight + tracking
+   so every section title reads as the same tier. Per-section CSS files
+   shipped wildly different sizes (24-66px range), which is why the page
+   didn't feel uniform. !important is needed because each section's own
+   stylesheet sets its own font-size with equal/higher specificity.
+*/
+.h2,
+h2.h2,
+.conf-machine-head h2,
+.problem-title,
+.how-works-head h2,
+.af-section-title,
+.af-pillars-title-wins,
+.af-ip-new-title,
+.af-team-title,
+.af-tokenomics-title,
+.af-roadmap-title,
+.token-title,
+.h2-why,
+.h2-usecase,
+.gradient-offer,
+.press-section-title,
+.uc-section-title,
+.hide-balance-title,
+.text-6 {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.25rem !important;
 }
