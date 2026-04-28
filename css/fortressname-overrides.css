@@ -1,0 +1,339 @@
+/* ============================================================
+   fortressname-overrides.css — bring fortressname.html into the
+   brand-v4 institutional system. Companion to brand.css; this
+   file handles the page-specific tokens that brand.css doesn't.
+   ============================================================ */
+
+/* ---------- 0. Page-wide container width ----------
+   Constrain every section's .container to 1080px so the hero,
+   "Why" grid, "How It Works" steps, plan cards, testimonials,
+   and bottom CTA all align to the same content rail. The 1080px
+   target matches the plan-card row above so the page reads as
+   one uniform column from top to bottom. Footer keeps the wider
+   default (1260px) since it has its own layout system.
+*/
+.section_hero-name .container,
+.section_why .container,
+.section_how .container,
+.section_plans .container,
+.section_testimonials .container,
+.section_cta-name .container,
+.section_footer .container {
+  max-width: 1080px;
+}
+
+/* Footer scale-down — at the narrower 1080px width the original
+   footer chrome (307px logo, large h3, wide gaps) reads oversized.
+   Tier everything down to a compact institutional footer. */
+.section_footer .logo_footer {
+  width: 200px;
+  height: auto;
+}
+.section_footer .h3-footer {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.section_footer .footer-left p,
+.section_footer .footer-right p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.section_footer .footer-content {
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+.section_footer .legal-link {
+  font-size: 0.85rem;
+}
+.section_footer .links-wrap {
+  gap: 1.25rem;
+}
+.section_footer .socials {
+  grid-column-gap: 22px;
+}
+.section_footer .social--icon {
+  width: 1.75rem;
+}
+
+/* ---------- 1. "Why" card titles + body ----------
+   .h3-card shipped with `text-transform: capitalize` and 2rem; the
+   .paragraph-small body shipped at 1.375rem (~22px) which overflows
+   awkwardly inside narrower cards. Tier down both to a tight card
+   tier so the 7 cards read as a uniform compact grid in the 1080px
+   container width.
+*/
+.h3-card {
+  text-transform: none;
+  font-size: 1.1rem;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.why-card .paragraph-small {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.h3-how {
+  text-transform: none;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- 2. Hero ----------
+   H1 forced solid white per brief (Blue Haze is for interactive
+   states only, not display tier). .name-sub demoted from DM Serif
+   Display Italic gold to plain Inter — DM Serif is reserved for
+   ONLY the homepage editorial moments ("wins" + "infrastructure"),
+   not subpages.
+*/
+.section_hero-name .h1-hero-fortress.fortress {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+.name-sub {
+  text-transform: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem);
+  letter-spacing: 0;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+/* Hero copy stack: tighten H1 → eyebrow → paragraph as one block. */
+.hero-fortress .h1-hero-fortress {
+  margin-bottom: 0.2rem;
+}
+.hero-fortress .name-hero-paragraph {
+  margin-top: 0;
+}
+
+/* Hero CTA — push the "Reserve your FortressName™" button down so
+   it sits clear of the body paragraph and reads as the section's
+   primary action rather than crowding the copy above it. */
+.section_hero-name .cta.hero {
+  margin-top: 1.5rem;
+}
+
+/* ---------- 6. "How It Works" step number tiles ----------
+   .text-block-3 already routes to gold via brand.css. Tighten the
+   step-number tile sizing/typography so it reads as Sora 800 metric.
+   Section background is cream (#f0e7cf), so the section title,
+   step titles, and body copy all run in dark navy for contrast.
+*/
+.text-block-3 {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.section_how h2,
+.section_how .h3-how,
+.section_how p {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+
+/* Classless <h2> tags on this page (How It Works, Limited-time early
+   bird pricing) miss brand.css's unified Sora 700 rule because that
+   rule targets specific classes. Bring them onto the same display
+   metrics so every section title across the site reads at the same
+   tier. */
+.section_how h2,
+.section_plans h2 {
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.25rem !important;
+  text-transform: none !important;
+}
+
+/* ---------- Limited-time pricing section — match live site ----------
+   The live site (americanfortress.io/fortressname) renders this
+   section on the body's cream beige bg (#f0e0b2) with dark navy text
+   and red span accent. brand.css's body Abyss bg + .span-red→gold
+   override don't fit this section, so we restore the V3 look here.
+*/
+.section_plans {
+  background-color: #f0e0b2;
+  padding-top: 4rem;
+}
+.section_plans h2,
+.section_plans .plans-block > .paragraph-xsmall,
+.section_plans .plans-block > .paragraph-xsmall strong {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+.section_plans .span-red {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Narrow the 3-card row so each plan card reads tighter and the
+   description paragraphs land on 3 uniform lines. 1080px puts each
+   card around ~344px wide which fits the longest description in 3
+   lines without overflow. */
+.section_plans .plans-content {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* "Secondary Market Coming Soon" line — match the 1080px row width
+   so it aligns visually with the 3 plan cards above. */
+.section_plans .plans-block > .paragraph-xsmall {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Bottom CTA box — "Only a limited number of names will be sold
+   during BETA." reads as the section's headline statement, so push
+   the weight to Sora 700/800 for emphasis. */
+.section_cta-name .h2-cta {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+
+/* ---------- 7. Section spacing trim ----------
+   Match the homepage's institutional cadence — pull the cream
+   sections in tighter so the page reads dense rather than airy.
+*/
+.section_why .padding-section-medium,
+.section_how .padding-section-medium,
+.section_plans .padding-section-medium,
+.section_cta-name .padding-section-medium {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+/* Final CTA section needs tighter top (so it sits close to the
+   "Only a limited..." card without a big air gap) and more bottom
+   (so the dark box has breathing room before the footer). */
+.section_cta-name .padding-section-medium {
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+}
+
+/* "Why get a FortressName" — title to grid gap, and dark navy color
+   for both the headline and the inner .span-red so the whole title
+   reads as one unit on the cream section background. */
+.why-block .h2-why {
+  margin-bottom: 1.5rem;
+}
+.h2-why,
+.h2-why .span-red {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+
+/* ---------- 8. Why-card hierarchy ----------
+   Cards 1, 3, 5 had .red bg → brand.css has them as deep navy + gold
+   stroke. The other cards (no .red) are still on default styling
+   which may use the blue gradient. Unify: all cards get the same
+   navy gradient + gold stroke for one card family, like the
+   homepage's pillar treatment.
+*/
+.why-card:not(.red) {
+  background-color: var(--color-deep-navy);
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+}
+
+/* ---------- 9. Final CTA (.section_cta-name) ----------
+   Institutional closing module — Deep Navy with a center-bright
+   radial subtly suggesting depth, gold dot grid texture at 5-8%,
+   thin gold border + soft drop shadow for elevation. Composition
+   (top→bottom): 48×2 gold anchor rule → Sora 700 white headline →
+   Inter 400 muted sub-copy → solid red primary CTA. Reads like a
+   closing argument, not a marketing banner.
+*/
+.section_cta-name .cta-block2 {
+  position: relative;
+  background-color: #0D1B35 !important;
+  background-image:
+    radial-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1.5px),
+    radial-gradient(circle at 50% 30%, rgba(24, 33, 69, 0.85) 0%, #0D1B35 60%, #0a162b 100%) !important;
+  background-size: 18px 18px, 100% 100% !important;
+  background-position: 0 0, 0 0 !important;
+  background-repeat: repeat, no-repeat !important;
+  border: 1px solid rgba(201, 168, 76, 0.30);
+  border-radius: 14px;
+  padding: 56px 48px !important;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 24px 48px rgba(6, 15, 31, 0.4);
+}
+.section_cta-name .cta-rule {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 0 auto 1.25rem;
+}
+.section_cta-name .div-block-11 {
+  gap: 0.5rem;
+  align-items: center;
+}
+.section_cta-name .h2-cta {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  max-width: 600px;
+}
+.section_cta-name .cta-subcopy {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.70);
+  margin: 0.4rem 0 0;
+  max-width: 480px;
+}
+.section_cta-name .cta.hero {
+  margin-top: 1.5rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+}
+.section_cta-name .cta.hero .cta-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- 10. Testimonial slider arrows / dots ----------
+   The default w-slider-arrow uses webflow's red. Push to white at
+   reduced opacity so the slider chrome doesn't compete with brand
+   accents.
+*/
+.section_testimonials .w-slider-arrow-left,
+.section_testimonials .w-slider-arrow-right {
+  color: rgba(255, 255, 255, 0.55);
+}
+.section_testimonials .w-slider-arrow-left:hover,
+.section_testimonials .w-slider-arrow-right:hover {
+  color: #fff;
+}

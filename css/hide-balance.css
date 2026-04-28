@@ -32,7 +32,7 @@
 }
 
 .hide-balance-title {
-  margin: 0 0 10px;
+  margin: 0 0 -18px;
   text-transform: uppercase;
   letter-spacing: .02em;
   font-family: Sora, Arial, sans-serif;
@@ -128,8 +128,8 @@
 }
 
 .hb-switch { width: 30px; height: 16px; background: #ef1d27; border-radius: 999px; position: relative; }
-.hb-knob { width: 12px; height: 12px; border-radius: 50%; background: #fff; position: absolute; top: 2px; left: 16px; transition: .2s ease; }
-.hide-balance-card[data-hidden="true"] .hb-knob { left: 2px; }
+.hb-knob { width: 12px; height: 12px; border-radius: 50%; background: #fff; position: absolute; top: 2px; left: 2px; transition: .2s ease; }
+.hide-balance-card[data-hidden="true"] .hb-knob { left: 16px; }
 
 .hb-stealth {
   border: 1px solid rgba(0, 224, 205, .55);
@@ -157,7 +157,7 @@
 }
 
 .hide-balance-section .hide-balance-logos .frame-1321316290 {
-  row-gap: 44px;
+  row-gap: 22px;
 }
 
 .hide-balance-section .hide-balance-logos .text-6 {

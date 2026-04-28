@@ -1,0 +1,134 @@
+/* ============================================================
+   contact-overrides.css — bring contact.html into the brand-v4
+   system. Cream beige bg matching the fortressname pricing
+   section, dark navy text, 1080px content rail, footer scaled
+   to match.
+   ============================================================ */
+
+/* ---------- 0. Page-wide content rail (1080px) ---------- */
+.section_contact .container,
+.section_footer .container {
+  max-width: 1080px;
+}
+
+/* ---------- 1. Contact section (cream beige) ----------
+   Section bg flips to brand cream #f0e0b2. h1 + body copy run
+   dark navy on cream. Form fields styled to read on cream.
+*/
+.section_contact {
+  background-color: #f0e0b2 !important;
+  background-image: none !important;
+}
+.section_contact .h1-contact {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  margin-bottom: 1rem;
+}
+.section_contact .contact-text p {
+  color: var(--blue);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Form — wrapped in a dark navy + gold-stroke box (mirror of the
+   SDK CTA card treatment) sitting on the cream section. White
+   labels + white-tinted inputs read on the dark surface. */
+.section_contact .form-block {
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%);
+  background-color: var(--color-midnight-indigo);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.08),
+    0 12px 28px rgba(4, 10, 24, 0.18);
+}
+.section_contact .field-label {
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.section_contact .field {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(133, 186, 255, 0.25);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.section_contact .field:focus {
+  border-color: var(--color-blue-haze);
+  background-color: rgba(255, 255, 255, 0.10);
+  outline: none;
+}
+.section_contact .field::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+.section_contact .field.message {
+  min-height: 8rem;
+}
+
+/* Form section spacing — tighten the giant default gaps and bring
+   the form columns in line with the 1080px rail. */
+.section_contact .contact-block {
+  gap: 2rem;
+}
+.section_contact .field-double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.section_contact .contact-form-inner {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Submit CTA — keep red (the section's allowed primary CTA). */
+.section_contact .cta.contact {
+  margin-top: 0.5rem;
+}
+
+/* Decorative envelope image — keep but cap the size so it doesn't
+   overwhelm the form column at 1080px. */
+.section_contact .image-16 {
+  max-width: 240px;
+  height: auto;
+}
+
+/* ---------- 2. Footer scale-down (matches other interior pages) ---------- */
+.section_footer .logo_footer {
+  width: 200px;
+  height: auto;
+}
+.section_footer .h3-footer {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.section_footer .footer-left p,
+.section_footer .footer-right p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.section_footer .footer-content {
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+.section_footer .legal-link {
+  font-size: 0.85rem;
+}
+.section_footer .links-wrap {
+  gap: 1.25rem;
+}
+.section_footer .socials {
+  grid-column-gap: 22px;
+}
+.section_footer .social--icon {
+  width: 1.75rem;
+}

@@ -36,7 +36,7 @@
 }
 
 .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
-  padding-top: 7.2rem !important;
+  padding-top: 5rem !important;
   padding-bottom: 3.2rem !important;
 }
 
@@ -75,14 +75,14 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem;
-  padding: .5rem 1.35rem .46rem;
+  padding: .35rem 1.05rem .32rem;
   border: 1px solid rgba(139, 183, 247, .55);
   border-radius: 999px;
   background: rgba(7, 38, 84, .6);
   color: #e4d6a3;
   text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: .82rem;
+  letter-spacing: .11em;
+  font-size: .7rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -95,16 +95,15 @@
 .h1_hero.h1-hero-v2 {
   margin: 0 0 -.18rem;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .01em;
+  letter-spacing: -0.03em;
   font-size: clamp(2.65rem, 4.7vw, 4.35rem) !important;
   line-height: 1.08 !important;
   text-shadow: none !important;
-  background: linear-gradient(180deg, #bfd9ff 0%, #85b8ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
 }
 
 .hero-subcopy {
@@ -152,6 +151,31 @@
   font-size: 1.05rem;
 }
 
+/* Hero stealth-address indicator pill — sits below the two CTAs.
+   Subtle gold-bordered pill with gold copy + a green checkmark. */
+.hero-stealth-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4em;
+  margin: 24px auto 0;
+  padding: .42rem 1rem .38rem;
+  border: 1px solid rgba(201, 168, 76, .55);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-gold);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.hero-stealth-check {
+  color: #6ce4a3;
+  font-weight: 700;
+}
+
 .hero-stats-bar {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -192,7 +216,7 @@
   font-size: clamp(2.05rem, 3.2vw, 3rem);
   line-height: 1;
   color: #fff;
-  text-shadow: 0 0 28px rgba(140, 190, 255, 0.35);
+  text-shadow: none;
 }
 
 .hero-stat-label {

@@ -89,8 +89,16 @@ h2 { text-transform: none; }
 /* How-it-works step number was red */
 .how-step-number { color: var(--color-gold); }
 
-/* Hero stat values — kept white per design call */
-.hero-stat-value { color: #fff; }
+/* Hero stat values — Institutional Gold per brief ("Data Metric"
+   tier: Sora 800, gold). */
+.hero-stat-value { color: var(--color-gold); }
+
+/* Patent / IP stats numbers (22 / 11 / 1) — same Data Metric
+   treatment, Institutional Gold. */
+.af-ip-stat-num {
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+}
 
 /* Pillar ghost numerals (decorative 01-04 watermarks) */
 .af-ghost-num { color: rgba(201, 168, 76, 0.18); }
@@ -103,17 +111,28 @@ h2 { text-transform: none; }
 .uc-card-cream .uc-feature-list li::before { color: var(--color-gold); }
 .uc-section-kicker { color: var(--color-gold); }
 
-/* Editorial pulls — all gold-italic emphasis across titles uses
-   DM Serif Display Italic per the brief, not Sora synth-italic
-   (which renders chunky/heavy). One unified rule covers every
-   gold accent inside a section title. */
-.conf-machine-head h2 span,
+/* Editorial pull — DM Serif Display Italic gold. Per brief, max
+   2 uses per page. Reserved for:
+     1. "wins" in the Pillars h2 (.af-pillars-title-wins em)
+     2. "infrastructure" in the footer CTA (.editorial-pull)
+   All other section title accents (Conf Machine subtitle, Compare,
+   IP, Team, Tokenomics, Roadmap) use plain Sora 700 GOLD instead. */
 .editorial-pull {
   color: var(--color-gold) !important;
   font-family: 'DM Serif Display', Georgia, serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
   letter-spacing: -0.005em !important;
+}
+
+/* "One toggle. Total privacy." — plain Sora 700 gold (was DM Serif
+   italic; demoted per the 2-editorial-moments-per-page rule). */
+.conf-machine-head h2 span {
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
 }
 
 /* Problem section title — sits on its own cream surface (#dfd8bf),
@@ -128,30 +147,41 @@ h2 { text-transform: none; }
   font-weight: 700 !important;
 }
 
-/* Pillars title "Why AmericanFortress wins" — also on a cream
-   surface (.af-pillars-wins #e6dfc8). Plain Sora dark navy, no
-   italic on "wins", no gold. */
+/* Pillars title "Why AmericanFortress wins" — on cream surface
+   (.af-pillars-wins #e6dfc8). The "Why AmericanFortress" span
+   stays Sora 700 dark navy for cream contrast. The "wins" em is
+   restored to the brand's editorial pull tier (DM Serif Display
+   Italic, gold) — one of two permitted editorial moments per page,
+   paired with "infrastructure" in the final CTA. Keep gold even on
+   the cream surface. */
 .af-pillars-title-wins,
-.af-pillars-title-wins span,
-.af-pillars-title-wins em {
+.af-pillars-title-wins span {
   color: var(--blue) !important;
   -webkit-text-fill-color: var(--blue) !important;
   font-family: 'Sora', system-ui, sans-serif !important;
   font-style: normal !important;
   font-weight: 700 !important;
 }
-
-/* "powering the protocol." + "Shipping on time." — editorial italic
-   per the brief, matches "Secured by experts." / "Impossible to copy."
-   treatment. */
-.af-tokenomics-line-bottom,
-.af-roadmap-line-bottom {
+.af-pillars-title-wins em {
   color: var(--color-gold) !important;
   -webkit-text-fill-color: var(--color-gold) !important;
   font-family: 'DM Serif Display', Georgia, serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
   letter-spacing: -0.005em !important;
+}
+
+/* "powering the protocol." (Tokenomics) + "Shipping on time." (Roadmap) —
+   plain Sora 700 gold. Demoted from DM Serif italic per the 2-editorial-
+   moments-per-page rule. */
+.af-tokenomics-line-bottom,
+.af-roadmap-line-bottom {
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
 }
 
 /* Red link hover on navbar → blue-haze (interactive token) */
@@ -256,8 +286,9 @@ h2 { text-transform: none; }
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.8125rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   padding: 0.4rem 0.6rem;
+  text-transform: none;
 }
 
 /* ---------- Hero CTAs ----------
@@ -310,10 +341,9 @@ h2 { text-transform: none; }
    #4 Toggle switch: red → gold (when on / default).
    #5 Balance exposed warning: keep red — error state is allowed.
 */
-/* Section display headlines: solid Blue Haze (#85BAFF) — same
-   palette family as the hero treatment, so the display tier reads
-   unified across the page. Gold stays reserved for metrics and
-   editorial accents. */
+/* Section display headlines on the dark hide-balance section:
+   solid white Sora 700 per the brief. Gold stays reserved for
+   metrics and editorial accents; Blue Haze for interactive states. */
 .hide-balance-title,
 .text-6 {
   font-family: 'Sora', system-ui, sans-serif;
@@ -322,8 +352,8 @@ h2 { text-transform: none; }
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
-  color: var(--color-blue-haze);
-  -webkit-text-fill-color: var(--color-blue-haze);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 
 /* Disable Webflow IX2 fade-in / slide-in entrance animations
@@ -339,6 +369,14 @@ h2 { text-transform: none; }
 }
 .hide-balance-logos .logo-grid .logo-litvm:hover img {
   opacity: 1 !important;
+}
+
+.hide-balance-logos .logo-grid .logo-litvm,
+.hide-balance-logos .logo-grid .logo-litvm img {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }
 
 .hb-tab.is-active {
@@ -386,10 +424,9 @@ h2 { text-transform: none; }
   font-weight: 700 !important;
 }
 
-/* Compound selector to beat the unified .af-section-title rule's
-   font-weight: 700 !important. DM Serif Display only ships at
-   weight 400; any "700 italic" forces the browser to synthesize a
-   fake bold from the 400, which looks visibly thick. */
+/* "wins every row." (Comparison table) — plain Sora 700 gold.
+   Demoted from DM Serif italic per the 2-editorial-moments-per-page
+   rule. Compound selector beats the per-section CSS gradient. */
 .af-section-title.af-compare-title-gradient,
 .af-compare-title-gradient {
   background: none;
@@ -397,22 +434,24 @@ h2 { text-transform: none; }
   -webkit-background-clip: initial;
   color: var(--color-gold) !important;
   -webkit-text-fill-color: var(--color-gold) !important;
-  font-family: 'DM Serif Display', Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
   font-size: clamp(2rem, 3.4vw, 3rem) !important;
   line-height: 1.12 !important;
-  letter-spacing: -0.005em !important;
+  letter-spacing: -0.02em !important;
   margin-bottom: 1.25rem !important;
 }
 
+/* "Impossible to copy." (IP/Patent) — plain Sora 700 gold. Demoted
+   from DM Serif italic per the 2-editorial-moments-per-page rule. */
 .af-ip-line-bottom {
   color: var(--color-gold) !important;
   -webkit-text-fill-color: var(--color-gold) !important;
-  font-family: 'DM Serif Display', Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.005em !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
 }
 .af-ip-new-title {
   font-family: 'Sora', system-ui, sans-serif;
@@ -428,12 +467,15 @@ h2 { text-transform: none; }
       gold so it parallels the 'Team' label's navy treatment but
       uses the brand's primary accent.
 */
+/* "Secured by experts." (Team) — plain Sora 700 gold. Demoted from
+   DM Serif italic per the 2-editorial-moments-per-page rule. */
 .af-team-line-bottom {
   color: var(--color-gold) !important;
-  font-family: 'DM Serif Display', Georgia, serif !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
 }
 
 /* Team section — slightly darker beige than the default cream so
@@ -446,7 +488,8 @@ h2 { text-transform: none; }
   color: var(--color-gold);
   border-bottom-color: rgba(201, 168, 76, 0.45);
 }
-.af-advisors-subhead::before {
+.af-advisors-subhead::before,
+.af-team-subhead::before {
   background: var(--color-gold);
 }
 
@@ -507,7 +550,7 @@ p {
 }
 .cta.hero:not(.cta--ghost):not(.blue):hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(221, 30, 33, 0.28);
+  box-shadow: 0 10px 24px rgba(201, 168, 76, 0.28);
 }
 .cta.hero.blue.af-inf-btn-primary:hover {
   transform: translateY(-1px);
@@ -563,6 +606,38 @@ p {
 .section_how .h2,
 .section_cta-name .h2,
 .section_why-offer .h2 {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+
+/* Publications section — cream beige surface (#f0e0b2 — same --beige
+   token used on the live fortressname pricing section) so the dark
+   navy publication cards pop against it. Section h2 flips to dark
+   navy for cream-bg contrast. Content width constrained to 1080px
+   so the row reads in line with the other homepage sections (which
+   sit between 1080-1180px) rather than the full 1260px container. */
+.section_publications {
+  background-color: #f0e0b2;
+}
+.section_publications .container {
+  max-width: 1180px;
+}
+
+/* Footer container matches the publications row above so the page
+   ends on a uniform 1180px content rail. fortressname-overrides.css
+   and partner-overrides.css re-set this to 1080px on those pages. */
+.section_footer .container {
+  max-width: 1180px;
+}
+
+/* Final CTA / "Privacy is not a feature" section also lands on the
+   1180px rail so the page's last three modules (final CTA →
+   publications → footer) read as a uniform column width. */
+.af-infrastructure .container {
+  max-width: 1180px;
+}
+.section_publications h2.h2,
+.section_publications .h2 {
   color: var(--blue) !important;
   -webkit-text-fill-color: var(--blue) !important;
 }

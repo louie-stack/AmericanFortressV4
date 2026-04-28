@@ -1,0 +1,343 @@
+/* ============================================================
+   partner-overrides.css — bring partner.html (Affiliate page)
+   into the brand-v4 institutional system. Mirrors the pattern
+   established on fortressname.html: dark navy hero + a continuous
+   cream-beige (#f0e0b2) interior tier with dark navy text, gold
+   metrics, dark navy + gold-stroke cards, and a 1080px content
+   rail through to the footer.
+   ============================================================ */
+
+/* ---------- 0. Page-wide content rail (1080px) ---------- */
+.section_partner-hero .container,
+.section_the-offer .container,
+.section_why-offer .container,
+.section_who-for .container,
+.section_how .container,
+.section_footer .container {
+  max-width: 1080px;
+}
+
+/* ---------- 1. Hero ----------
+   Keep the dark navy gradient bg. Tighten the H1 → lede →
+   paragraph → CTA stack so the column reads as one block. Drop
+   .text-size-large from 1.875rem (~30px, competing with the H1)
+   to a clean lede tier.
+*/
+.section_partner-hero {
+  padding-top: 1.5rem;
+}
+.section_partner-hero .partner-title {
+  margin-bottom: 0.6rem;
+}
+.section_partner-hero .text-size-large {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.section_partner-hero .paragraph {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-top: 0;
+}
+.section_partner-hero .cta.hero {
+  margin-top: 1.2rem;
+}
+
+/* "American Fortress" wordmark in the H1 — editorial pull tier
+   (DM Serif Display Italic, gold) so the hero has the brand's
+   one editorial moment, like "infrastructure" / "wins" / "early
+   bird pricing" elsewhere. */
+.section_partner-hero .partner-title .gradient-title-red {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  background: none;
+  background-image: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+
+/* ---------- 2. "The offer" (cream beige with dark cards) ----------
+   Section flips to the brand cream #f0e0b2. h2 "The offer" goes
+   solid dark navy (override the .gradient-offer blue text-clip).
+   The 3 cards become deep-navy + gold-stroke (mirrors the .why-card
+   treatment from brand.css). Percentages → gold "Data Metric"
+   per brief; card body in white on the dark card surface.
+*/
+.section_the-offer {
+  background-color: #f0e0b2 !important;
+  background-image: none !important;
+}
+.section_the-offer .h2-usecase.gradient-offer,
+.section_the-offer .gradient-offer {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+/* .offer-block ships with grid-row-gap: 6rem (~96px) which leaves
+   a giant gap between "The offer" h2 and the 3 cards. Tighten to
+   match the unified section-title rhythm. */
+.section_the-offer .offer-block {
+  grid-row-gap: 1.5rem;
+  gap: 1.5rem;
+}
+.section_the-offer .offer-grid {
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 1.25rem;
+}
+.section_the-offer .offer-card {
+  background-color: var(--color-deep-navy) !important;
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%) !important;
+  border: 1px solid rgba(201, 168, 76, 0.18) !important;
+  padding: 3rem 1.5rem;
+  border-radius: 18px;
+  color: #fff !important;
+  transition: transform .2s ease-out, border-color .2s ease-out, box-shadow .2s ease-out;
+  box-shadow: 0 4px 12px rgba(4, 10, 24, 0.18);
+}
+.section_the-offer .offer-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 168, 76, 0.85) !important;
+  box-shadow: 0 14px 28px rgba(4, 10, 24, 0.28);
+}
+/* Hide the offer-card icons entirely — the percentage stat carries
+   the visual weight, and the cards read cleaner without them. */
+.section_the-offer .div-block-22 {
+  display: none;
+}
+.section_the-offer .percent-highlight {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 2.6rem;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--color-gold);
+  -webkit-text-fill-color: var(--color-gold);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+.section_the-offer .offer-card h3 {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+.section_the-offer .offer-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: left;
+}
+
+
+/* ---------- 3. "Why FortressName" (cream beige) ----------
+   Existing bg is --bg-navbar (#f0e7cf); align it to the brand
+   #f0e0b2 we're using everywhere else. Title + span dark navy
+   so the whole h2 reads as one unit (matches the fortressname
+   "Why get a FortressName" treatment, where I overrode the gold
+   span back to navy on the cream bg).
+*/
+.section_why-offer {
+  background-color: #f0e0b2 !important;
+  padding-bottom: 2rem;
+}
+
+/* Kill any Webflow IX2 / SplitText / fade-in animation that's
+   targeting elements in this section by class name. Forcing
+   opacity, transform, transition, and animation off neutralises
+   inline styles that IX2 injects at load. */
+.section_why-offer,
+.section_why-offer * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+.section_why-offer .h2-usecase.small {
+  margin-bottom: 1.5rem;
+}
+.section_why-offer .h2-usecase,
+.section_why-offer .h2-usecase .span-red {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+.section_why-offer .usecases {
+  grid-row-gap: 24px;
+}
+.section_why-offer .usecase {
+  grid-column-gap: 32px;
+}
+.section_why-offer .usecase .image-4 {
+  max-width: 110px;
+  height: auto;
+}
+.section_why-offer .text-9 {
+  text-transform: none;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  color: var(--blue);
+}
+.section_why-offer .text-10 {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(16, 63, 110, 0.82);
+}
+
+/* ---------- 4. "Who it's for" (cream beige, dark navy text) ----------
+   6 cards in a 3-col grid. Uniform sizing: every image locked to a
+   1:1 square via aspect-ratio + object-fit, every paragraph holds
+   a fixed 2-line min-height so the cards align in a clean rail
+   regardless of source image dimensions or copy length.
+*/
+.section_who-for {
+  background-color: #f7e8c2 !important;
+}
+.section_who-for .h2-usecase {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+  margin-bottom: 1.5rem;
+}
+.section_who-for .who-for-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-auto-rows: 1fr;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  align-items: stretch;
+}
+.section_who-for .div-block-23 {
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+.section_who-for .image-30 {
+  width: auto;
+  max-width: 130px;
+  height: auto;
+  max-height: 130px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+.section_who-for .div-block-23 p {
+  font-size: 0.98rem;
+  line-height: 1.45;
+  margin: 0;
+  min-height: calc(0.98rem * 1.45 * 2);
+  color: var(--blue);
+}
+
+/* ---------- 5. "How to start" (cream beige, gold step numbers) ----------
+   Direct mirror of the fortressname "How It Works" treatment:
+   cream beige bg, dark navy section title, dark navy step h3s,
+   gold step number tiles. .text-block-3 already routes to gold
+   via brand.css.
+*/
+.section_how {
+  background-color: #f0e0b2 !important;
+  padding-bottom: 2rem;
+}
+.section_how h2 {
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 1.5rem !important;
+  text-transform: none !important;
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+/* .how-block ships with grid-row-gap: 3rem between the h2 and the
+   step list — combined with the h2's own margin-bottom that's a
+   ~75px gap. Zero out the block-level gap and let the h2's
+   margin-bottom carry the rhythm. */
+.section_how .how-block {
+  grid-row-gap: 0;
+  gap: 0;
+}
+.section_how .how-content {
+  grid-row-gap: 1rem;
+  gap: 1rem;
+}
+.section_how .how-item {
+  align-items: center;
+}
+.section_how .text-block-3 {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-gold) !important;
+}
+.section_how .h3-how {
+  text-transform: none;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+.section_how .h3-how strong {
+  font-weight: 700;
+}
+.section_how p {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+
+/* ---------- 6. Footer scale-down (matches fortressname) ---------- */
+.section_footer .logo_footer {
+  width: 200px;
+  height: auto;
+}
+.section_footer .h3-footer {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.section_footer .footer-left p,
+.section_footer .footer-right p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.section_footer .footer-content {
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+.section_footer .legal-link {
+  font-size: 0.85rem;
+}
+.section_footer .links-wrap {
+  gap: 1.25rem;
+}
+.section_footer .socials {
+  grid-column-gap: 22px;
+}
+.section_footer .social--icon {
+  width: 1.75rem;
+}

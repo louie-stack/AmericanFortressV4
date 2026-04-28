@@ -1,0 +1,340 @@
+/* ============================================================
+   sdk-overrides.css — bring sdk.html into the brand-v4 system.
+   This page keeps its existing dark navy theme (developer-focused
+   surface, intentional contrast vs. the cream interior pages).
+   We refine typography, drop the legacy white→red and blue gradient
+   text-clips, promote one editorial gold italic moment per section,
+   and elevate the icon cards with a gold-stroke deep-navy treatment.
+   ============================================================ */
+
+/* ---------- 0. Page-wide content rail (1080px) ---------- */
+.section_sdk-hero .container,
+.section_pb-sol .container,
+.section_sdk .container,
+.section_cta .container,
+.section_footer .container {
+  max-width: 1080px;
+}
+
+/* ---------- 1. Hero ----------
+   H1 forced solid white per brief (Blue Haze is for interactive
+   states only, not display tier). .sdk-sub demoted to plain Inter
+   off-white — DM Serif Display is reserved for ONLY the homepage
+   editorial moments ("wins" + "infrastructure"), not subpages.
+   Layout: tighter horizontal pairing of headline + badge.
+*/
+.section_sdk-hero .h1_hero-sdk.sdk {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  margin-bottom: 0.6rem;
+}
+.section_sdk-hero .sdk-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Tighten the hero composition so headline + badge read as a paired
+   composition rather than two unrelated elements on a wide row. */
+.section_sdk-hero .sdk-hero-block {
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.section_sdk-hero .div-block-5 {
+  flex: 1 1 60%;
+  max-width: 600px;
+}
+.section_sdk-hero .badge {
+  flex: 0 0 auto;
+  width: clamp(180px, 22vw, 260px);
+  height: auto;
+}
+
+/* ---------- 2. Problem / Solution ----------
+   Section keeps its existing dark navy gradient (#112545 → #0e1c32).
+   Drop the legacy white→red and blue→pale gradient text-clips on
+   .h3-pb — both render as solid Sora 700. "Problem" white, "Solution"
+   Blue Haze (the brand's interactive accent token) so the comparison
+   reads with a clear visual distinction without breaching the 10%
+   red rule.
+*/
+.section_pb-sol .h3-pb,
+.section_pb-sol .h3-pb.blue {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+  text-transform: none !important;
+  margin-bottom: 0.8rem !important;
+}
+.section_pb-sol .h3-pb {
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+}
+.section_pb-sol .h3-pb.blue {
+  -webkit-text-fill-color: var(--color-blue-haze) !important;
+  color: var(--color-blue-haze) !important;
+}
+.section_pb-sol .pb-block p,
+.section_pb-sol .pb-block li,
+.section_pb-sol .w-richtext p,
+.section_pb-sol .w-richtext li {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.section_pb-sol .w-richtext ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.section_pb-sol .w-richtext li {
+  margin-bottom: 0.4rem;
+}
+.section_pb-sol .w-richtext li::marker {
+  color: var(--color-gold);
+}
+/* Tighten the section's giant default gaps so the comparison reads
+   as one paired block, not two free-floating columns. */
+.section_pb-sol .pb-sol-block {
+  grid-column-gap: 3rem;
+  grid-row-gap: 2rem;
+  align-items: start;
+}
+.section_pb-sol .pb-block {
+  gap: 0.5rem;
+}
+
+/* ---------- 3. SDK features grid (cream beige) ----------
+   This section flips to cream #f0e0b2 to break up the dark stack
+   and match the brand cream we use on the fortressname pricing
+   section. Title + span run dark navy as one unified Sora 700
+   unit. The 4 dark-navy + gold-stroke icon cards sit on cream
+   (mirror of plan-cards-on-cream pattern from fortressname).
+*/
+.section_sdk {
+  background-color: #f0e0b2 !important;
+  background-image: none !important;
+}
+.section_sdk .div-block-9 {
+  font-size: 1rem;
+}
+.section_sdk h2 {
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 3.4vw, 3rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 0.4rem !important;
+  text-transform: none !important;
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+.section_sdk h2 .span-red {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
+}
+.section_sdk .text-balance {
+  color: var(--blue);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+/* .sdk-block ships with grid-row-gap: 4.5rem — tighten so the title
+   sits close to the icon row. */
+.section_sdk .sdk-block {
+  grid-row-gap: 1.75rem;
+  gap: 1.75rem;
+}
+.section_sdk .sdk-icons {
+  grid-column-gap: 6rem;
+  grid-row-gap: 4rem;
+  flex-flow: row;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 640px;
+  margin: 0 auto;
+  justify-items: center;
+}
+/* Remove the surrounding card — each item is just the circle icon
+   + label sitting freely on the cream section. */
+.section_sdk .div-block-10 {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
+  gap: 0.75rem;
+  box-shadow: none;
+}
+/* Match the live site's icon treatment — original PNG colors on
+   their original blue/red circle tiles. Bumped to 10rem (160px) to
+   match the live americanfortress.io scale, with original 2rem
+   padding so the icon sits at ~96px inside the circle. */
+.section_sdk .icon-wrap {
+  background-color: var(--blue) !important;
+  border: none;
+  width: 7rem;
+  height: 7rem;
+  padding: 1.4rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section_sdk .icon-wrap.red {
+  background-color: #b83337 !important;
+}
+.section_sdk .icon-wrap .image-17 {
+  width: 100%;
+  height: 100%;
+  max-height: 6rem;
+  object-fit: contain;
+  filter: none;
+}
+.section_sdk .div-block-10 > div:not(.icon-wrap) {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--blue);
+}
+
+/* ---------- 4. Final CTA (cream beige, continues from SDK section) ----------
+   Section flips to cream #f0e0b2 so the beige runs uninterrupted from
+   the SDK features section down to the footer. Strip the .cta-block
+   dark bg-image. h2 stack: dark navy "American Fortress" Sora 800 +
+   DM Serif Display Italic gold "certified badge" (still the page's
+   editorial moment — gold italic reads on cream too).
+*/
+.section_cta {
+  background-color: #f0e0b2 !important;
+  background-image: none !important;
+  padding-bottom: 6rem;
+}
+/* Pull the dark CTA card up tight under the SDK features section
+   so the cream block reads as one continuous module. */
+.section_cta .padding-section-medium {
+  padding-top: 0;
+}
+/* Wrap the CTA content in a dark navy + gold-stroke card sitting
+   on the cream section bg — mirrors the elevated card pattern from
+   the SDK features section above so the page closes on a unified
+   "card on cream" rhythm. Inside the card, text flips back to
+   white. */
+.section_cta .cta-block {
+  background-image: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%) !important;
+  background-color: var(--color-midnight-indigo) !important;
+  color: #fff !important;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.08),
+    0 16px 40px rgba(4, 10, 24, 0.25);
+  max-width: 880px;
+  margin: 0 auto;
+}
+.section_cta .h2-cta {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  margin: 0;
+}
+.section_cta .h2-cta-large {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
+  color: var(--color-gold) !important;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.section_cta .text-balance {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin-top: 0.4rem;
+}
+.section_cta .check-list {
+  justify-content: center;
+}
+.section_cta .story-check {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
+}
+.section_cta .div-block-11 {
+  gap: 0.4rem;
+}
+.section_cta .cta.blue {
+  background-color: var(--color-blue-haze);
+  color: var(--color-deep-navy);
+}
+.section_cta .cta.cta--ghost {
+  border-color: rgba(133, 186, 255, 0.55);
+  color: #fff;
+}
+.section_cta .cta.cta--ghost:hover {
+  background-color: rgba(133, 186, 255, 0.10);
+  border-color: var(--color-blue-haze);
+}
+
+/* ---------- 5. Footer scale-down (matches fortressname / partner) ---------- */
+.section_footer .logo_footer {
+  width: 200px;
+  height: auto;
+}
+.section_footer .h3-footer {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+.section_footer .footer-left p,
+.section_footer .footer-right p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.section_footer .footer-content {
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+.section_footer .legal-link {
+  font-size: 0.85rem;
+}
+.section_footer .links-wrap {
+  gap: 1.25rem;
+}
+.section_footer .socials {
+  grid-column-gap: 22px;
+}
+.section_footer .social--icon {
+  width: 1.75rem;
+}
