@@ -35,6 +35,16 @@
   .image.divider-1-bottom {
     max-width: 100% !important;
   }
+  /* Long technical strings (wallet hex, contract names) should
+     break gracefully rather than blow the layout. Scoped to known
+     hot spots — not applied globally. */
+  .wallet-address,
+  .hb-stealth code,
+  .af-pillar-emph,
+  pre, code {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -194,12 +204,12 @@
 @media screen and (max-width: 767px) {
   .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
     padding-top: 64px !important;
-    padding-bottom: 80px !important;
+    padding-bottom: 64px !important;
   }
   .hero-content-v2.hero-2col {
     padding-left: 24px !important;
     padding-right: 24px !important;
-    gap: 48px !important;
+    gap: 40px !important;
   }
   .h1_hero.h1-hero-v2 {
     font-size: clamp(2.5rem, 11vw, 3rem) !important; /* 40-48px */
@@ -212,14 +222,14 @@
     font-size: 1rem !important; /* 16px */
     line-height: 1.6 !important;
     text-wrap: balance !important;
-    margin-top: 1.5rem !important;
+    margin-top: 20px !important;
   }
   /* CTAs: stack full width, 12px gap, primary first */
   .hero-2col .hero-cta-grid-v2,
   .hero-cta-grid-v2 {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
-    margin-top: 1.75rem !important;
+    margin-top: 24px !important;
   }
   .hero-cta-grid-v2 .cta.hero {
     width: 100% !important;
@@ -231,30 +241,94 @@
     white-space: normal !important;
   }
   .hero-stealth-indicator {
-    margin-top: 1.5rem !important;
-    font-size: 0.7rem !important;
-    padding: 0.4rem 0.85rem 0.36rem !important;
+    margin-top: 20px !important;
+    font-size: 0.72rem !important; /* ~11.5px — accent label, just above 11px floor */
+    padding: 0.45rem 0.9rem 0.4rem !important;
   }
-  /* Wallet UI: cap to viewport - 64px and center. */
+  /* Wallet UI: cap to viewport - 48px and center. */
   .hero-2col .hero-right .hide-balance-card {
     max-width: 400px !important;
-    width: calc(100vw - 64px) !important;
+    width: calc(100vw - 48px) !important;
     margin: 0 auto !important;
   }
-  /* Don't squeeze the wallet-card padding away — keep 24px. */
+  /* Don't squeeze the wallet-card padding away — keep 18-20px. */
   .hide-balance-card {
-    padding: 20px !important;
+    padding: 18px !important;
   }
-  /* Tabs row: shrink padding so all 4 fit without wrapping. */
+  /* Tabs row: shrink padding so all 4 fit without wrapping.
+     Allow horizontal scroll inside the tab strip on tiny phones
+     (320-360px) so labels never wrap to two lines. */
   .hb-tabs {
     gap: 6px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    flex-wrap: nowrap !important;
   }
+  .hb-tabs::-webkit-scrollbar { display: none !important; }
   .hb-tab {
-    padding: 6px 10px !important;
+    padding: 8px 12px !important;
     font-size: 0.92rem !important;
     flex: 1 1 0 !important;
     text-align: center !important;
     min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+  /* Hide-balance toggle: long sentence + switch. Allow text to
+     wrap to 2 lines instead of forcing nowrap (which overflows
+     the card on tiny phones). */
+  .hb-toggle {
+    align-items: flex-start !important;
+    padding: 6px 0 !important;
+  }
+  .hb-toggle > span:first-child {
+    white-space: normal !important;
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+  }
+  .hb-switch {
+    flex-shrink: 0 !important;
+    margin-top: 3px !important;
+  }
+  /* Wallet field labels and chevrons proportional on phone */
+  .hb-label {
+    font-size: 0.85rem !important;
+    margin-bottom: 4px !important;
+  }
+  .hb-field {
+    min-height: 48px !important;
+    padding: 8px 12px !important;
+  }
+  .hb-field strong {
+    font-size: 1.1rem !important;
+  }
+  .hb-field span {
+    font-size: 0.85rem !important;
+  }
+  .hb-send-btn .cta-text {
+    font-size: 1.05rem !important;
+  }
+  .hb-state {
+    font-size: 0.95rem !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  /* Tighten further on iPhone SE 1st gen */
+  .hero-2col .hero-right .hide-balance-card {
+    width: calc(100vw - 40px) !important;
+  }
+  .hide-balance-card {
+    padding: 16px !important;
+  }
+  .hb-tab {
+    font-size: 0.85rem !important;
+    padding: 7px 10px !important;
+  }
+  .hb-field strong {
+    font-size: 1rem !important;
+  }
+  .hero-cta-grid-v2 .cta-text {
+    font-size: 0.95rem !important;
   }
 }
 
@@ -278,8 +352,9 @@
     font-size: clamp(2.25rem, 9vw, 2.75rem) !important; /* 36-44px */
   }
   .hero-stat-label {
-    font-size: 0.7rem !important; /* 11-12px */
+    font-size: 0.75rem !important; /* 12px floor for ALL CAPS labels */
     letter-spacing: 0.08em !important;
+    text-wrap: balance !important;
   }
 }
 
@@ -291,7 +366,7 @@
     padding: 64px 0 !important;
   }
   .hide-balance-section .hide-balance-logos {
-    padding: 0 32px !important;
+    padding: 0 24px !important;
   }
   .hide-balance-section .hide-balance-logos .text-6 {
     font-size: clamp(1.75rem, 7vw, 2rem) !important; /* 28-32px */
@@ -299,19 +374,34 @@
     letter-spacing: -0.01em !important;
     text-align: center !important;
     text-wrap: balance !important;
+    margin-bottom: 8px !important;
   }
   .hide-balance-section .logo-grid {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 24px 32px !important;
+    gap: 24px 28px !important;
   }
   .hide-balance-section .logo-grid img.logo,
   .hide-balance-section .logo-grid .logo-litvm {
-    max-width: 100px !important;
+    max-width: 96px !important;
     height: auto !important;
     flex: 0 0 auto !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  /* iPhone SE 1st gen: tighter logo cap so 2 per row fits with
+     comfortable gap and the row stays balanced. */
+  .hide-balance-section .hide-balance-logos {
+    padding: 0 16px !important;
+  }
+  .hide-balance-section .logo-grid {
+    gap: 20px 20px !important;
+  }
+  .hide-balance-section .logo-grid img.logo,
+  .hide-balance-section .logo-grid .logo-litvm {
+    max-width: 88px !important;
   }
 }
 
@@ -320,7 +410,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .section-2.section-problem {
-    padding: 96px 32px 64px !important;
+    padding: 80px 32px 64px !important;
     min-height: 0 !important;
   }
   .problem-main {
@@ -333,7 +423,7 @@
 }
 @media screen and (max-width: 767px) {
   .section-2.section-problem {
-    padding: 80px 24px 64px !important;
+    padding: 72px 24px 64px !important;
   }
   .problem-copy {
     margin-bottom: 32px !important;
@@ -346,6 +436,7 @@
   .problem-text {
     font-size: 1rem !important;
     line-height: 1.6 !important;
+    text-wrap: balance !important;
   }
   .problem-tabs {
     gap: 8px !important;
@@ -354,8 +445,8 @@
   .problem-tab {
     padding: 12px 8px !important;
     font-size: 0.85rem !important;
-    min-height: 44px !important;
-    line-height: 1.2 !important;
+    min-height: 48px !important; /* tap target */
+    line-height: 1.25 !important;
   }
   .problem-wallet-card {
     border-radius: 14px !important;
@@ -367,26 +458,35 @@
   .wallet-address {
     margin: 0 18px 12px !important;
     font-size: 0.78rem !important;
+    padding: 10px 12px !important;
     word-break: break-all !important;
   }
   .wallet-row {
     padding: 12px 18px !important;
     font-size: 0.92rem !important;
+    gap: 12px !important;
   }
   .wallet-row strong {
     font-size: 0.95rem !important;
+    text-align: right !important;
+  }
+  .wallet-pill {
+    font-size: 0.78rem !important;
+    padding: 4px 12px !important;
   }
   .problem-right {
     gap: 16px !important;
   }
   .problem-stat-item {
-    padding: 16px !important;
+    padding: 18px 18px 18px 18px !important;
+    border-left-width: 3px !important;
   }
   .problem-stat-item .value {
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
   }
   .problem-stat-item .desc {
     font-size: 0.95rem !important;
+    line-height: 1.4 !important;
   }
   .problem-stat-item .source {
     font-size: 0.78rem !important;
@@ -396,6 +496,25 @@
   .problem-tabs {
     grid-template-columns: 1fr !important;
   }
+  .problem-tab {
+    font-size: 0.95rem !important;
+    padding: 14px 12px !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  .section-2.section-problem {
+    padding: 64px 16px 56px !important;
+  }
+  .wallet-head,
+  .wallet-row,
+  .wallet-address {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .wallet-address {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+  }
 }
 
 /* ============================================================
@@ -403,7 +522,10 @@
    ============================================================ */
 @media screen and (max-width: 767px) {
   .how-works-section {
-    padding: 64px 24px 80px !important;
+    padding: 72px 24px 72px !important;
+  }
+  .how-works-head {
+    margin-bottom: 32px !important;
   }
   .how-works-head h2 {
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
@@ -414,25 +536,29 @@
     font-size: 1rem !important;
     line-height: 1.6 !important;
     white-space: normal !important;
+    text-wrap: balance !important;
   }
   .how-works-grid {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    gap: 16px !important;
   }
   .how-step-card {
-    padding: 24px !important;
+    padding: 24px 24px 26px !important;
     border-radius: 14px !important;
   }
   .how-step-card h3 {
     font-size: 1.15rem !important;
     line-height: 1.3 !important;
+    margin-top: 8px !important;
   }
   .how-step-card p {
     font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
+    margin-top: 6px !important;
   }
   .how-step-number {
-    font-size: 1.5rem !important;
+    font-size: 1.75rem !important; /* keep gold step number prominent on phone */
+    line-height: 1 !important;
   }
 }
 
@@ -441,7 +567,10 @@
    ============================================================ */
 @media screen and (max-width: 767px) {
   .conf-machine-section {
-    padding: 64px 24px !important;
+    padding: 72px 24px 72px !important;
+  }
+  .conf-machine-head {
+    margin-bottom: 32px !important;
   }
   .conf-machine-head h2 {
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
@@ -451,6 +580,8 @@
   .conf-machine-head p {
     font-size: 1rem !important;
     line-height: 1.6 !important;
+    text-wrap: balance !important;
+    max-width: 100% !important;
   }
   .conf-list {
     gap: 28px !important;
@@ -475,18 +606,21 @@
     font-size: 1.1rem !important;
     line-height: 1.3 !important;
     white-space: normal !important;
+    margin-bottom: 6px !important;
   }
   .conf-text p {
     font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
 }
 @media screen and (max-width: 374px) {
+  /* Stack icon over text at iPhone SE 1st gen */
   .conf-item {
     grid-template-columns: 1fr !important;
+    gap: 10px !important;
   }
   .conf-icon {
-    margin-bottom: 4px !important;
+    margin-bottom: 2px !important;
   }
 }
 
@@ -495,22 +629,31 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-pillars-wins {
-    padding: 64px 24px 80px !important;
+    padding: 72px 24px 72px !important;
+  }
+  .af-pillars-head-wins {
+    margin-bottom: 32px !important;
   }
   .af-pillars-grid-wins {
     grid-template-columns: 1fr 1fr !important;
     gap: 16px !important;
   }
   .af-pillars-title-wins {
-    font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important;
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem) !important;
     line-height: 1.1 !important;
     white-space: normal !important;
     text-wrap: balance !important;
   }
+  /* DM Serif italic accent ('wins'): scale with title but keep
+     enough size to read as an accent, not an afterthought. */
+  .af-pillars-title-wins em {
+    font-size: 1.1em !important;
+    line-height: 1 !important;
+  }
 }
 @media screen and (max-width: 767px) {
   .af-pillars-wins {
-    padding: 64px 24px 72px !important;
+    padding: 64px 24px 64px !important;
   }
   .af-pillar-card-wins {
     padding: 24px !important;
@@ -518,20 +661,25 @@
   .af-pillar-card-wins h3 {
     font-size: 1.15rem !important;
     line-height: 1.3 !important;
+    text-wrap: balance !important;
   }
   .af-pillar-card-wins p {
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
   }
   .af-pillar-card-wins .af-ghost-num {
-    font-size: 3.25rem !important;
-    top: 16px !important;
+    font-size: 3rem !important;
+    top: 14px !important;
     right: 16px !important;
   }
 }
 @media screen and (max-width: 599px) {
   .af-pillars-grid-wins {
     grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .af-pillar-card-wins {
+    padding: 22px !important;
   }
 }
 
@@ -562,16 +710,20 @@
     line-height: 1.1 !important;
   }
 
-  /* Scroll-hint above the table on mobile */
+  /* Scroll-hint above the table on mobile. Sticks to the left
+     edge so it stays visible as the user scrolls horizontally. */
   .af-table-wrap-strong::before {
     content: "→ scroll to compare";
     display: block;
-    color: rgba(218, 232, 255, 0.55);
+    position: sticky;
+    left: 0;
+    color: rgba(218, 232, 255, 0.62);
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 10px 14px 0;
+    padding: 10px 14px 4px;
+    width: max-content;
   }
 
   .af-table-wrap,
@@ -581,13 +733,11 @@
     position: relative !important;
   }
 
-  /* Right-edge gradient fade affordance */
+  /* Right-edge fade affordance via inset shadow on the scroll
+     container's border (which is fixed to the visible viewport,
+     unlike a CSS background which scrolls with content). */
   .af-table-wrap-strong {
-    background-image: linear-gradient(
-      90deg,
-      transparent calc(100% - 36px),
-      rgba(8, 28, 52, 0.85) 100%
-    );
+    box-shadow: inset -36px 0 28px -20px rgba(8, 28, 52, 0.9) !important;
   }
 
   .af-compare-table-strong,
@@ -639,10 +789,13 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-ip-patent-new {
-    padding: 64px 24px !important;
+    padding: 72px 24px 72px !important;
   }
 }
 @media screen and (max-width: 767px) {
+  .af-ip-badge-row {
+    margin-bottom: 24px !important;
+  }
   .af-ip-badge-shield-v2 img {
     width: 72px !important;
   }
@@ -653,6 +806,7 @@
   }
   .af-ip-badge-banner-small {
     font-size: 0.95rem !important;
+    line-height: 1.25 !important;
   }
   .af-ip-new-title {
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
@@ -665,18 +819,36 @@
     line-height: 1.6 !important;
   }
   .af-ip-stats-bar {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
     margin-top: 32px !important;
   }
   .af-ip-stat {
-    padding: 24px 16px !important;
+    padding: 18px 10px !important;
+  }
+  .af-ip-stat-num {
+    font-size: 2rem !important;
+  }
+  .af-ip-stat-label {
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    text-wrap: balance !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  /* On iPhone SE 1st gen, drop to single column to keep numbers
+     legible without crushing labels. */
+  .af-ip-stats-bar {
+    grid-template-columns: 1fr !important;
+  }
+  .af-ip-stat {
+    padding: 18px 16px !important;
   }
   .af-ip-stat-num {
     font-size: 2.25rem !important;
   }
   .af-ip-stat-label {
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
   }
 }
 
@@ -685,7 +857,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-tokenomics-new {
-    padding: 64px 24px 80px !important;
+    padding: 72px 24px 72px !important;
   }
 }
 @media screen and (max-width: 767px) {
@@ -700,6 +872,7 @@
   .af-tokenomics-lead {
     font-size: 1rem !important;
     line-height: 1.6 !important;
+    text-wrap: balance !important;
   }
   .af-tokenomics-grid {
     grid-template-columns: 1fr !important;
@@ -709,29 +882,42 @@
   .af-tokenomics-piechart {
     max-width: 280px !important;
     margin: 0 auto !important;
+    display: block !important;
   }
   .af-tokenomics-metric-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
   .af-tokenomics-metric {
-    padding: 14px 16px !important;
+    padding: 14px 14px !important;
   }
   .af-tokenomics-metric-value {
-    font-size: 1.1rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+    overflow-wrap: anywhere !important;
   }
   .af-tokenomics-metric-label {
     font-size: 0.7rem !important;
+    line-height: 1.25 !important;
   }
   .af-tokenomics-burn {
-    padding: 18px 18px !important;
+    padding: 20px 18px !important;
+    margin-top: 16px !important;
+  }
+  .af-tokenomics-burn-heading {
+    font-size: 1rem !important;
+    display: block !important;
+    margin-bottom: 6px !important;
   }
   .af-tokenomics-burn p {
     font-size: 0.92rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
 }
 @media screen and (max-width: 374px) {
+  /* On iPhone SE 1st gen, total supply value 10,000,000,000
+     and 'Initial circulating supply' label are tight in 2-up.
+     Stack to single column. */
   .af-tokenomics-metric-grid {
     grid-template-columns: 1fr !important;
   }
@@ -748,10 +934,10 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-roadmap-new {
-    padding: 64px 24px 80px !important;
+    padding: 72px 24px 72px !important;
   }
   .af-roadmap-title {
-    font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+    font-size: clamp(1.85rem, 6vw, 2.5rem) !important;
     line-height: 1.15 !important;
     text-wrap: balance !important;
   }
@@ -760,16 +946,37 @@
   .af-roadmap-head {
     margin-bottom: 32px !important;
   }
+  /* Promote period label to gold on mobile for clearer visual
+     hierarchy when it sits above the card body. */
+  .af-roadmap-period {
+    color: var(--color-gold) !important;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 4px !important;
+  }
   .af-roadmap-body {
-    padding: 16px 18px !important;
+    padding: 18px 18px 20px !important;
   }
   .af-roadmap-body h3 {
-    font-size: 1rem !important;
+    font-size: 1.02rem !important;
     line-height: 1.3 !important;
+    text-wrap: balance !important;
   }
   .af-roadmap-body p {
     font-size: 0.92rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
+  }
+  /* Status pills stay high-contrast on bright phone screens. */
+  .af-roadmap-pill {
+    font-size: 0.66rem !important;
+    padding: 5px 12px !important;
+    letter-spacing: 0.1em !important;
+  }
+  .af-roadmap-pill.is-upcoming {
+    color: #fdfaf4 !important;
+    border-color: rgba(253, 250, 244, 0.6) !important;
   }
 }
 
@@ -780,19 +987,22 @@
 @media screen and (max-width: 991px) {
   .af-team-section .padding-section-xxl,
   .section_story.af-team-section .padding-section-xxl {
-    padding: 64px 24px 80px !important;
+    padding: 72px 24px 72px !important;
   }
   .af-team-title {
-    font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important;
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem) !important;
     line-height: 1.15 !important;
     text-wrap: balance !important;
+  }
+  .af-team-head {
+    margin-bottom: 32px !important;
   }
 }
 @media screen and (max-width: 767px) {
   .af-team-grid,
   .af-advisors-grid {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    gap: 16px !important;
   }
   .af-team-card {
     padding: 22px !important;
@@ -804,19 +1014,39 @@
   }
   .af-team-card h3 {
     font-size: 1.05rem !important;
+    line-height: 1.25 !important;
   }
   .af-team-card h4 {
     font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
   }
   .af-team-card p {
     font-size: 0.92rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
+  /* Section subheads (Team / Advisors) — small caps gold-ish */
   .af-team-subhead {
     font-size: 0.85rem !important;
+    margin-bottom: 16px !important;
   }
   .af-advisors-subhead {
     margin-top: 40px !important;
+  }
+  /* Bump social icon tap targets above 44px standard isn't possible
+     without breaking the row, but go from 32 → 40 so they pass a
+     comfortable thumb tap and add a gap between them. */
+  .af-team-socials {
+    gap: 10px !important;
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+  }
+  .af-team-socials a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .af-team-socials svg {
+    width: 18px !important;
+    height: 18px !important;
   }
 }
 
@@ -825,7 +1055,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .section_publications .padding-section-xl {
-    padding: 64px 24px !important;
+    padding: 72px 24px !important;
   }
 }
 @media screen and (max-width: 767px) {
@@ -834,6 +1064,7 @@
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
     line-height: 1.2 !important;
     text-align: center !important;
+    margin-bottom: 32px !important;
   }
   .publications-list {
     grid-template-columns: 1fr !important;
@@ -841,11 +1072,12 @@
     display: grid !important;
   }
   .publication {
-    padding-bottom: 16px !important;
+    padding-bottom: 18px !important;
   }
   .publication-h3 {
     font-size: 1rem !important;
     line-height: 1.4 !important;
+    text-wrap: balance !important;
   }
   .publication .div-block-2,
   .publication .div-block-2 div {
@@ -863,7 +1095,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .section_faq .padding-section-xxl {
-    padding: 64px 24px !important;
+    padding: 72px 24px !important;
   }
 }
 @media screen and (max-width: 767px) {
@@ -872,16 +1104,20 @@
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
     line-height: 1.2 !important;
   }
+  /* Whole row is the tap target — rely on faq4_question's existing
+     w-id-driven click handler; just enforce 56px min and full width. */
   .faq4_question {
     padding: 1rem 0 !important;
     min-height: 56px !important;
     font-size: 1rem !important;
     gap: 1rem !important;
+    cursor: pointer !important;
   }
   .h3-faq {
     font-size: 1rem !important;
     line-height: 1.35 !important;
     margin: 0 !important;
+    text-wrap: balance !important;
   }
   .faq4_icon-wrappper {
     width: 32px !important;
@@ -904,6 +1140,12 @@
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
   }
+  .faq4_answer .w-richtext ul {
+    padding-left: 1.1rem !important;
+  }
+  .faq4_answer .w-richtext li {
+    margin-bottom: 6px !important;
+  }
 }
 
 /* ============================================================
@@ -911,7 +1153,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-infrastructure {
-    padding: 72px 24px 80px !important;
+    padding: 72px 24px 72px !important;
   }
   .af-infrastructure-grid {
     grid-template-columns: 1fr !important;
@@ -932,26 +1174,37 @@
 }
 @media screen and (max-width: 767px) {
   .af-infrastructure {
-    padding: 64px 24px 72px !important;
+    padding: 64px 24px 64px !important;
   }
   .af-infrastructure-title {
     font-size: clamp(2rem, 8vw, 2.5rem) !important; /* 32-40px */
     line-height: 1.15 !important;
     text-wrap: balance !important;
+    letter-spacing: -0.02em !important;
+  }
+  /* DM Serif italic 'infrastructure' accent — keep it big enough
+     to clearly read as the editorial pull. */
+  .af-infrastructure-title em.editorial-pull {
+    font-size: 1em !important;
+    line-height: 1 !important;
   }
   .af-infrastructure-body {
     font-size: 1rem !important;
     line-height: 1.6 !important;
-    margin: 0 auto 28px !important;
+    margin: 0 auto 24px !important;
     max-width: 100% !important;
+    text-wrap: balance !important;
   }
   .af-infrastructure-chips {
-    gap: 8px !important;
-    margin-bottom: 24px !important;
+    gap: 6px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
   }
   .af-infrastructure-chips span {
     font-size: 0.65rem !important;
     padding: 6px 10px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
   }
   /* Two CTAs stack full-width with 12px gap */
   .af-infrastructure-buttons {
@@ -964,7 +1217,7 @@
     padding: 14px 20px !important;
   }
   .af-infrastructure-visual img {
-    max-width: 280px !important;
+    max-width: 240px !important;
     margin: 0 auto !important;
   }
 }
@@ -973,6 +1226,12 @@
      to free vertical space for the headline + CTAs. */
   .af-infrastructure-visual {
     display: none !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  .af-infrastructure-chips span {
+    font-size: 0.6rem !important;
+    padding: 5px 9px !important;
   }
 }
 
@@ -999,6 +1258,7 @@
     width: auto !important;
     height: 40px !important;
     max-width: 200px !important;
+    margin-bottom: 16px !important;
   }
   .footer-left p {
     font-size: 0.95rem !important;
@@ -1006,6 +1266,12 @@
   }
   .h3-footer {
     font-size: 1.15rem !important;
+    margin-bottom: 8px !important;
+  }
+  .footer-right > div:first-child p {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 12px !important;
   }
 
   /* SDK signup form: input above button, both full width */
@@ -1032,11 +1298,13 @@
     font-size: 1rem !important;
   }
 
-  /* Socials row, 44x44px tap targets, centered */
+  /* Socials row, 44x44px tap targets, centered. 4 icons * 44 +
+     3 * 16 gap = 224px — fits comfortably at 320px. */
   .socials {
     justify-content: center !important;
     gap: 16px !important;
     flex-wrap: wrap !important;
+    margin: 24px 0 !important;
   }
   .social {
     width: 44px !important;
@@ -1046,13 +1314,14 @@
     justify-content: center !important;
   }
   .social--icon {
-    width: 28px !important;
-    height: 28px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
 
   /* Footer nav links: stacked or 2-col, comfy touch targets */
   .legal-block {
-    padding: 20px 0 !important;
+    padding: 8px 0 0 !important;
+    margin-bottom: 16px !important;
   }
   .links-wrap {
     flex-direction: column !important;
@@ -1098,7 +1367,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .section_hero-name .padding-section-medium.name {
-    padding: 64px 24px 56px !important;
+    padding: 72px 24px 56px !important;
   }
   .section_why .padding-section-medium.why {
     padding: 64px 24px !important;
@@ -1118,30 +1387,48 @@
 }
 @media screen and (max-width: 767px) {
   /* Hero */
+  .section_hero-name .name-hero-block {
+    align-items: flex-start !important;
+  }
+  .hero-fortress {
+    width: 100% !important;
+  }
   .h1-hero-fortress.fortress {
     font-size: clamp(2.25rem, 9vw, 2.75rem) !important;
     line-height: 1.15 !important;
     text-wrap: balance !important;
+    margin-top: 8px !important;
   }
   .name-type {
     font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
   }
-  .name-sub,
+  .name-sub {
+    font-size: 1.05rem !important;
+    line-height: 1.4 !important;
+    margin-top: 8px !important;
+  }
   .name-hero-paragraph {
     font-size: 1rem !important;
     line-height: 1.6 !important;
+    margin-top: 16px !important;
+    text-wrap: balance !important;
   }
   .hero-fortress .cta.hero {
     width: 100% !important;
     min-height: 48px !important;
+    margin-top: 24px !important;
   }
 
   /* Why grid: stack to single column */
+  .why-block {
+    gap: 24px !important;
+  }
   .why-grid {
     flex-direction: column !important;
     grid-template-columns: 1fr !important;
     grid-template-areas: none !important;
-    gap: 16px !important;
+    gap: 14px !important;
     display: grid !important;
   }
   .why-card {
@@ -1153,21 +1440,23 @@
   .why-card .img-card,
   .why-card .image-22,
   .why-card .image-23 {
-    max-width: 60% !important;
+    max-width: 56% !important;
     height: auto !important;
   }
   .h2-why {
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
     line-height: 1.2 !important;
     text-wrap: balance !important;
+    margin-bottom: 8px !important;
   }
   .h3-card {
     font-size: 1.1rem !important;
     line-height: 1.3 !important;
+    text-wrap: balance !important;
   }
   .paragraph-small {
     font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
 
   /* How section */
@@ -1176,10 +1465,11 @@
     font-size: clamp(1.75rem, 7vw, 2rem) !important;
     line-height: 1.2 !important;
     text-align: center !important;
+    text-wrap: balance !important;
   }
   .how-content {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    gap: 20px !important;
     flex-direction: column !important;
     display: flex !important;
   }
@@ -1189,9 +1479,16 @@
   .h3-how {
     font-size: 1.1rem !important;
     line-height: 1.3 !important;
+    text-wrap: balance !important;
   }
 
   /* Plans / pricing — 3 cards stack */
+  .plans-block h2 {
+    font-size: clamp(1.6rem, 6vw, 1.9rem) !important;
+    line-height: 1.25 !important;
+    text-wrap: balance !important;
+    margin-bottom: 24px !important;
+  }
   .plans-content {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
@@ -1200,14 +1497,42 @@
     padding: 24px !important;
     width: 100% !important;
   }
+  .plan-card .button-2 {
+    width: 100% !important;
+    min-height: 48px !important;
+    text-align: center !important;
+  }
   .text-block-5 {
     font-size: 2.25rem !important;
+    line-height: 1 !important;
+  }
+  .paragraph-xsmall {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+    margin-top: 16px !important;
   }
 
   /* Testimonials slider */
   .testimonial-content {
     flex-direction: column !important;
     gap: 24px !important;
+    align-items: flex-start !important;
+  }
+  .testimonial-left {
+    align-items: flex-start !important;
+  }
+  .testimonial-left .image-25,
+  .testimonial-left .div-block-20 img {
+    max-width: 80px !important;
+    border-radius: 999px !important;
+  }
+  .testimonial-job {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  .para-testimonial {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
   }
   .slider {
     height: auto !important;
@@ -1218,12 +1543,21 @@
     text-align: center !important;
   }
   .section_cta-name .container {
-    padding: 32px 24px !important;
+    padding: 0 !important;
   }
-  .section_cta-name h2 {
-    font-size: clamp(1.75rem, 7vw, 2rem) !important;
+  .section_cta-name .cta-block2 {
+    padding: 40px 28px !important;
+    border-radius: 14px !important;
+  }
+  .section_cta-name h2,
+  .section_cta-name .h2-cta {
+    font-size: clamp(1.55rem, 6vw, 1.85rem) !important;
     line-height: 1.2 !important;
     text-wrap: balance !important;
+  }
+  .section_cta-name .cta-subcopy {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
   }
   .section_cta-name .cta {
     width: 100% !important;
@@ -1246,14 +1580,16 @@
   .section_pb-sol .padding-section-medium,
   .section_sdk .padding-section-medium,
   .section_cta .padding-section-medium {
-    padding: 64px 24px !important;
+    padding: 72px 24px !important;
   }
 }
 @media screen and (max-width: 767px) {
-  /* Hero matches homepage hero treatment minus wallet UI */
+  /* Hero matches homepage hero treatment minus wallet UI.
+     Badge sits below hero copy on mobile so the headline gets
+     the visual priority it deserves. */
   .section_sdk-hero .sdk-hero-block {
     flex-direction: column !important;
-    gap: 24px !important;
+    gap: 28px !important;
     text-align: center !important;
     align-items: center !important;
   }
@@ -1262,15 +1598,19 @@
     line-height: 1.1 !important;
     text-wrap: balance !important;
     text-align: center !important;
+    letter-spacing: -0.02em !important;
   }
   .section_sdk-hero .sdk-sub {
     font-size: 1rem !important;
     line-height: 1.6 !important;
     text-align: center !important;
+    margin-top: 16px !important;
+    text-wrap: balance !important;
   }
   .section_sdk-hero .badge {
-    width: clamp(140px, 36vw, 200px) !important;
+    width: clamp(160px, 42vw, 220px) !important;
     margin: 0 auto !important;
+    height: auto !important;
   }
   .section_sdk-hero .div-block-5 {
     flex: 1 1 100% !important;
@@ -1288,20 +1628,30 @@
   .h3-pb {
     font-size: clamp(1.5rem, 6vw, 1.85rem) !important;
     line-height: 1.2 !important;
+    margin-bottom: 12px !important;
   }
   .pb-block p,
   .pb-block li {
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
   }
+  .pb-block ul {
+    padding-left: 1.1rem !important;
+  }
+  .pb-block li {
+    margin-bottom: 6px !important;
+  }
   .sep-sdk {
     display: none !important;
   }
 
-  /* SDK icons grid: 2x2 → 1col */
+  /* SDK icons grid: 2x2 at most phones, 1col at <600 */
+  .sdk-block {
+    gap: 28px !important;
+  }
   .sdk-icons {
     grid-template-columns: 1fr 1fr !important;
-    gap: 16px !important;
+    gap: 12px !important;
   }
   .div-block-10 {
     padding: 18px !important;
@@ -1324,6 +1674,7 @@
     font-size: 1rem !important;
     line-height: 1.6 !important;
     text-align: center !important;
+    text-wrap: balance !important;
   }
 
   /* CTA section */
@@ -1338,17 +1689,22 @@
   .h2-cta,
   .h2-cta-large {
     font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
+    line-height: 1.15 !important;
   }
   .cta-block .text-balance {
     font-size: 1rem !important;
     line-height: 1.6 !important;
+    text-wrap: balance !important;
   }
   .check-list {
     align-items: flex-start !important;
-    gap: 12px !important;
+    gap: 10px !important;
+    flex-direction: column !important;
+    margin: 0 auto !important;
   }
   .story-check {
-    font-size: 0.95rem !important;
+    font-size: 0.98rem !important;
+    align-items: center !important;
   }
   /* CTA pair stacks full width */
   .cta-block .div-block-6 {
@@ -1379,14 +1735,14 @@
   .section_why-offer .padding-section-medium,
   .section_who-for .padding-section-medium,
   .section_how .padding-section-xl {
-    padding: 64px 24px !important;
+    padding: 72px 24px !important;
   }
 }
 @media screen and (max-width: 767px) {
   /* Hero stacks: text + rock image */
   .partner-hero-block {
     flex-direction: column !important;
-    gap: 32px !important;
+    gap: 28px !important;
     align-items: stretch !important;
   }
   .partner-hero-left {
@@ -1397,18 +1753,23 @@
     line-height: 1.15 !important;
     text-wrap: balance !important;
     text-align: left !important;
+    letter-spacing: -0.02em !important;
   }
   .partner-hero-block .text-size-large {
     font-size: 1rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
+    margin-top: 12px !important;
+    text-wrap: balance !important;
   }
   .partner-hero-block .paragraph {
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
+    margin-top: 16px !important;
   }
   .partner-hero-block .cta.hero {
     width: 100% !important;
     min-height: 48px !important;
+    margin-top: 24px !important;
   }
   .partner-hero-block .image-29 {
     max-width: 60% !important;
@@ -1417,9 +1778,12 @@
   }
 
   /* The offer — 3 cards stack */
+  .offer-block {
+    gap: 28px !important;
+  }
   .offer-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 14px !important;
     display: grid !important;
   }
   .offer-card {
@@ -1429,10 +1793,15 @@
   .offer-card h3 {
     font-size: 1.15rem !important;
     line-height: 1.3 !important;
+    text-wrap: balance !important;
   }
   .offer-card p {
     font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
+  }
+  .offer-card .percent-highlight {
+    font-size: 2.25rem !important;
+    line-height: 1 !important;
   }
   .h2-usecase.gradient-offer,
   .h2-usecase {
@@ -1453,46 +1822,65 @@
     width: 100% !important;
   }
   .usecase .image-4 {
-    max-width: 120px !important;
+    max-width: 110px !important;
     height: auto !important;
   }
   .text-9 {
     font-size: 1.1rem !important;
+    line-height: 1.3 !important;
   }
   .text-10 {
     font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.55 !important;
   }
 
-  /* Who it's for grid: 2x → 1col */
+  /* Who it's for grid: keep 2-up at landscape phone widths,
+     1-up at portrait phone. */
   .who-for-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
   }
   .div-block-23 {
     width: 100% !important;
-    padding: 24px !important;
+    padding: 18px !important;
   }
   .div-block-23 .image-30 {
     max-width: 100% !important;
     height: auto !important;
+    border-radius: 12px !important;
   }
   .div-block-23 p {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.4 !important;
   }
 
   /* How to start: numbered list stacks */
   .section_how .how-content {
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: 12px !important;
   }
   .how-item.align-center {
     width: 100% !important;
     flex-direction: row !important;
     align-items: center !important;
     text-align: left !important;
-    gap: 12px !important;
+    gap: 14px !important;
+  }
+  .how-item.align-center .text-block-3 {
+    flex-shrink: 0 !important;
+  }
+  .how-item.align-center .h3-how {
+    text-wrap: balance !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  /* Drop who-for grid to 1col on small phones */
+  .who-for-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .div-block-23 {
+    padding: 22px !important;
   }
 }
 
@@ -1531,6 +1919,12 @@
     padding-right: 0 !important;
     max-width: 100% !important;
   }
+  /* Body baseline never drops below 14px on phone. (Body only —
+     don't apply to descendants since labels and source captions
+     are intentionally smaller.) */
+  body {
+    font-size: max(16px, 1rem);
+  }
 }
 
 /* ============================================================
@@ -1541,10 +1935,30 @@
   * {
     background-attachment: scroll !important;
   }
-  /* Pause partners marquee if user prefers reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .af-partners-track {
-      animation: none !important;
-    }
+}
+
+/* Reduced-motion: honor at all viewports. Suppress heavy IX2
+   transforms, marquees, and the @name typewriter loop. */
+@media (prefers-reduced-motion: reduce) {
+  .af-partners-track,
+  .af-pillar-card-wins,
+  .how-step-card,
+  .af-team-card,
+  .af-roadmap-body,
+  .publication,
+  .problem-stat-item,
+  .conf-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Stop the GSAP-driven cursor blink and animated @name on
+     fortressname hero — the JS still runs but the visual jitter
+     is hidden. */
+  #animated-text,
+  #cursor {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
   }
 }
