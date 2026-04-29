@@ -245,23 +245,37 @@
    to hit the spec tokens.
    ============================================================ */
 @media screen and (max-width: 767px) {
-  /* Home hero: content sits ~48px below navbar (was 8px — too high).
-     Dots/halftone backdrop pulled UP ~48px (its `::before` `top`
-     dropped from -36 to -84) so the dots appear higher on the page
-     than the content. */
-  .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
-  }
+  /* Home hero — full reset of cascading desktop heights/paddings:
+     - Webflow base sets min-height: 100vh + max-height: 1200px +
+       padding: 40px (line 128) → forced section to be too tall and
+       clipping siblings. Reset to natural height.
+     - Tablet rule adds padding: 18.75rem 0 0 + overflow: hidden →
+       broke stats bar layout. Override with padding: 0 + overflow
+       visible so the dot backdrop can extend up behind the navbar
+       and so the stats bar isn't clipped.
+     - Inner padding-global gets padding-top: 96px so the headline
+       sits a comfortable ~1in below the navbar.
+     - ::before halftone: top -120px + height 80% so the dot
+       pattern starts above the section (behind the navbar) and
+       extends down past the content stack. */
   .section_hero.hero-v2 {
-    padding-top: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
+    padding-top: 96px !important;
+    padding-bottom: 56px !important;
   }
   .hero-wrapper-v2 {
     padding-top: 0 !important;
     margin-top: 0 !important;
   }
   .section_hero.hero-v2::before {
-    top: -84px !important;
+    top: -120px !important;
+    height: 80% !important;
   }
   .hero-content-v2.hero-2col {
     padding-left: 24px !important;
@@ -442,33 +456,42 @@
    STATS BAR (.hero-stats-bar)
    ============================================================ */
 @media screen and (max-width: 767px) {
-  /* Switch to flex-column on mobile and kill the 100vw breakout +
-     negative margins (those were clipping 2 of the 3 stats inside
-     the parent's overflow: hidden — only the middle stat showed). */
+  /* Stats bar — full reset. Was being clipped because the parent
+     section had min-height: 100vh + overflow: hidden + a 100vw
+     breakout on the bar that fought the cascade. Now the bar is a
+     plain block with full-width children, no breakout, no clipping. */
   .hero-stats-bar {
-    display: flex !important;
-    flex-direction: column !important;
+    display: block !important;
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     grid-template-columns: none !important;
     gap: 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+    box-sizing: border-box !important;
   }
   .hero-stat-item {
     display: block !important;
     width: 100% !important;
+    box-sizing: border-box !important;
     border-right: none !important;
     border-bottom: 1px solid rgba(152, 180, 224, .2) !important;
-    padding: 1.5rem 1rem !important;
+    padding: 24px 16px !important;
     text-align: center !important;
   }
   .hero-stat-item:last-child {
     border-bottom: none !important;
   }
   .hero-stat-value {
+    display: block !important;
     font-size: clamp(2.25rem, 9vw, 2.75rem) !important; /* 36-44px */
+    line-height: 1 !important;
+    margin-bottom: 6px !important;
   }
   .hero-stat-label {
+    display: block !important;
     font-size: 0.75rem !important; /* 12px floor for ALL CAPS labels */
     letter-spacing: 0.08em !important;
     text-wrap: balance !important;
