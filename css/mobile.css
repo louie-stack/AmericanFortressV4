@@ -473,27 +473,47 @@
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 24px 28px !important;
+    gap: 28px 32px !important;
   }
-  .hide-balance-section .logo-grid img.logo,
-  .hide-balance-section .logo-grid .logo-litvm {
-    max-width: 96px !important;
-    height: auto !important;
+  /* Brand-strip ergonomics: cap by HEIGHT so all logos sit on the
+     same optical baseline despite their wildly different aspect
+     ratios (Brinks ~5.7:1 vs 0G ~1.6:1). max-width is a fallback
+     so very wide logos don't dominate the row. */
+  .hide-balance-section .logo-grid img.logo {
+    height: 32px !important;
+    max-height: 32px !important;
+    max-width: 130px !important;
+    width: auto !important;
+    object-fit: contain !important;
     flex: 0 0 auto !important;
+  }
+  .hide-balance-section .logo-grid .logo-litvm {
+    height: 32px !important;
+    max-height: 32px !important;
+    max-width: 130px !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+  .hide-balance-section .logo-grid .logo-litvm img {
+    height: 100% !important;
+    width: auto !important;
+    object-fit: contain !important;
   }
 }
 @media screen and (max-width: 374px) {
-  /* iPhone SE 1st gen: tighter logo cap so 2 per row fits with
+  /* iPhone SE 1st gen: tighter caps so 2-3 per row fits with
      comfortable gap and the row stays balanced. */
   .hide-balance-section .hide-balance-logos {
     padding: 0 16px !important;
   }
   .hide-balance-section .logo-grid {
-    gap: 20px 20px !important;
+    gap: 22px 24px !important;
   }
   .hide-balance-section .logo-grid img.logo,
   .hide-balance-section .logo-grid .logo-litvm {
-    max-width: 88px !important;
+    height: 28px !important;
+    max-height: 28px !important;
+    max-width: 110px !important;
   }
 }
 
@@ -729,6 +749,18 @@
   .af-pillars-grid-wins {
     grid-template-columns: 1fr 1fr !important;
     gap: 16px !important;
+    /* Cards size to their own content; no forced equal-height
+       stretch (was clipping content + leaving empty space below
+       the grid because brand.css sets height: 100% on cards). */
+    align-items: start !important;
+  }
+  /* Kill the desktop height: 100% so cards collapse to content
+     height. overflow: hidden stays so the absolute ghost numerals
+     remain clipped to the card silhouette. */
+  .af-pillar-card-wins,
+  .af-pillar-card-wins.is-blue,
+  .af-pillar-card-wins.is-red {
+    height: auto !important;
   }
   .af-pillars-title-wins {
     font-size: clamp(1.85rem, 6.5vw, 2.5rem) !important;
@@ -747,16 +779,23 @@
   .af-pillars-wins {
     padding: 64px 24px 64px !important;
   }
+  /* Drop to a single column at 767 (was 599) so the 2x2 grid
+     doesn't show stretched, content-clipped cards on most phones
+     held in landscape or on Pro Max-class viewports. */
+  .af-pillars-grid-wins {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
   .af-pillar-card-wins {
-    padding: 24px !important;
+    padding: 28px !important;
   }
   .af-pillar-card-wins h3 {
-    font-size: 1.15rem !important;
+    font-size: 1.2rem !important;
     line-height: 1.3 !important;
     text-wrap: balance !important;
   }
   .af-pillar-card-wins p {
-    font-size: 0.95rem !important;
+    font-size: 0.97rem !important;
     line-height: 1.6 !important;
   }
   .af-pillar-card-wins .af-ghost-num {
@@ -767,11 +806,10 @@
 }
 @media screen and (max-width: 599px) {
   .af-pillars-grid-wins {
-    grid-template-columns: 1fr !important;
     gap: 14px !important;
   }
   .af-pillar-card-wins {
-    padding: 22px !important;
+    padding: 24px !important;
   }
 }
 
