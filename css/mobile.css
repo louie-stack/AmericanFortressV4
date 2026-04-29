@@ -245,9 +245,18 @@
    to hit the spec tokens.
    ============================================================ */
 @media screen and (max-width: 767px) {
+  /* Home hero: lift the entire stack ~1in (96px) up so the hero
+     content sits right below the navbar with no dead band. */
   .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
-    padding-top: 64px !important;
-    padding-bottom: 64px !important;
+    padding-top: 8px !important;
+    padding-bottom: 56px !important;
+  }
+  .section_hero.hero-v2 {
+    padding-top: 0 !important;
+  }
+  .hero-wrapper-v2 {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
   .hero-content-v2.hero-2col {
     padding-left: 24px !important;
@@ -919,11 +928,23 @@
     box-shadow: 1px 0 4px rgba(0, 0, 0, 0.3) !important;
   }
 
+  /* Legend stays anchored to the visible viewport's left edge as
+     the user side-scrolls the table — without this it scrolls along
+     with the table and slides off-screen. Sticky in horizontal
+     direction holds it at the scroll-port's left edge. */
   .af-compare-legend-bottom {
     flex-wrap: wrap !important;
     gap: 8px 14px !important;
     font-size: 0.75rem !important;
-    padding: 12px !important;
+    padding: 12px 14px !important;
+    position: sticky !important;
+    left: 0 !important;
+    width: calc(100vw - 48px) !important;
+    max-width: calc(100vw - 48px) !important;
+    box-sizing: border-box !important;
+    background: #081629 !important;
+    margin-top: 8px !important;
+    z-index: 2 !important;
   }
 }
 
@@ -1584,8 +1605,10 @@
              .section_plans, .section_testimonials, .section_cta-name
    ============================================================ */
 @media screen and (max-width: 991px) {
+  /* fortressname hero: bumped top padding so the typing-name box
+     gets breathing room from the navbar (was 72 → 120, ~48px more). */
   .section_hero-name .padding-section-medium.name {
-    padding: 72px 24px 56px !important;
+    padding: 120px 24px 56px !important;
   }
   .section_why .padding-section-medium.why {
     padding: 64px 24px !important;
@@ -1617,8 +1640,11 @@
     text-wrap: balance !important;
     margin-top: 8px !important;
   }
+  /* Name-type box: drop font so longer @names don't clip the box.
+     Previous clamp(2rem, 8vw, 2.5rem) hit 40px on ~768 viewports
+     where the box width is fixed and 8+ char names overflowed. */
   .name-type {
-    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
     line-height: 1.1 !important;
   }
   .name-sub {
@@ -1638,22 +1664,56 @@
     margin-top: 24px !important;
   }
 
-  /* Why grid: stack to single column */
+  /* Why section: was rendering off-center / squashed because the
+     desktop grid-template-areas + absolute-positioned images
+     (.image-22, .image-23) leaked through. Force the whole section
+     stack back into a clean centered column with full-width content. */
+  .section_why {
+    overflow: hidden !important;
+  }
+  .section_why .padding-global,
+  .section_why .container,
+  .section_why .why-block {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+  }
   .why-block {
     gap: 24px !important;
+    align-items: stretch !important;
+    text-align: center !important;
   }
   .why-grid {
     flex-direction: column !important;
     grid-template-columns: 1fr !important;
     grid-template-areas: none !important;
+    grid-template: none !important;
     gap: 14px !important;
     display: grid !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .why-card {
     height: auto !important;
     min-height: 0 !important;
     width: 100% !important;
     padding: 24px !important;
+    padding-right: 24px !important;
+    grid-area: auto !important;
+  }
+  /* Kill absolute positioning on the per-card decorative images so
+     they sit in flow at the top of each card and don't escape. */
+  .why-card .image-22,
+  .why-card .image-23 {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    order: -1 !important;
+    margin: 0 auto 12px !important;
   }
   .why-card .img-card,
   .why-card .image-22,
@@ -1811,9 +1871,13 @@
     text-align: center !important;
     align-items: center !important;
   }
+  /* SDK h1: was wrapping to 4 lines because clamp floor (40px) +
+     "Become American" / "Fortress certified" with a hard <br> made
+     each line still wrap at narrow widths. Drop floor so 2-line
+     break renders cleanly across all phone widths. */
   .section_sdk-hero .h1_hero-sdk.sdk {
-    font-size: clamp(2.5rem, 10vw, 3rem) !important;
-    line-height: 1.1 !important;
+    font-size: clamp(1.45rem, 6.5vw, 2.25rem) !important;
+    line-height: 1.15 !important;
     text-wrap: balance !important;
     text-align: center !important;
     letter-spacing: -0.02em !important;
@@ -1874,13 +1938,21 @@
   .div-block-10 {
     padding: 18px !important;
   }
+  /* SDK feature icons: previous 56px circle / 28px image left the
+     icon graphic too small to read (chain.png nearly invisible).
+     Bump to 76px circle with 48px icon so they fill ~63% of the
+     circle (matches desktop ratio). */
   .icon-wrap {
-    width: 56px !important;
-    height: 56px !important;
+    width: 76px !important;
+    height: 76px !important;
+    padding: 14px !important;
   }
   .image-17 {
-    width: 28px !important;
-    height: 28px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    object-fit: contain !important;
   }
   .div-block-9 h2 {
     font-size: clamp(1.75rem, 7vw, 2.25rem) !important;
@@ -1989,10 +2061,20 @@
     min-height: 48px !important;
     margin-top: 24px !important;
   }
+  /* Rock image: render full-width, flush to the right edge of the
+     section so it acts as the visual anchor of the hero (was 60%
+     centered which read as a small floating thumbnail). */
   .partner-hero-block .image-29 {
-    max-width: 60% !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 0 0 auto !important;
+    margin-right: -24px !important;
     height: auto !important;
+    align-self: flex-end !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    transform: none !important;
+    position: static !important;
   }
 
   /* The offer — 3 cards stack */
@@ -2096,6 +2178,16 @@
   }
   .how-item.align-center .h3-how {
     text-wrap: balance !important;
+  }
+  /* Point 2 wraps its h3 in .div-block-16 (a flex column with text-
+     align: left + extra grid-gap). Flatten it so the h3 sits flush
+     left like the bare h3s on points 1/3/4/5. */
+  .section_how .how-item .div-block-16 {
+    display: contents !important;
+    text-align: left !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 @media screen and (max-width: 599px) {
