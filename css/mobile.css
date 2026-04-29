@@ -528,6 +528,12 @@
   .problem-main {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
+    /* brand.css:669-671 forces align-items: stretch on the 2-col
+       desktop layout. When the grid collapses to 1 col on mobile,
+       stretch is benign for content-sized rows but can introduce
+       extra gap if any descendant ever picks up a min-height. Pin
+       to start so the children always size to their own content. */
+    align-items: start !important;
   }
   .problem-right {
     padding-top: 0 !important;
@@ -586,8 +592,15 @@
     font-size: 0.78rem !important;
     padding: 4px 12px !important;
   }
+  /* problem-right uses display: flex; justify-content: space-between
+     on desktop (brand.css:670-678) to spread 3 stats top-to-bottom
+     against the tall wallet card on the left. When stacked on mobile
+     the column has no fixed height, so space-between collapses to a
+     simple stack — but force flex-start explicitly so any future
+     min-height on the parent doesn't reintroduce giant gaps. */
   .problem-right {
     gap: 16px !important;
+    justify-content: flex-start !important;
   }
   .problem-stat-item {
     padding: 18px 18px 18px 18px !important;
@@ -1076,15 +1089,50 @@
   .af-roadmap-head {
     margin-bottom: 32px !important;
   }
-  /* Promote period label to gold on mobile for clearer visual
-     hierarchy when it sits above the card body. */
+  /* Roadmap row layout — period ABOVE the body card per spec.
+     new-sections.css:1677-1698 collapses to a 2-col grid with the
+     period in the LEFT column next to the body, but the brief
+     requires the date label to sit on its own row above the card.
+     Re-define grid-template-areas: "period period" full-width on
+     row 1, then "marker body" on row 2 so the dot tracks down the
+     left edge as a visual rail. */
+  .af-roadmap-row {
+    grid-template-columns: 24px 1fr !important;
+    grid-template-areas:
+      "period period"
+      "marker body" !important;
+    gap: 0 12px !important;
+    padding-bottom: 24px !important;
+  }
   .af-roadmap-period {
+    grid-area: period !important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin-bottom: 8px !important;
+    align-self: auto !important;
+    /* Promote period label to gold on mobile for clearer visual
+       hierarchy when it sits above the card body. */
     color: var(--color-gold) !important;
     font-weight: 700 !important;
     font-size: 0.78rem !important;
     letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
-    margin-bottom: 4px !important;
+  }
+  .af-roadmap-marker {
+    grid-area: marker !important;
+    padding-top: 24px !important;
+    padding-left: 0 !important;
+    justify-content: center !important;
+  }
+  .af-roadmap-body {
+    grid-area: body !important;
+    margin-left: 0 !important;
+  }
+  /* Re-anchor the dotted vertical rail to the marker column's centre
+     so it traces down the left edge of each row (the marker col is
+     24px wide → centre = 12px). */
+  .af-roadmap-timeline::before {
+    left: 12px !important;
   }
   .af-roadmap-body {
     padding: 18px 18px 20px !important;
@@ -1129,13 +1177,25 @@
   }
 }
 @media screen and (max-width: 767px) {
+  /* Team grids drop to single column. align-items: start prevents
+     the default grid stretch from forcing equal heights across rows
+     when the team-card uses flex column with `flex-grow: 1` on its
+     paragraph (new-sections.css:715) — that combo would otherwise
+     leave dead space at the bottom of shorter cards in the stack. */
   .af-team-grid,
   .af-advisors-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
+    align-items: start !important;
   }
   .af-team-card {
     padding: 22px !important;
+    height: auto !important;
+  }
+  /* Kill flex-grow on the bio paragraph so the card collapses to
+     content height, not the row's stretched height. */
+  .af-team-card p {
+    flex-grow: 0 !important;
   }
   .af-team-photo {
     width: 80px !important;
@@ -1993,10 +2053,17 @@
   }
 
   /* Who it's for grid: keep 2-up at landscape phone widths,
-     1-up at portrait phone. */
+     1-up at portrait phone. partner-overrides.css:218-223 forces
+     grid-auto-rows: 1fr + align-items: stretch on this grid so all
+     6 cards share one row height. On a phone that means the tallest
+     card (longest copy) sets the height for every other card, leaving
+     visible empty space below the shorter cards. Drop the equal-row
+     stretch on mobile so each card sizes to its own content. */
   .who-for-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
   }
   .div-block-23 {
     width: 100% !important;
