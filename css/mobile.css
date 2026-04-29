@@ -273,9 +273,10 @@
     padding-top: 0 !important;
     margin-top: 0 !important;
   }
+  /* Halftone dot backdrop hidden on mobile — kept fighting the
+     navbar and never sat right. Section keeps its solid navy bg. */
   .section_hero.hero-v2::before {
-    top: -120px !important;
-    height: 80% !important;
+    display: none !important;
   }
   .hero-content-v2.hero-2col {
     padding-left: 24px !important;
