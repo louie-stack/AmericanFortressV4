@@ -245,9 +245,13 @@ h2 { text-transform: none; }
 
 /* Hero CTA grid — left column was minmax(400px, 500px), almost double
    the right column's width. Tighten so Reserve sits in better
-   proportion to Explore SDK and doesn't read as a banner. */
-.hero-cta-grid-v2 {
-  grid-template-columns: minmax(280px, 340px) minmax(240px, 290px) !important;
+   proportion to Explore SDK and doesn't read as a banner.
+   Desktop-only: mobile breakpoints in hero-v2-overrides.css collapse
+   the grid to a single column to fit narrow viewports. */
+@media screen and (min-width: 992px) {
+  .hero-cta-grid-v2 {
+    grid-template-columns: minmax(280px, 340px) minmax(240px, 290px) !important;
+  }
 }
 .button-2.blue:hover {
   background-color: rgba(16, 63, 110, 0.06);
@@ -388,20 +392,106 @@ h2 { text-transform: none; }
   background: var(--color-gold);
 }
 
-/* ---------- Pillar cards (Why AF wins) ----------
-   #6 Cards 02 + 03 (.is-red) match cards 01 + 04 (.is-blue) navy.
-   All four get a 1px gold stroke at 60% opacity for hierarchy.
+/* ---------- Pillar cards (Why AF wins) — premium institutional polish
+   Subtle Deep Navy base with a faint Midnight Indigo glow top-left,
+   restrained gold edge, layered drops, watermark-style numerals,
+   gold rule under each headline, off-white body copy with a single
+   Inter 600 white emphasis phrase per card.
 */
-.af-pillar-card-wins.is-red {
-  background: linear-gradient(160deg, #2f5fa0 0%, #29548a 50%, #1d3f6c 100%);
+.af-pillars-grid-wins {
+  gap: 24px !important;
+  align-items: stretch !important;
 }
+
+.af-pillar-card-wins,
 .af-pillar-card-wins.is-blue,
 .af-pillar-card-wins.is-red {
-  border: 1px solid rgba(201, 168, 76, 0.6);
+  background:
+    linear-gradient(135deg, rgba(24, 33, 69, 0.4) 0%, rgba(24, 33, 69, 0) 55%),
+    #0D1B35;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  transition:
+    border-color 240ms ease-out,
+    box-shadow 240ms ease-out,
+    transform 240ms ease-out;
+  height: 100%;
+  cursor: default;
 }
+
 .af-pillar-card-wins.is-blue:hover,
-.af-pillar-card-wins.is-red:hover {
-  border-color: rgba(201, 168, 76, 0.85);
+.af-pillar-card-wins.is-red:hover,
+.af-pillar-card-wins:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateY(-4px);
+  box-shadow:
+    0 32px 60px rgba(0, 0, 0, 0.38),
+    0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* Headline: Sora 700 sentence-case white, with a 32x2px gold rule
+   directly underneath as a visual anchor between title and body. */
+.af-pillar-card-wins h3 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  margin: 0 !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.375rem, 1.55vw, 1.5rem) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.af-pillar-card-wins h3::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #C9A84C;
+  margin: 16px 0 20px;
+}
+
+/* Body: Inter 400, off-white at 75% opacity, left-aligned. */
+.af-pillar-card-wins p {
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin: 0 !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  text-align: left !important;
+  max-width: none !important;
+}
+
+/* Skim-readable hierarchy: one Inter 600 white phrase per card. */
+.af-pillar-card-wins .af-pillar-emph {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Ghost numerals: Sora 800 watermark-scale gold @ 12% opacity,
+   pinned 24px from top-right edges. */
+.af-pillar-card-wins .af-ghost-num {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(5.5rem, 6.5vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(201, 168, 76, 0.12);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+  .af-pillars-grid-wins { gap: 16px !important; }
+  .af-pillar-card-wins { padding: 24px; }
+  .af-pillar-card-wins .af-ghost-num { font-size: 4.5rem; top: 16px; right: 16px; }
 }
 
 /* ---------- Comparison + Patent section ----------
