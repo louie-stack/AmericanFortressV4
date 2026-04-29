@@ -245,10 +245,12 @@
    to hit the spec tokens.
    ============================================================ */
 @media screen and (max-width: 767px) {
-  /* Home hero: lift the entire stack ~1in (96px) up so the hero
-     content sits right below the navbar with no dead band. */
+  /* Home hero: content sits ~48px below navbar (was 8px — too high).
+     Dots/halftone backdrop pulled UP ~48px (its `::before` `top`
+     dropped from -36 to -84) so the dots appear higher on the page
+     than the content. */
   .section_hero.hero-v2 .padding-global.padding-section-xl.hero {
-    padding-top: 8px !important;
+    padding-top: 56px !important;
     padding-bottom: 56px !important;
   }
   .section_hero.hero-v2 {
@@ -257,6 +259,9 @@
   .hero-wrapper-v2 {
     padding-top: 0 !important;
     margin-top: 0 !important;
+  }
+  .section_hero.hero-v2::before {
+    top: -84px !important;
   }
   .hero-content-v2.hero-2col {
     padding-left: 24px !important;
@@ -1862,6 +1867,11 @@
   }
 }
 @media screen and (max-width: 767px) {
+  /* SDK hero: bump top padding ~32px so the headline sits below
+     the navbar with breathing room (was 72 → 104). */
+  .section_sdk-hero .padding-section-medium.sdk {
+    padding-top: 104px !important;
+  }
   /* Hero matches homepage hero treatment minus wallet UI.
      Badge sits below hero copy on mobile so the headline gets
      the visual priority it deserves. */
