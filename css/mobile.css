@@ -442,14 +442,25 @@
    STATS BAR (.hero-stats-bar)
    ============================================================ */
 @media screen and (max-width: 767px) {
+  /* Switch to flex-column on mobile and kill the 100vw breakout +
+     negative margins (those were clipping 2 of the 3 stats inside
+     the parent's overflow: hidden — only the middle stat showed). */
   .hero-stats-bar {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: none !important;
     gap: 0 !important;
   }
   .hero-stat-item {
+    display: block !important;
+    width: 100% !important;
     border-right: none !important;
     border-bottom: 1px solid rgba(152, 180, 224, .2) !important;
     padding: 1.5rem 1rem !important;
+    text-align: center !important;
   }
   .hero-stat-item:last-child {
     border-bottom: none !important;
