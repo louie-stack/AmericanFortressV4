@@ -406,15 +406,11 @@ h2 { text-transform: none; }
 .af-pillar-card-wins,
 .af-pillar-card-wins.is-blue,
 .af-pillar-card-wins.is-red {
-  background:
-    linear-gradient(135deg, rgba(24, 33, 69, 0.4) 0%, rgba(24, 33, 69, 0) 55%),
-    #0D1B35;
-  border: 1px solid rgba(201, 168, 76, 0.15);
+  background: var(--af-bevel-dark-bg);
+  border: var(--af-bevel-dark-border);
   border-radius: 16px;
   padding: 32px;
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.3),
-    0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--af-bevel-dark-highlight), var(--af-bevel-dark-shadow);
   transition:
     border-color 240ms ease-out,
     box-shadow 240ms ease-out,
@@ -426,11 +422,8 @@ h2 { text-transform: none; }
 .af-pillar-card-wins.is-blue:hover,
 .af-pillar-card-wins.is-red:hover,
 .af-pillar-card-wins:hover {
-  border-color: rgba(201, 168, 76, 0.35);
   transform: translateY(-4px);
-  box-shadow:
-    0 32px 60px rgba(0, 0, 0, 0.38),
-    0 12px 22px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--af-bevel-dark-highlight), var(--af-bevel-dark-hover-shadow);
 }
 
 /* Headline: Sora 700 sentence-case white, with a 32x2px gold rule

@@ -6,7 +6,17 @@
 }
 
 .section-problem::before {
-  content: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 36px;
+  background-color: #081D43;
+  -webkit-mask: url('../images/bottom.png') center top / 100% 36px no-repeat;
+  mask: url('../images/bottom.png') center top / 100% 36px no-repeat;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .section-problem .vector,
