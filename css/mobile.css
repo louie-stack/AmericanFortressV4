@@ -193,6 +193,49 @@
   .image-18 {
     display: none !important;
   }
+
+  /* Webflow IX2 produces .w-nav-overlay outside the navbar component
+     when the menu opens. Promote it to a true full-screen Deep Navy
+     surface so the navbar1_menu inside renders edge-to-edge. */
+  .w-nav-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background-color: #0D1B35 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 1000 !important;
+  }
+  /* When the overlay is owned by the menu, suppress its inner-shadow
+     and keep our navbar1_menu styling fully responsible for layout. */
+  .w-nav-overlay .navbar1_menu {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    box-shadow: none !important;
+  }
+
+  /* Open-state visual signal on the hamburger: the button gets the
+     w--open class from Webflow when the menu is toggled. Keep its
+     hit area and elevate it above the overlay so a second tap closes. */
+  .navbar1_menu-button.w--open {
+    z-index: 1001 !important;
+    background: transparent !important;
+  }
+
+  /* Body scroll lock while menu is open. Webflow adds w--nav-menu-open
+     to the html element when the menu is shown. */
+  html.w--nav-menu-open,
+  html.w--nav-menu-open body {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
 }
 
 /* ============================================================
@@ -313,19 +356,68 @@
   }
 }
 @media screen and (max-width: 374px) {
-  /* Tighten further on iPhone SE 1st gen */
+  /* Tighten further on iPhone SE 1st gen — wallet card density pass.
+     We keep all 4 tabs (Send/Receive/Buy/Sell) because they are part
+     of the wallet's identity, but compress padding, gaps, and type
+     so the whole card fits a 320px viewport without feeling stuffed. */
   .hero-2col .hero-right .hide-balance-card {
-    width: calc(100vw - 40px) !important;
+    width: calc(100vw - 32px) !important;
   }
   .hide-balance-card {
-    padding: 16px !important;
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+  /* Tighter row gaps between Asset / Amount / Send-to */
+  .hide-balance-card .hb-field-wrap {
+    margin-bottom: 6px !important;
+  }
+  /* Tabs row sits flush with reduced padding/font; flex:1 already
+     distributes width so 4 tabs fit within 288px (320 - 32). */
+  .hb-tabs {
+    gap: 4px !important;
   }
   .hb-tab {
-    font-size: 0.85rem !important;
-    padding: 7px 10px !important;
+    font-size: 0.8rem !important;
+    padding: 6px 8px !important;
+    letter-spacing: 0 !important;
+  }
+  .hb-label {
+    font-size: 0.78rem !important;
+    margin-bottom: 2px !important;
+  }
+  .hb-field {
+    min-height: 44px !important;
+    padding: 6px 10px !important;
   }
   .hb-field strong {
-    font-size: 1rem !important;
+    font-size: 0.98rem !important;
+  }
+  .hb-field span {
+    font-size: 0.78rem !important;
+  }
+  .hb-chevron {
+    font-size: 0.9rem !important;
+  }
+  /* Hide-balance toggle: tighter spacing at 320 */
+  .hb-toggle {
+    margin: 4px 0 4px !important;
+    padding: 4px 0 !important;
+    gap: 10px !important;
+  }
+  .hb-toggle > span:first-child {
+    font-size: 0.85rem !important;
+  }
+  .hb-footer {
+    margin-bottom: 6px !important;
+  }
+  .hb-state {
+    font-size: 0.85rem !important;
+  }
+  .hb-send-btn {
+    min-height: 44px !important;
+  }
+  .hb-send-btn .cta-text {
+    font-size: 0.98rem !important;
   }
   .hero-cta-grid-v2 .cta-text {
     font-size: 0.95rem !important;
@@ -1032,21 +1124,39 @@
   .af-advisors-subhead {
     margin-top: 40px !important;
   }
-  /* Bump social icon tap targets above 44px standard isn't possible
-     without breaking the row, but go from 32 → 40 so they pass a
-     comfortable thumb tap and add a gap between them. */
+  /* Social icons: each team card has at most 2 icons (LinkedIn + X),
+     so 44x44 fits with room to spare on every viewport. Standard
+     iOS/MD tap target is 44px — meet it. */
   .af-team-socials {
-    gap: 10px !important;
+    gap: 8px !important;
     margin-top: 16px !important;
     padding-top: 14px !important;
   }
   .af-team-socials a {
-    width: 40px !important;
-    height: 40px !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .af-team-socials svg {
     width: 18px !important;
     height: 18px !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  /* iPhone SE 1st gen: shrink avatar slightly so the 44px social
+     row never compromises text breathing room. */
+  .af-team-photo {
+    width: 72px !important;
+    height: 72px !important;
+    margin-bottom: 12px !important;
+  }
+  .af-team-card {
+    padding: 20px !important;
+  }
+  .af-team-socials {
+    gap: 6px !important;
   }
 }
 
@@ -1145,6 +1255,16 @@
   }
   .faq4_answer .w-richtext li {
     margin-bottom: 6px !important;
+  }
+}
+@media screen and (max-width: 374px) {
+  /* Slightly tighter FAQ row at 320px so the question text gets
+     more breathing room next to the +/− icon. */
+  .faq4_question {
+    gap: 0.75rem !important;
+  }
+  .h3-faq {
+    font-size: 0.95rem !important;
   }
 }
 
@@ -1934,6 +2054,114 @@
   /* Disable any background-attachment: fixed on mobile (jank) */
   * {
     background-attachment: scroll !important;
+  }
+}
+
+/* ============================================================
+   FINISH-LINE STRESS TEST — 320px overflow safety net
+   Anywhere a long string, technical phrase, contract address,
+   or URL might overflow at the narrowest viewport.
+   ============================================================ */
+@media screen and (max-width: 599px) {
+  /* Long text strings break gracefully across phone viewports. */
+  .wallet-address,
+  .hb-stealth code,
+  .af-tokenomics-metric-value,
+  .footer-left p,
+  .partner-hero-block .text-size-large,
+  .testimonial-job,
+  .para-testimonial,
+  .publication-h3 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Infrastructure footer chips: ensure each chip never overflows
+     even when the OS forces a slightly larger system font. */
+  .af-infrastructure-chips span {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  /* Extra-defensive: the longest chip "U.S. Patent No. 12,412,162 B2"
+     is 30 chars. At 0.6rem with 5px padding it just fits 256px, but
+     a slightly-zoomed user agent will overflow. Allow wrap. */
+  .af-infrastructure-chips {
+    gap: 5px !important;
+  }
+  .af-infrastructure-chips span {
+    line-height: 1.3 !important;
+  }
+
+  /* Comparison legend: stack vertically at 320 so each pip + label
+     pair stays on one line. */
+  .af-compare-legend-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  /* Trusted-by heading wraps cleanly — let it. */
+  .hide-balance-section .hide-balance-logos .text-6 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Hero stealth indicator pill could overflow on long strings;
+     allow it to wrap and keep its border-radius. */
+  .hero-stealth-indicator {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+
+  /* Footer logo: cap a touch smaller so on a 320px viewport with
+     24px gutters the logo never touches the edge. */
+  .footer-left .logo_footer,
+  .footer-left .vector-3 {
+    height: 36px !important;
+    max-width: 180px !important;
+  }
+}
+
+/* ============================================================
+   FINAL DENSITY — vertical-rhythm tweaks for very narrow phones
+   ============================================================ */
+@media screen and (max-width: 374px) {
+  /* Reduce section paddings a touch on iPhone SE so users can see
+     section transitions without excess scroll. */
+  .how-works-section,
+  .conf-machine-section,
+  .af-pillars-wins,
+  .af-ip-patent-new,
+  .af-tokenomics-new,
+  .af-roadmap-new,
+  .section_publications .padding-section-xl,
+  .section_faq .padding-section-xxl,
+  .af-team-section .padding-section-xxl {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .af-infrastructure {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .section_footer .padding-section-large.footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hero CTAs: ensure both stacked CTAs read cleanly on the
+     narrowest viewport. Already 100% width; just reduce horizontal
+     padding a touch so the gold border doesn't crop a long label. */
+  .hero-cta-grid-v2 .cta.hero {
+    padding: 14px 14px !important;
+  }
+  .af-infrastructure-buttons .cta.hero {
+    padding: 14px 14px !important;
+    font-size: 0.95rem !important;
   }
 }
 
