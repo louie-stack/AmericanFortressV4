@@ -377,7 +377,7 @@ h2 { text-transform: none; }
 
 .hide-balance-logos .logo-grid .logo-litvm,
 .hide-balance-logos .logo-grid .logo-litvm img {
-  opacity: 1 !important;
+  opacity: 0.92 !important;
   transform: none !important;
   transition: none !important;
   animation: none !important;

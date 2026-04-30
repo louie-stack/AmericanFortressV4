@@ -2432,3 +2432,61 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   FORTRESSNAME — Why-card corner/edge images
+   The two cards with bespoke decorative images (._2col, ._6) had
+   a generic mobile reset (position:static, centered margin) that
+   killed their corner-art intent. Restore corner placement on
+   mobile so each image sits at its designed anchor.
+   ============================================================ */
+@media screen and (max-width: 767px) {
+  .why-card._2col,
+  .why-card._6 {
+    position: relative !important;
+    padding-top: 110px !important;
+    overflow: hidden !important;
+  }
+
+  /* Built-in privacy: lock-big.png pins to top-right corner */
+  .why-card._2col .image-23 {
+    position: absolute !important;
+    inset: 0 0 auto auto !important;
+    margin: 0 !important;
+    order: 0 !important;
+    width: auto !important;
+    max-width: 45% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: top right !important;
+    transform: none !important;
+  }
+
+  /* Publicly shareable: lock-id.png centered, flush at top edge */
+  .why-card._6 .image-22 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    order: 0 !important;
+    width: auto !important;
+    max-width: 60% !important;
+    height: auto !important;
+  }
+}
+
+/* ============================================================
+   PARTNER — Rock image flush to section bottom
+   .image-29 is a bottom-right corner illustration. The mobile
+   reset stacks it under the copy with the section's 72px bottom
+   padding still in play, leaving a gap. Pull it down by the
+   padding amount so its bottom touches the section bottom.
+   ============================================================ */
+@media screen and (max-width: 767px) {
+  .section_partner-hero .partner-hero-block .image-29 {
+    margin-bottom: -72px !important;
+  }
+}
