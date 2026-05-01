@@ -849,6 +849,24 @@
   transform: scale(1.35);
 }
 
+/* Layout compensation for the two scaled logos. Arbitrum and
+   QuickSwap source files have transparent clearspace padding, so
+   transform: scale grows the visual content while the layout bbox
+   stays narrow — the scaled image overflows into the flex gap on
+   each side. We can't put padding on the <img> itself (the transform
+   would scale the padding too). Instead, pad the parent <a> wrapper
+   so the layout grows in step with the scale, keeping inter-logo
+   gaps visually uniform. Values are tuned per breakpoint because the
+   natural img bbox width is height-driven. */
+.af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
+  padding-left: 44px;
+  padding-right: 44px;
+}
+.af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .af-partner-logo:hover {
   opacity: 1;
 }
@@ -927,6 +945,14 @@
   .af-partner-logo { height: 30px; max-width: 160px; }
   .af-partner-litvm { height: 30px; }
   .af-partner-litvm img:first-child { height: 26px; }
+  .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
 }
 
 /* Mobile: ~3-per-row wrap, no marquee */
@@ -955,6 +981,14 @@
   .af-partner-logo { height: 22px; max-width: 88px; }
   .af-partner-litvm { height: 22px; }
   .af-partner-litvm img:first-child { height: 18px; }
+  .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
 }
 
 .af-infrastructure {
