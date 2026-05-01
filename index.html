@@ -192,15 +192,38 @@ html, body {
           <div class="w-layout-blockcontainer container w-container">
             <div class="frame-1321316290">
               <h2 class="text-6"><strong>Trusted by the industry's best</strong></h2>
-              <div class="logo-grid">
-                <a href="https://metamask.io/" target="_blank" class="w-inline-block"><img src="images/partners/metamask.svg" loading="lazy" alt="MetaMask" class="logo"></a>
-                <a href="https://www.litecoin.net/" target="_blank" class="w-inline-block"><img src="images/partners/litecoin.svg" loading="lazy" alt="Litecoin Foundation" class="logo"></a>
-                <a href="https://www.dash.org/" target="_blank" class="w-inline-block"><img src="images/partners/dash.svg" loading="lazy" alt="Dash" class="logo"></a>
-                <a href="https://www.0gfoundation.ai/" target="_blank" class="w-inline-block"><img src="images/partners/0g.png" loading="lazy" alt="0G Foundation" class="logo"></a>
-                <a href="https://www.base.org/" target="_blank" class="w-inline-block"><img src="images/partners/base.svg" loading="lazy" alt="Base" class="logo"></a>
-                <span class="logo logo-litvm"><img src="images/partners/litvm-star.svg" width="39" height="38" loading="lazy" alt=""><img src="images/partners/litvm-text.svg" width="139" height="48" loading="lazy" alt="LitVM"></span>
-                <a href="https://sg.brinks.com/" target="_blank" class="w-inline-block"><img src="images/partners/brinks.png" loading="lazy" alt="Brinks" class="logo"></a>
-                <a href="https://ethermail.com/" target="_blank" class="w-inline-block"><img src="images/partners/ethermail.svg" loading="lazy" alt="EtherMail" class="logo"></a>
+              <!-- TODO: Two partner logos missing pending authoritative source.
+                   - Arbitrum: arbitrum.io/brand-kit is Cloudflare-protected and rejects automated fetches; arbiscan.io/brandassets serves the Arbiscan (block explorer) logo, not the L2. Add when brand-kit access is provided.
+                   - Wire Protocol: wire.network is a JS-rendered stub page with no static logo asset and no public brand kit. Add when source is provided. -->
+              <div class="af-partners-carousel">
+                <div class="af-partners-track">
+                  <div class="af-partners-group">
+                    <a href="https://metamask.io/" target="_blank" class="w-inline-block"><img src="images/partners/metamask.svg" loading="lazy" alt="MetaMask" class="af-partner-logo"></a>
+                    <a href="https://solana.com/" target="_blank" class="w-inline-block"><img src="images/partners/solana.svg" loading="lazy" alt="Solana" class="af-partner-logo"></a>
+                    <a href="https://sg.brinks.com/" target="_blank" class="w-inline-block"><img src="images/partners/brinks.png" loading="lazy" alt="Brinks" class="af-partner-logo"></a>
+                    <a href="https://www.litecoin.net/" target="_blank" class="w-inline-block"><img src="images/partners/litecoin.svg" loading="lazy" alt="Litecoin Foundation" class="af-partner-logo"></a>
+                    <a href="https://www.base.org/" target="_blank" class="w-inline-block"><img src="images/partners/base.svg" loading="lazy" alt="Base" class="af-partner-logo"></a>
+                    <a href="https://www.0gfoundation.ai/" target="_blank" class="w-inline-block"><img src="images/partners/0g.png" loading="lazy" alt="0G Network" class="af-partner-logo"></a>
+                    <a href="https://ethermail.com/" target="_blank" class="w-inline-block"><img src="images/partners/ethermail.svg" loading="lazy" alt="EtherMail" class="af-partner-logo"></a>
+                    <a href="https://www.dash.org/" target="_blank" class="w-inline-block"><img src="images/partners/dash.svg" loading="lazy" alt="Dash" class="af-partner-logo"></a>
+                    <span class="af-partner-litvm"><img src="images/partners/litvm-star.svg" width="39" height="38" loading="lazy" alt=""><img src="images/partners/litvm-text.svg" width="139" height="48" loading="lazy" alt="LitVM"></span>
+                    <a href="https://quickswap.exchange/" target="_blank" class="w-inline-block"><img src="images/partners/quickswap.png" loading="lazy" alt="QuickSwap" class="af-partner-logo"></a>
+                    <a href="https://www.qu.ai/" target="_blank" class="w-inline-block"><img src="images/partners/quai.png" loading="lazy" alt="Quai Network" class="af-partner-logo"></a>
+                  </div>
+                  <div class="af-partners-group af-partners-group--clone" aria-hidden="true">
+                    <a href="https://metamask.io/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/metamask.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://solana.com/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/solana.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://sg.brinks.com/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/brinks.png" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://www.litecoin.net/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/litecoin.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://www.base.org/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/base.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://www.0gfoundation.ai/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/0g.png" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://ethermail.com/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/ethermail.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://www.dash.org/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/dash.svg" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <span class="af-partner-litvm"><img src="images/partners/litvm-star.svg" width="39" height="38" loading="lazy" alt=""><img src="images/partners/litvm-text.svg" width="139" height="48" loading="lazy" alt=""></span>
+                    <a href="https://quickswap.exchange/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/quickswap.png" loading="lazy" alt="" class="af-partner-logo"></a>
+                    <a href="https://www.qu.ai/" target="_blank" tabindex="-1" class="w-inline-block"><img src="images/partners/quai.png" loading="lazy" alt="" class="af-partner-logo"></a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

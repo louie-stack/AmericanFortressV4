@@ -782,6 +782,7 @@
   border-bottom: 1px solid rgba(148, 181, 227, 0.12);
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .af-partners-carousel::before,
@@ -871,18 +872,77 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .af-partners-track { animation: none; }
+  .af-partners-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .af-partners-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 56px;
+    padding: 0 24px;
+    flex-shrink: 1;
+  }
+  .af-partners-group--clone { display: none; }
+  .af-partners-carousel::before,
+  .af-partners-carousel::after { display: none; }
 }
 
-@media screen and (max-width: 767px) {
-  .af-partners-carousel { padding: 22px 0 24px; }
-  .af-partners-group { gap: 56px; padding: 0 28px; }
-  .af-partner-logo { height: 26px; }
-  .af-partner-litvm { height: 26px; }
-  .af-partner-litvm img:first-child { height: 22px; }
+/* Tablet: 2-row static grid, no marquee */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .af-partners-carousel {
+    padding: 32px 24px;
+    overflow: visible;
+  }
   .af-partners-carousel::before,
-  .af-partners-carousel::after { width: 70px; }
-  .af-partners-track { animation-duration: 34s; }
+  .af-partners-carousel::after { display: none; }
+  .af-partners-track {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+  }
+  .af-partners-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 56px;
+    padding: 0;
+    flex-shrink: 1;
+  }
+  .af-partners-group--clone { display: none; }
+  .af-partner-logo { height: 30px; max-width: 160px; }
+  .af-partner-litvm { height: 30px; }
+  .af-partner-litvm img:first-child { height: 26px; }
+}
+
+/* Mobile: ~3-per-row wrap, no marquee */
+@media screen and (max-width: 767px) {
+  .af-partners-carousel {
+    padding: 22px 16px 24px;
+    overflow: visible;
+  }
+  .af-partners-carousel::before,
+  .af-partners-carousel::after { display: none; }
+  .af-partners-track {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+    gap: 0;
+  }
+  .af-partners-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 32px;
+    padding: 0;
+    flex-shrink: 1;
+  }
+  .af-partners-group--clone { display: none; }
+  .af-partner-logo { height: 22px; max-width: 88px; }
+  .af-partner-litvm { height: 22px; }
+  .af-partner-litvm img:first-child { height: 18px; }
 }
 
 .af-infrastructure {
