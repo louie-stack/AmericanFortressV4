@@ -846,6 +846,7 @@
    survives as light/dark greys against the navy carousel bg. */
 .af-partner-logo[src*="quickswap"] {
   filter: grayscale(1) brightness(1.45) contrast(1.05);
+  transform: scale(1.35);
 }
 
 .af-partner-logo:hover {
