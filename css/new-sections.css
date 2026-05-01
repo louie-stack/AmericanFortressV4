@@ -837,7 +837,16 @@
   display: inline-block;
 }
 
-.af-partner-logo[src*="arbitrum"] { transform: scale(1.55); }
+.af-partner-logo[src*="arbitrum"] { transform: scale(2); }
+
+/* QuickSwap: complex multi-tone icon (light + dark blue dragon on
+   blue badge). brightness(0) invert(1) crushes all colors to white
+   and erases internal detail, so the icon reads as a solid blob.
+   Replace with grayscale + brightness so the dragon's contrast
+   survives as light/dark greys against the navy carousel bg. */
+.af-partner-logo[src*="quickswap"] {
+  filter: grayscale(1) brightness(1.45) contrast(1.05);
+}
 
 .af-partner-logo:hover {
   opacity: 1;
