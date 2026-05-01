@@ -1670,37 +1670,40 @@
   .af-roadmap-new { padding: 66px 0 80px; }
   .af-roadmap-head { margin-bottom: 42px; }
 
-  .af-roadmap-timeline::before {
-    left: 14px;
-  }
+  .af-roadmap-timeline::before { display: none; }
 
   .af-roadmap-row {
-    grid-template-columns: 40px 1fr;
-    grid-template-areas: "marker body" "period body";
-    gap: 0 14px;
-    padding-bottom: 26px;
+    display: block;
+    grid-template-columns: none;
+    grid-template-areas: none;
+    gap: 0;
+    padding-bottom: 0;
+    margin-bottom: 32px;
   }
 
-  .af-roadmap-marker {
-    grid-area: marker;
-    justify-content: flex-start;
-    padding-top: 18px;
-    padding-left: 7px;
-  }
+  .af-roadmap-row:last-child { margin-bottom: 0; }
+
+  .af-roadmap-marker { display: none; }
 
   .af-roadmap-period {
-    grid-area: period;
+    display: block;
+    width: 100%;
+    padding: 0 32px;
+    margin: 0 0 12px;
     text-align: left;
-    padding-right: 0;
-    padding-top: 4px;
-    font-size: 0.88rem;
-    align-self: flex-start;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C9A84C;
   }
 
   .af-roadmap-body {
-    grid-area: body;
+    display: block;
+    width: 100%;
     margin-left: 0;
-    padding: 16px 18px;
+    padding: 24px;
   }
 
   .af-roadmap-body h3 { font-size: 0.95rem; }
