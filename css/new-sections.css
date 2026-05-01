@@ -837,6 +837,8 @@
   display: inline-block;
 }
 
+.af-partner-logo[src*="arbitrum"] { transform: scale(1.55); }
+
 .af-partner-logo:hover {
   opacity: 1;
 }
