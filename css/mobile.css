@@ -2316,9 +2316,11 @@
 }
 
 @media screen and (max-width: 374px) {
-  /* Extra-defensive: the longest chip "U.S. Patent No. 12,412,162 B2"
-     is 30 chars. At 0.6rem with 5px padding it just fits 256px, but
-     a slightly-zoomed user agent will overflow. Allow wrap. */
+  /* Extra-defensive: the longest chip "Brinks Exclusive Partner" is
+     24 chars. At 0.6rem with 9px horizontal padding it fits a 320px
+     viewport with room to spare, but a slightly-zoomed user agent or
+     larger system font could still push it over. Wrap is allowed by
+     the @599px rule above; tighten the gap here. */
   .af-infrastructure-chips {
     gap: 5px !important;
   }
