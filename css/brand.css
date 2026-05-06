@@ -889,3 +889,17 @@ h2.h2,
   letter-spacing: -0.02em !important;
   margin-bottom: 1.25rem !important;
 }
+
+.navbar1_component {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.image-18 {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+}
+

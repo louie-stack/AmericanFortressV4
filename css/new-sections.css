@@ -826,7 +826,7 @@
 }
 
 .af-partner-logo {
-  height: 34px;
+  height: 32px;
   width: auto;
   max-width: 220px;
   object-fit: contain;
@@ -852,19 +852,19 @@
 /* Layout compensation for the two scaled logos. Arbitrum and
    QuickSwap source files have transparent clearspace padding, so
    transform: scale grows the visual content while the layout bbox
-   stays narrow — the scaled image overflows into the flex gap on
-   each side. We can't put padding on the <img> itself (the transform
-   would scale the padding too). Instead, pad the parent <a> wrapper
-   so the layout grows in step with the scale, keeping inter-logo
-   gaps visually uniform. Values are tuned per breakpoint because the
-   natural img bbox width is height-driven. */
+   stays narrow — the scaled image would otherwise overflow into the
+   flex gap on each side. We can't put padding on the <img> itself
+   (the transform scales the padding too). Instead, pad the parent
+   <a> wrapper so the layout grows in step with the scale, keeping
+   inter-logo gaps visually uniform. With uniform max-height: 32 +
+   max-width: 140 across breakpoints, padding values are also uniform. */
 .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
-  padding-left: 44px;
-  padding-right: 44px;
+  padding-left: 41px;
+  padding-right: 41px;
 }
 .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .af-partner-logo:hover {
@@ -875,7 +875,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 34px;
+  height: 32px;
   filter: brightness(0) invert(1);
   opacity: 0.72;
   transition: opacity 0.2s ease;
@@ -893,7 +893,7 @@
 }
 
 .af-partner-litvm img:first-child {
-  height: 30px;
+  height: 28px;
 }
 
 @keyframes af-partners-scroll {
@@ -942,17 +942,6 @@
     flex-shrink: 1;
   }
   .af-partners-group--clone { display: none; }
-  .af-partner-logo { height: 30px; max-width: 160px; }
-  .af-partner-litvm { height: 30px; }
-  .af-partner-litvm img:first-child { height: 26px; }
-  .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
-    padding-left: 39px;
-    padding-right: 39px;
-  }
-  .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
-    padding-left: 17px;
-    padding-right: 17px;
-  }
 }
 
 /* Mobile: ~3-per-row wrap, no marquee */
@@ -978,17 +967,6 @@
     flex-shrink: 1;
   }
   .af-partners-group--clone { display: none; }
-  .af-partner-logo { height: 22px; max-width: 88px; }
-  .af-partner-litvm { height: 22px; }
-  .af-partner-litvm img:first-child { height: 18px; }
-  .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]) {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-  .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
-    padding-left: 13px;
-    padding-right: 13px;
-  }
 }
 
 .af-infrastructure {
@@ -1007,26 +985,6 @@
 
 .af-infrastructure-content {
   max-width: 720px;
-}
-
-.af-infrastructure-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 34px;
-}
-
-.af-infrastructure-chips span {
-  border: 1px solid rgba(132, 170, 245, 0.32);
-  border-radius: 999px;
-  padding: 8px 18px;
-  color: #b9d0f7;
-  font-family: Sora, Arial, sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(8, 25, 58, 0.42);
-  white-space: nowrap;
 }
 
 .af-infrastructure-title {
@@ -1111,8 +1069,6 @@
 
 @media screen and (max-width: 767px) {
   .af-infrastructure { padding: 56px 0 64px; }
-  .af-infrastructure-chips { gap: 8px; margin-bottom: 22px; }
-  .af-infrastructure-chips span { font-size: 0.62rem; padding: 6px 12px; }
   .af-infrastructure-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
   .af-infrastructure-body { font-size: 1rem; margin-bottom: 24px; }
   .af-infrastructure-buttons .cta.hero { padding: 16px 22px; }
