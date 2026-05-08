@@ -517,52 +517,56 @@
     text-wrap: balance !important;
     margin-bottom: 8px !important;
   }
+  /* Switch to a 3-col grid so each logo sits in its own cell at
+     a consistent baseline. Center logos within their cell.
+     Avoids the flex-wrap "messy row" when wider logos push
+     others to a new line at unpredictable points. */
   .hide-balance-section .logo-grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px 16px !important;
     align-items: center !important;
-    gap: 28px 32px !important;
+    justify-items: center !important;
   }
-  /* Brand-strip ergonomics: cap by HEIGHT so all logos sit on the
-     same optical baseline despite their wildly different aspect
-     ratios (Brinks ~5.7:1 vs 0G ~1.6:1). max-width is a fallback
-     so very wide logos don't dominate the row. */
   .hide-balance-section .logo-grid img.logo {
     height: 32px !important;
     max-height: 32px !important;
-    max-width: 130px !important;
+    max-width: 100% !important;
     width: auto !important;
     object-fit: contain !important;
-    flex: 0 0 auto !important;
+    display: block !important;
   }
   .hide-balance-section .logo-grid .logo-litvm {
     height: 32px !important;
     max-height: 32px !important;
-    max-width: 130px !important;
+    max-width: 100% !important;
     width: auto !important;
-    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .hide-balance-section .logo-grid .logo-litvm img {
     height: 100% !important;
     width: auto !important;
+    max-width: 100% !important;
     object-fit: contain !important;
   }
 }
 @media screen and (max-width: 374px) {
-  /* iPhone SE 1st gen: tighter caps so 2-3 per row fits with
-     comfortable gap and the row stays balanced. */
+  /* iPhone SE 1st gen: drop to 2 columns so each cell has more
+     horizontal room; tighten gaps and logo cap. */
   .hide-balance-section .hide-balance-logos {
     padding: 0 16px !important;
   }
   .hide-balance-section .logo-grid {
-    gap: 22px 24px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px 14px !important;
   }
   .hide-balance-section .logo-grid img.logo,
   .hide-balance-section .logo-grid .logo-litvm {
     height: 28px !important;
     max-height: 28px !important;
-    max-width: 110px !important;
+    max-width: 100% !important;
   }
 }
 
@@ -1531,10 +1535,15 @@
   .footer .text-field,
   .section_footer .text-field {
     width: 100% !important;
-    height: 48px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
     font-size: 16px !important; /* prevents iOS zoom */
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     box-sizing: border-box !important;
+    /* Override desktop's flex:1 1 240px which stretches the input
+       vertically inside the column-flex form on mobile. */
+    flex: 0 0 auto !important;
   }
   .footer .submit-button,
   .section_footer .submit-button {
