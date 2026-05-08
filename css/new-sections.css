@@ -944,8 +944,73 @@
   .af-partners-group--clone { display: none; }
 }
 
-/* Mobile: ~3-per-row wrap, no marquee */
+/* Mobile: marquee carousel — same animation as desktop, scaled.
+   Replaces the prior wrapped-grid mobile fallback (the wrap produced
+   inconsistent row counts and uneven logo weights). Single row,
+   auto-scrolling, infinite loop, paused on touch. */
 @media screen and (max-width: 767px) {
+  .af-partners-carousel {
+    padding: 20px 0 22px;
+    overflow: hidden;
+  }
+  .af-partners-carousel::before,
+  .af-partners-carousel::after {
+    display: block;
+    width: 56px;
+  }
+  .af-partners-track {
+    width: max-content;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    animation: af-partners-scroll 30s linear infinite;
+    gap: 0;
+  }
+  .af-partners-track:active,
+  .af-partners-carousel:active .af-partners-track {
+    animation-play-state: paused;
+  }
+  .af-partners-group {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 0 20px;
+    flex-shrink: 0;
+  }
+  .af-partners-group--clone { display: flex; }
+
+  /* Uniform mobile logo sizing: 28px tall, capped at 100px wide so
+     no single mark dominates (Brinks/Solana/EtherMail were eating
+     the row at the prior 32px desktop height). Explicit height is
+     required because several logos are SVGs without intrinsic
+     width/height attrs — height: auto would collapse them to 0. */
+  .af-partner-logo {
+    height: 28px;
+    max-height: 28px;
+    max-width: 100px;
+  }
+
+  /* Cancel desktop scale-up on Arbitrum + QuickSwap so all logos
+     read at uniform weight on mobile. The wrapper padding that
+     compensated for those scales is also zeroed out. */
+  .af-partner-logo[src*="arbitrum"] { transform: none; }
+  .af-partner-logo[src*="quickswap"] {
+    filter: grayscale(1) brightness(1.45) contrast(1.05);
+    transform: none;
+  }
+  .af-partners-group a:has(.af-partner-logo[src*="arbitrum"]),
+  .af-partners-group a:has(.af-partner-logo[src*="quickswap"]) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .af-partner-litvm { height: 28px; }
+  .af-partner-litvm img:first-child { height: 24px; }
+}
+
+/* Mobile + reduced-motion: static 2-per-row grid with uniform
+   28px max-height. Placed after the mobile marquee block so it
+   wins the cascade when the user has prefers-reduced-motion set. */
+@media screen and (max-width: 767px) and (prefers-reduced-motion: reduce) {
   .af-partners-carousel {
     padding: 22px 16px 24px;
     overflow: visible;
@@ -957,12 +1022,11 @@
     flex-wrap: wrap;
     justify-content: center;
     animation: none;
-    gap: 0;
   }
   .af-partners-group {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 24px 32px;
+    gap: 20px 40px;
     padding: 0;
     flex-shrink: 1;
   }
