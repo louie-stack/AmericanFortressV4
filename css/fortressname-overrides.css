@@ -4,6 +4,66 @@
    file handles the page-specific tokens that brand.css doesn't.
    ============================================================ */
 
+/* ---------- Navy takeover: section surfaces ----------
+   webflow.css ships .section_why / .section_how / .section_testimonials
+   / .section_cta-name / .section_plans on var(--bg-navbar) (cream).
+   Flip every interior section to deep navy so fortressname.html
+   matches the homepage palette top-to-bottom. Hero is already a
+   navy gradient (linear-gradient(#132d56, #0e1c32)) — leave it. */
+.section_why,
+.section_how,
+.section_testimonials,
+.section_cta-name {
+  background-color: var(--color-deep-navy) !important;
+  background-image: none !important;
+}
+
+/* Per-page divider override: drop the divider on .section_why
+   ("Why get a FortressName"), .section_how ("How it works"),
+   and .section_cta-name ("Reserve your FortressName" final CTA)
+   on this page only — fortressname-overrides.css only loads
+   here so it scopes the change cleanly. */
+.section_why,
+.section_how,
+.section_cta-name {
+  border-top: 0 !important;
+}
+.section_why::before,
+.section_how::before,
+.section_cta-name::before {
+  display: none !important;
+}
+
+/* Tighten the top padding on .section_why — the section sits
+   directly under the dark hero so the canonical 96px feels
+   like a big air gap. ~48px clears the hero's bottom decoration
+   without feeling like a void. */
+.section_why {
+  padding-top: 3rem !important;
+}
+/* The Webflow .padding-section-medium.why wrapper inside the
+   section adds another 8rem on top. Zero that out so the
+   section's own padding-top is the only source of vertical
+   space above the title. */
+.section_why .padding-global.padding-section-medium.why,
+.section_why .padding-section-medium {
+  padding-top: 0 !important;
+}
+
+/* Testimonials section was painting all child text as var(--blue)
+   via the section's `color:` declaration. Flip to white. */
+.section_testimonials {
+  color: #fff !important;
+}
+.section_testimonials .testimonial-block,
+.section_testimonials .testimonial-job,
+.section_testimonials .testimonial-right {
+  color: #fff !important;
+}
+.section_testimonials .testimonial-job {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
 /* ---------- 0. Page-wide container width ----------
    Constrain every section's .container to 1080px so the hero,
    "Why" grid, "How It Works" steps, plan cards, testimonials,
@@ -50,10 +110,7 @@
   gap: 1.25rem;
 }
 .section_footer .socials {
-  grid-column-gap: 22px;
-}
-.section_footer .social--icon {
-  width: 1.75rem;
+  grid-column-gap: 12px;
 }
 
 /* ---------- 1. "Why" card titles + body ----------
@@ -129,8 +186,8 @@
 /* ---------- 6. "How It Works" step number tiles ----------
    .text-block-3 already routes to gold via brand.css. Tighten the
    step-number tile sizing/typography so it reads as Sora 800 metric.
-   Section background is cream (#f0e7cf), so the section title,
-   step titles, and body copy all run in dark navy for contrast.
+   Section background flipped to deep navy (was cream) so all titles
+   + body run white / off-white for navy-bg contrast.
 */
 .text-block-3 {
   font-family: 'Sora', system-ui, sans-serif;
@@ -138,10 +195,13 @@
   letter-spacing: -0.02em;
 }
 .section_how h2,
-.section_how .h3-how,
+.section_how .h3-how {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
 .section_how p {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.78) !important;
 }
 
 /* Classless <h2> tags on this page (How It Works, Limited-time early
@@ -160,25 +220,30 @@
   text-transform: none !important;
 }
 
-/* ---------- Limited-time pricing section — match live site ----------
-   The live site (americanfortress.io/fortressname) renders this
-   section on the body's cream beige bg (#f0e0b2) with dark navy text
-   and red span accent. brand.css's body Abyss bg + .span-red→gold
-   override don't fit this section, so we restore the V3 look here.
+/* ---------- Limited-time pricing section ----------
+   One tone lighter than the surrounding deep-navy sections so
+   the pricing block reads as its own elevated module rather
+   than a continuation of the "How it works" section above.
+   Title white, body off-white, the 'span-red' accent goes
+   gold to match the homepage's Sora-700 gold accent treatment.
 */
 .section_plans {
-  background-color: #f0e0b2;
+  background-color: var(--color-midnight-indigo) !important;
+  background-image: none !important;
   padding-top: 4rem;
 }
-.section_plans h2,
+.section_plans h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
 .section_plans .plans-block > .paragraph-xsmall,
 .section_plans .plans-block > .paragraph-xsmall strong {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.78) !important;
 }
 .section_plans .span-red {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
   font-family: 'Sora', system-ui, sans-serif !important;
   font-style: normal !important;
   font-weight: 700 !important;
@@ -232,16 +297,19 @@
   padding-bottom: 5rem;
 }
 
-/* "Why get a FortressName" — title to grid gap, and dark navy color
-   for both the headline and the inner .span-red so the whole title
-   reads as one unit on the cream section background. */
+/* "Why get a FortressName" — title flips to white on the new
+   deep-navy section. The inline .span-red accent moves to gold
+   so it parallels the homepage's gold-accent treatment. */
 .why-block .h2-why {
   margin-bottom: 1.5rem;
 }
-.h2-why,
+.h2-why {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
 .h2-why .span-red {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
 }
 
 /* ---------- 8. Why-card hierarchy ----------

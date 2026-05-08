@@ -49,11 +49,11 @@
 
 .af-pillars-wins {
   background: #e6dfc8;
-  padding-top: 1rem;
-  padding-bottom: 4.8rem;
+  padding-top: 0;
+  padding-bottom: 8rem;
 }
 
-.af-pillars-head-wins { margin-top: 1.5rem; margin-bottom: 0.1rem; }
+.af-pillars-head-wins { margin-top: 0; margin-bottom: 0.1rem; }
 
 .af-pillars-title-wins {
   margin: 0;
@@ -560,24 +560,24 @@
 }
 
 .af-team-line-top {
-  color: #124983;
+  color: #fff;
   display: inline-block;
 }
 
 .af-team-line-bottom {
-  color: #e62028;
+  color: #C9A84C;
   display: inline-block;
 }
 
 .af-team-subhead {
   font-family: Sora, Arial, sans-serif;
   font-size: 0.95rem;
-  color: #124983;
+  color: #C9A84C;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 auto 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(18, 73, 131, 0.22);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
   max-width: 1180px;
   position: relative;
 }
@@ -588,7 +588,7 @@
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #124983;
+  background: #C9A84C;
   margin-right: 12px;
   vertical-align: middle;
   transform: translateY(-2px);
@@ -1386,29 +1386,17 @@
 }
 
 /* ==========================================================================
-   Tokenomics — Figma-matched (cream background, 2-col grid)
+   Tokenomics — deep navy, 2-col grid
    ========================================================================== */
 .af-tokenomics-new {
-  background: #f0e7cf !important;
-  background-image: none !important;
+  background: var(--color-deep-navy, #0D1B35);
+  background-image: none;
   padding: 30px 0 96px;
   position: relative;
   overflow: hidden;
 }
 
-.af-tokenomics-new::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 36px;
-  background-color: #0b2147;
-  -webkit-mask: url('../images/bottom.png') center top / 100% 36px no-repeat;
-  mask: url('../images/bottom.png') center top / 100% 36px no-repeat;
-  z-index: 2;
-  pointer-events: none;
-}
+/* Removed brush-stroke divider mask — clean section transition. */
 
 .af-tokenomics-head {
   text-align: center;
@@ -1430,13 +1418,13 @@
   display: block;
 }
 
-.af-tokenomics-line-top { color: #124983; }
-.af-tokenomics-line-bottom { color: #e62028; }
+.af-tokenomics-line-top { color: #fff; }
+.af-tokenomics-line-bottom { color: #C9A84C; }
 
 .af-tokenomics-lead {
   margin: 0 auto;
   max-width: 780px;
-  color: #2a3652;
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.08rem;
   line-height: 1.55;
 }
@@ -1475,36 +1463,36 @@
 }
 
 .af-tokenomics-metric {
-  background: linear-gradient(180deg, #fefbf0 0%, #f5ecd3 100%);
-  border: 1px solid rgba(18, 73, 131, 0.2);
+  background: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%);
+  border: 1px solid rgba(133, 186, 255, 0.18);
   border-radius: 14px;
   padding: 20px 22px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 8px 20px rgba(75, 48, 10, 0.12),
-    0 2px 5px rgba(75, 48, 10, 0.07);
+    inset 0 1px 0 rgba(133, 186, 255, 0.10),
+    0 10px 24px rgba(4, 10, 24, 0.40),
+    0 2px 6px rgba(4, 10, 24, 0.28);
   transition: box-shadow .2s ease, transform .2s ease;
 }
 .af-tokenomics-metric:hover {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 14px 28px rgba(75, 48, 10, 0.16),
-    0 3px 7px rgba(75, 48, 10, 0.1);
+    inset 0 1px 0 rgba(133, 186, 255, 0.14),
+    0 16px 32px rgba(4, 10, 24, 0.50),
+    0 3px 8px rgba(4, 10, 24, 0.34);
   transform: translateY(-1px);
 }
 
 .af-tokenomics-metric-label {
-  color: rgba(18, 73, 131, 0.78);
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .af-tokenomics-metric-value {
-  color: #0f2d54;
+  color: #fff;
   font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.15rem, 1.6vw, 1.5rem);
   font-weight: 700;
@@ -1554,11 +1542,11 @@
 }
 
 /* ==========================================================================
-   Roadmap — Figma-matched (cream background, vertical timeline)
+   Roadmap — deep navy, vertical timeline
    ========================================================================== */
 .af-roadmap-new {
-  background: #f0e7cf !important;
-  background-image: none !important;
+  background: var(--color-deep-navy, #0D1B35);
+  background-image: none;
   padding: 30px 0 120px;
   position: relative;
   overflow: hidden;
@@ -1583,8 +1571,8 @@
   display: block;
 }
 
-.af-roadmap-line-top { color: #124983; }
-.af-roadmap-line-bottom { color: #e62028; }
+.af-roadmap-line-top { color: #fff; }
+.af-roadmap-line-bottom { color: #C9A84C; }
 
 .af-roadmap-timeline {
   max-width: 1020px;
@@ -1626,7 +1614,7 @@
   font-family: Sora, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: #0f2d54;
+  color: rgba(255, 255, 255, 0.78);
   letter-spacing: 0.04em;
   padding-top: 16px;
   text-align: right;
@@ -1646,9 +1634,9 @@
   width: 14px;
   height: 14px;
   border-radius: 999px;
-  background: #124983;
-  border: 3px solid #f0e7cf;
-  box-shadow: 0 0 0 2px rgba(18, 73, 131, 0.4);
+  background: #C9A84C;
+  border: 3px solid var(--color-deep-navy, #0D1B35);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.40);
   display: block;
 }
 
@@ -1658,8 +1646,8 @@
 }
 
 .af-roadmap-row[data-status="upcoming"] .af-roadmap-dot {
-  background: #fbf3dd;
-  box-shadow: 0 0 0 2px rgba(18, 73, 131, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 2px rgba(133, 186, 255, 0.30);
 }
 
 .af-roadmap-body {

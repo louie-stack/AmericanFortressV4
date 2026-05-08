@@ -61,21 +61,37 @@
   background-clip: initial;
 }
 
-/* ---------- 2. "The offer" (cream beige with dark cards) ----------
-   Section flips to the brand cream #f0e0b2. h2 "The offer" goes
-   solid dark navy (override the .gradient-offer blue text-clip).
-   The 3 cards become deep-navy + gold-stroke (mirrors the .why-card
-   treatment from brand.css). Percentages → gold "Data Metric"
-   per brief; card body in white on the dark card surface.
+/* ---------- 2. "The offer" (deep navy with elevated cards) ----------
+   Section flipped from cream to deep navy. h2 "The offer" goes
+   solid white (override the .gradient-offer blue text-clip).
+   The 3 cards stay deep-navy + gold-stroke (already navy elevated).
+   Percentages → gold "Data Metric" per brief; card body in white
+   on the dark card surface.
 */
 .section_the-offer {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
   background-image: none !important;
+  padding-top: 6rem !important;
+}
+
+/* Per-page divider override: drop dividers on the three
+   sections that follow "The offer" so the page reads as one
+   continuous module from offer → why → who-for → how-to-start
+   instead of being chopped up by hairlines. */
+.section_why-offer,
+.section_who-for,
+.section_how {
+  border-top: 0 !important;
+}
+.section_why-offer::before,
+.section_who-for::before,
+.section_how::before {
+  display: none !important;
 }
 .section_the-offer .h2-usecase.gradient-offer,
 .section_the-offer .gradient-offer {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
   background: none !important;
   background-image: none !important;
   -webkit-background-clip: initial !important;
@@ -143,15 +159,13 @@
 }
 
 
-/* ---------- 3. "Why FortressName" (cream beige) ----------
-   Existing bg is --bg-navbar (#f0e7cf); align it to the brand
-   #f0e0b2 we're using everywhere else. Title + span dark navy
-   so the whole h2 reads as one unit (matches the fortressname
-   "Why get a FortressName" treatment, where I overrode the gold
-   span back to navy on the cream bg).
+/* ---------- 3. "Why FortressName" (deep navy) ----------
+   Flipped from cream to deep navy. Title white, .span-red accent
+   gold (matches the homepage's gold-on-navy span treatment).
 */
 .section_why-offer {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
+  background-image: none !important;
   padding-bottom: 2rem;
 }
 
@@ -169,10 +183,13 @@
 .section_why-offer .h2-usecase.small {
   margin-bottom: 1.5rem;
 }
-.section_why-offer .h2-usecase,
+.section_why-offer .h2-usecase {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
 .section_why-offer .h2-usecase .span-red {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
 }
 .section_why-offer .usecases {
   grid-row-gap: 24px;
@@ -192,26 +209,26 @@
   letter-spacing: -0.01em;
   line-height: 1.2;
   margin-bottom: 0.25rem;
-  color: var(--blue);
+  color: #fff;
 }
 .section_why-offer .text-10 {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: rgba(16, 63, 110, 0.82);
+  color: rgba(255, 255, 255, 0.78);
 }
 
-/* ---------- 4. "Who it's for" (cream beige, dark navy text) ----------
-   6 cards in a 3-col grid. Uniform sizing: every image locked to a
-   1:1 square via aspect-ratio + object-fit, every paragraph holds
-   a fixed 2-line min-height so the cards align in a clean rail
-   regardless of source image dimensions or copy length.
+/* ---------- 4. "Who it's for" (deep navy, white text) ----------
+   Section flipped from cream to deep navy. 6 cards in a 3-col grid.
+   Uniform sizing rules unchanged. Card image + paragraph colors
+   flip to white / off-white for navy contrast.
 */
 .section_who-for {
-  background-color: #f7e8c2 !important;
+  background-color: var(--color-deep-navy) !important;
+  background-image: none !important;
 }
 .section_who-for .h2-usecase {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
   margin-bottom: 1.5rem;
 }
 .section_who-for .who-for-grid {
@@ -245,17 +262,17 @@
   line-height: 1.45;
   margin: 0;
   min-height: calc(0.98rem * 1.45 * 2);
-  color: var(--blue);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* ---------- 5. "How to start" (cream beige, gold step numbers) ----------
-   Direct mirror of the fortressname "How It Works" treatment:
-   cream beige bg, dark navy section title, dark navy step h3s,
-   gold step number tiles. .text-block-3 already routes to gold
-   via brand.css.
+/* ---------- 5. "How to start" (deep navy, gold step numbers) ----------
+   Flipped from cream to deep navy. Section title + step h3s flip
+   to white. Gold step number tiles unchanged (.text-block-3 stays
+   gold across both surfaces).
 */
 .section_how {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
+  background-image: none !important;
   padding-bottom: 2rem;
 }
 .section_how h2 {
@@ -266,8 +283,8 @@
   letter-spacing: -0.02em !important;
   margin-bottom: 1.5rem !important;
   text-transform: none !important;
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 /* .how-block ships with grid-row-gap: 3rem between the h2 and the
    step list — combined with the h2's own margin-bottom that's a
@@ -299,15 +316,15 @@
   font-size: 1.15rem;
   letter-spacing: -0.01em;
   line-height: 1.25;
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 .section_how .h3-how strong {
   font-weight: 700;
 }
 .section_how p {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.78) !important;
 }
 
 /* ---------- 6. Footer scale-down (matches fortressname) ---------- */
@@ -336,8 +353,5 @@
   gap: 1.25rem;
 }
 .section_footer .socials {
-  grid-column-gap: 22px;
-}
-.section_footer .social--icon {
-  width: 1.75rem;
+  grid-column-gap: 12px;
 }

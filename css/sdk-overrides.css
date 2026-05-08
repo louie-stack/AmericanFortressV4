@@ -23,6 +23,29 @@
    editorial moments ("wins" + "infrastructure"), not subpages.
    Layout: tighter horizontal pairing of headline + badge.
 */
+.section_sdk-hero .padding-global.padding-section-medium.sdk {
+  padding-bottom: 6rem;
+}
+
+/* Per-page divider override: remove the dividers above and
+   below .section_sdk ("American Fortress SDK" features grid).
+   .section_cta sits directly below .section_sdk, so dropping
+   its top divider closes the gap underneath. */
+.section_sdk,
+.section_cta {
+  border-top: 0 !important;
+}
+.section_sdk::before,
+.section_cta::before {
+  display: none !important;
+}
+
+/* Extra breathing room below the SDK features grid before
+   the final CTA section starts. */
+.section_sdk {
+  padding-bottom: 8rem !important;
+}
+
 .section_sdk-hero .h1_hero-sdk.sdk {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
@@ -120,15 +143,14 @@
   gap: 0.5rem;
 }
 
-/* ---------- 3. SDK features grid (cream beige) ----------
-   This section flips to cream #f0e0b2 to break up the dark stack
-   and match the brand cream we use on the fortressname pricing
-   section. Title + span run dark navy as one unified Sora 700
-   unit. The 4 dark-navy + gold-stroke icon cards sit on cream
-   (mirror of plan-cards-on-cream pattern from fortressname).
+/* ---------- 3. SDK features grid (deep navy) ----------
+   Flipped from cream to deep navy so the SDK page sits on a single
+   dark surface top-to-bottom. Title white, lede off-white, .span-red
+   accent goes gold so it parallels the homepage's Sora-700 gold
+   accent treatment.
 */
 .section_sdk {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
   background-image: none !important;
 }
 .section_sdk .div-block-9 {
@@ -142,15 +164,15 @@
   letter-spacing: -0.02em !important;
   margin-bottom: 0.4rem !important;
   text-transform: none !important;
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 .section_sdk h2 .span-red {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: var(--color-gold) !important;
+  -webkit-text-fill-color: var(--color-gold) !important;
 }
 .section_sdk .text-balance {
-  color: var(--blue);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.05rem;
   line-height: 1.5;
 }
@@ -215,18 +237,17 @@
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
-  color: var(--blue);
+  color: #fff;
 }
 
-/* ---------- 4. Final CTA (cream beige, continues from SDK section) ----------
-   Section flips to cream #f0e0b2 so the beige runs uninterrupted from
-   the SDK features section down to the footer. Strip the .cta-block
-   dark bg-image. h2 stack: dark navy "American Fortress" Sora 800 +
-   DM Serif Display Italic gold "certified badge" (still the page's
-   editorial moment — gold italic reads on cream too).
+/* ---------- 4. Final CTA (deep navy, continues from SDK section) ----------
+   Section is deep navy so the navy runs uninterrupted from the SDK
+   features section down to the footer. The inner .cta-block stays
+   as an elevated navy + gold-stroke card sitting on the deep-navy
+   bg — gives the close some lift without breaking palette.
 */
 .section_cta {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
   background-image: none !important;
   padding-bottom: 6rem;
 }
@@ -333,8 +354,5 @@
   gap: 1.25rem;
 }
 .section_footer .socials {
-  grid-column-gap: 22px;
-}
-.section_footer .social--icon {
-  width: 1.75rem;
+  grid-column-gap: 12px;
 }

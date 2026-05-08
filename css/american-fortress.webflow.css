@@ -1303,8 +1303,11 @@ ul {
 }
 
 .section_faq {
-  color: var(--blue);
-  background-color: #f0e7cf;
+  color: rgba(255, 255, 255, 0.85);
+  background-color: var(--color-deep-navy);
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.07), transparent 50%),
+    linear-gradient(180deg, #0d1b35 0%, #0a1729 100%);
 }
 
 .faq-block {
@@ -1404,7 +1407,7 @@ ul {
 }
 
 .section_story {
-  background-color: var(--bg-navbar);
+  background-color: var(--color-deep-navy, #0D1B35);
   position: relative;
 }
 
@@ -1550,8 +1553,8 @@ ul {
 }
 
 .section_testimonial {
-  background-color: var(--bg-navbar);
-  color: var(--blue);
+  background-color: var(--color-deep-navy, #0D1B35);
+  color: #fff;
   position: relative;
 }
 
@@ -1656,16 +1659,25 @@ ul {
 }
 
 .text-field {
-  border: 1px solid var(--bg-navbar);
-  background-color: var(--bg-navbar);
-  border-radius: 0;
+  border: 1px solid rgba(133, 186, 255, 0.30);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
   height: 3rem;
   margin-bottom: 0;
   padding: 0 1rem;
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.text-field:focus {
+  border-color: #85BAFF;
+  background-color: rgba(255, 255, 255, 0.06);
+  outline: none;
 }
 
 .text-field::placeholder {
-  color: #1821454d;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .submit-button {
@@ -1795,9 +1807,11 @@ ul {
 }
 
 .field {
-  background-color: var(--bg-navbar);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(133, 186, 255, 0.25);
+  border-radius: 10px;
   height: 3.125rem;
-  color: var(--blue);
+  color: #fff;
   margin-bottom: 0;
 }
 
@@ -2363,13 +2377,14 @@ ul {
 }
 
 .name-type {
-  background-color: var(--beige);
+  background-color: rgba(201, 168, 76, 0.10);
+  border: 1px solid rgba(201, 168, 76, 0.45);
   width: 100%;
   max-width: 14rem;
-  color: var(--dark-blue);
+  color: #C9A84C;
   text-align: left;
   text-transform: lowercase;
-  border-radius: .25rem;
+  border-radius: 8px;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;

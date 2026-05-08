@@ -10,7 +10,7 @@
 
 .conf-machine-head h2 {
   margin: 0 0 14px;
-  color: #124983;
+  color: #fff;
   font-family: Sora, Arial, sans-serif;
   text-transform: uppercase;
   line-height: 0.97;
@@ -19,13 +19,13 @@
 }
 
 .conf-machine-head h2 span {
-  color: #e92027;
+  color: #C9A84C;
 }
 
 .conf-machine-head p {
   margin: 0 auto;
   max-width: 900px;
-  color: #1d4c84;
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.12rem;
   line-height: 1.46;
 }
@@ -54,7 +54,7 @@
 }
 
 .conf-icon.red { background: #c73036; }
-.conf-icon.blue { background: #124983; }
+.conf-icon.blue { background: linear-gradient(160deg, #2a5a9c 0%, #1a4079 100%); }
 
 .conf-icon-img {
   width: 62px;
@@ -64,7 +64,7 @@
 
 .conf-text h3 {
   margin: 0 0 8px;
-  color: #124983;
+  color: #fff;
   font-family: Sora, Arial, sans-serif;
   font-size: clamp(1.08rem, 1.95vw, 1.72rem);
   line-height: 1.06;
@@ -75,7 +75,7 @@
 
 .conf-text p {
   margin: 0;
-  color: #4b4b4b;
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.99rem;
   line-height: 1.38;
   max-width: 620px;

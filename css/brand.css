@@ -86,8 +86,8 @@ h2 { text-transform: none; }
 .problem-title span { color: var(--color-gold); }
 .problem-stat-item { border-left-color: var(--color-gold); }
 
-/* How-it-works step number was red */
-.how-step-number { color: var(--color-gold); }
+/* How-it-works step number is now a ghost watermark — see
+   how-it-works.css for the new ghost-numeral treatment. */
 
 /* Hero stat values — Institutional Gold per brief ("Data Metric"
    tier: Sora 800, gold). */
@@ -187,6 +187,17 @@ h2 { text-transform: none; }
 /* Red link hover on navbar → blue-haze (interactive token) */
 .navbar1_link:hover { color: var(--color-blue-haze); }
 
+/* Active page indicator (.w--current) — was dark blue on cream;
+   on navy, surface as solid white so the user sees which page
+   they're on. Hover still moves to blue-haze. */
+.navbar1_link.w--current,
+.navbar1_link.w--current:hover {
+  color: #fff;
+}
+.navbar1_link.w--current:hover {
+  color: var(--color-blue-haze);
+}
+
 /* Random red text spans / number labels on interior pages */
 .span-red,
 .bold-text-3,
@@ -239,8 +250,8 @@ h2 { text-transform: none; }
 }
 .button-2.blue {
   background-color: transparent;
-  color: var(--blue);
-  border: 1px solid rgba(16, 63, 110, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(133, 186, 255, 0.45);
 }
 
 /* Hero CTA grid — left column was minmax(400px, 500px), almost double
@@ -254,23 +265,39 @@ h2 { text-transform: none; }
   }
 }
 .button-2.blue:hover {
-  background-color: rgba(16, 63, 110, 0.06);
-  border-color: var(--blue);
+  background-color: rgba(133, 186, 255, 0.10);
+  border-color: var(--color-blue-haze);
+  color: #fff;
 }
 
 /* ---------- Navbar surface & scale ----------
-   Keep the original cream (#f0e7cf) navbar surface — it's the
-   established brand mark for the page-top. We tighten the height
-   from 5rem to 3.5rem and shrink the logo from 3.2rem to 2rem so
-   the row reads as a proper institutional nav rather than a tall
-   marketing header. Link color stays dark navy for cream-bg
-   contrast; hover moves to Blue Haze (the interactive token).
+   Navy takeover: the cream surface is replaced with a deep-navy
+   bar that matches the page palette. Slightly translucent with
+   backdrop blur so content underneath the fixed bar reads as a
+   proper "frosted" institutional header. Tightened height +
+   smaller logo unchanged from the original setup. Link color
+   flips from dark blue to off-white for navy-bg contrast; hover
+   stays Blue Haze (the interactive token).
 */
+.navbar1_component {
+  background-color: rgba(13, 27, 53, 0.88) !important;
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(133, 186, 255, 0.10);
+}
 .div-block-14 {
   height: 3.5rem;
+  background-color: transparent !important;
 }
 .navbar1_logo {
   height: 2rem;
+}
+
+/* Hide the cream nav-bar.png decorative strip — it was a soft
+   cream-fade artifact under the original cream nav and reads as
+   an off-palette band on the new navy nav. */
+.image-18 {
+  display: none !important;
 }
 
 /* Tighten the gap between the nav-link row and the button group. */
@@ -293,6 +320,7 @@ h2 { text-transform: none; }
   letter-spacing: 0.01em;
   padding: 0.4rem 0.6rem;
   text-transform: none;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ---------- Hero CTAs ----------
@@ -677,21 +705,10 @@ p {
   gap: 22px;
 }
 
-/* Sections that intentionally keep a cream surface (FAQ, story,
-   testimonial blocks) need their .h2 to stay dark navy so it
-   reads against cream — not white-on-cream. Override the white
-   default for those. */
-.section_faq .h2,
-.section_story .h2,
-.section_testimonial .h2,
-.section_testimonials .h2,
-.section_why .h2,
-.section_how .h2,
-.section_cta-name .h2,
-.section_why-offer .h2 {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
-}
+/* All major content sections now sit on navy across the site —
+   nothing left to keep dark-navy-on-cream. (Previously this list
+   guarded testimonial / why / how / cta-name / why-offer headings;
+   each has been flipped to navy + white in its per-page override.) */
 
 /* Publications section — cream beige surface (#f0e0b2 — same --beige
    token used on the live fortressname pricing section) so the dark
@@ -901,5 +918,796 @@ h2.h2,
 .image-18 {
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
           mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+}
+
+/* ============================================================
+   NAVY TAKEOVER — homepage cream sections → deep navy
+   ============================================================
+   Brief shift: navy-with-illustration becomes the dominant
+   visual language. The mid-page cream surfaces (problem,
+   how-it-works, conf-machine, pillars-wins, tokenomics,
+   roadmap, team, publications) flip to deep navy. Subtle
+   gold radial accents echo the existing pillars-section
+   pattern so the page reads as a single navy module rather
+   than 8 flat slabs. Alternating deep-navy / midnight-indigo
+   gives sectional rhythm without breaking cohesion. */
+
+/* ---------- Section surfaces ---------- */
+/* Problem + how-works share one flat midnight-indigo surface so
+   the two sections read as one continuous module. */
+.section-problem,
+section.section-problem,
+.how-works-section {
+  background: var(--color-midnight-indigo) !important;
+  background-image: none !important;
+}
+
+/* Conf-machine + pillars-wins share one flat deep-navy surface so
+   they read as a single consistent module. */
+.conf-machine-section,
+.af-pillars-wins {
+  background: var(--color-deep-navy) !important;
+  background-image: none !important;
+}
+
+/* Tokenomics + roadmap share one flat deep-navy surface so the
+   "utility token" → "shipping on time" pair reads as one module. */
+.section_tokenomics.af-tokenomics-new,
+.af-tokenomics-new,
+.section_roadmap.af-roadmap-new,
+.af-roadmap-new {
+  background: var(--color-deep-navy) !important;
+  background-image: none !important;
+}
+
+.af-team-section,
+.section_story.af-team-section {
+  background-color: var(--color-midnight-indigo) !important;
+  background-image:
+    radial-gradient(circle at 80% 18%, rgba(201, 168, 76, 0.08), transparent 50%),
+    linear-gradient(180deg, #182145 0%, #131c40 100%) !important;
+}
+
+.section_publications {
+  background-color: var(--color-deep-navy) !important;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(201, 168, 76, 0.07), transparent 50%),
+    linear-gradient(180deg, #0d1b35 0%, #0a1729 100%) !important;
+}
+
+/* ---------- Typography flips on the new navy surfaces ---------- */
+
+/* Titles that were dark navy on cream → solid white. */
+.problem-title,
+.problem-title span,
+.how-works-head h2,
+.af-pillars-title-wins,
+.af-pillars-title-wins span,
+.af-tokenomics-line-top,
+.af-roadmap-line-top,
+.af-team-title,
+.section_publications h2.h2,
+.section_publications .h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Body / supporting copy that was dark navy → off-white. */
+.problem-section p,
+.problem-stat-item,
+.problem-stat-item *,
+.how-works-head p,
+.conf-machine-head p,
+.af-tokenomics-lead,
+.af-roadmap-period,
+.af-team-section p {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Tokenomics metric cards were cream → elevated navy tile. */
+.af-tokenomics-metric {
+  background: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%) !important;
+  border: 1px solid rgba(133, 186, 255, 0.18) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.10),
+    0 10px 24px rgba(4, 10, 24, 0.40),
+    0 2px 6px rgba(4, 10, 24, 0.28) !important;
+}
+.af-tokenomics-metric-label {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+.af-tokenomics-metric-value {
+  color: #fff !important;
+}
+
+/* Roadmap dot border was cream — match new section bg so the
+   ring reads as a halo around the dot. */
+.af-roadmap-dot {
+  border-color: var(--color-deep-navy) !important;
+}
+
+/* Roadmap timeline dashed rule was dark blue on cream — lift to
+   blue-haze at low opacity for navy bg. */
+.af-roadmap-timeline::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(133, 186, 255, 0.32) 0,
+    rgba(133, 186, 255, 0.32) 6px,
+    transparent 6px,
+    transparent 12px
+  ) !important;
+}
+
+/* Team section was relying on default cream-bg .h2 override
+   (line ~684) which forced dark navy. Re-allow white on team
+   since it's now navy. */
+.section_story.af-team-section .h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* ---------- NAVY TAKEOVER — phase 2: readability sweep ----------
+   High-specificity rules from per-section CSS were tuned for cream
+   surfaces (dark-blue text, dark-blue dividers, cream tile bgs).
+   Override each one explicitly so contrast on navy is correct. */
+
+/* Problem section ----------------------------------------------- */
+
+/* "We are blind. They are not." subhead and any other body copy. */
+.section-problem .problem-text,
+.section-2.section-problem .problem-text {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Inactive tabs were cream gradient + dark-blue text — flip to
+   elevated-navy tile with off-white label. .active stays as the
+   existing dark gradient (already correct). */
+.section-problem .problem-tab:not(.active),
+.section-2.section-problem .problem-tab:not(.active) {
+  background: linear-gradient(180deg, rgba(133, 186, 255, 0.06) 0%, rgba(133, 186, 255, 0.02) 100%) !important;
+  border: 1px solid rgba(133, 186, 255, 0.22) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: inset 0 1px 0 rgba(133, 186, 255, 0.10), 0 2px 6px rgba(4, 10, 24, 0.30) !important;
+}
+
+/* Stat cards (right column "$X stolen / Y addresses / Z%") were
+   cream tiles with red border-left + dark-blue text — flip to
+   elevated-navy tile with gold border-left + white text. */
+.section-problem .problem-stat-item,
+.section-2.section-problem .problem-stat-item {
+  background: linear-gradient(160deg, #1d3f6c 0%, #122a52 100%) !important;
+  border-left: 4px solid var(--color-gold) !important;
+  color: #fff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(133, 186, 255, 0.10),
+    0 10px 24px rgba(4, 10, 24, 0.40),
+    0 2px 6px rgba(4, 10, 24, 0.28) !important;
+}
+.section-problem .problem-stat-item .value,
+.section-problem .problem-stat-item .desc {
+  color: #fff !important;
+}
+.section-problem .problem-stat-item .source {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Conf-machine section ------------------------------------------ */
+
+.conf-machine-section .conf-machine-head h2,
+.conf-machine-section .conf-text h3 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.conf-machine-section .conf-machine-head p,
+.conf-machine-section .conf-text p {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+/* The blue conf-icon circle reads dim on navy — lift it. */
+.conf-machine-section .conf-icon.blue {
+  background: linear-gradient(160deg, #2a5a9c 0%, #1a4079 100%) !important;
+  border: 1px solid rgba(133, 186, 255, 0.30);
+}
+
+/* How-it-works section ------------------------------------------ */
+
+.how-works-section .how-works-head h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.how-works-section .how-works-head p {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Team section -------------------------------------------------- */
+
+/* "Secured by" first line was dark navy — flip to white. */
+.af-team-section .af-team-line-top {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* "Team" subhead label was dark navy on cream — flip to gold so
+   it parallels the existing gold "Advisors" subhead treatment. */
+.af-team-section .af-team-subhead {
+  color: var(--color-gold) !important;
+  border-bottom-color: rgba(201, 168, 76, 0.35) !important;
+}
+.af-team-section .af-team-subhead::before {
+  background: var(--color-gold) !important;
+}
+
+/* Tokenomics ---------------------------------------------------- */
+
+/* "The utility token" first line was dark navy — flip to white. */
+.af-tokenomics-new .af-tokenomics-line-top {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Roadmap ------------------------------------------------------- */
+
+/* "Built on schedule." first line was dark navy — flip to white. */
+.af-roadmap-new .af-roadmap-line-top {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+/* Roadmap "Q4 2025 / Q1 2026 / ..." period labels were dark navy. */
+.af-roadmap-new .af-roadmap-period {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Publications -------------------------------------------------- */
+
+/* "PUBLICATIONS" eyebrow / kicker if present — was dark on cream. */
+.section_publications .h2,
+.section_publications h2.h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* FAQ section --------------------------------------------------- */
+
+/* FAQ heading and accordion items were tuned for cream. Flip on
+   navy: heading white, questions white, answers off-white,
+   divider rule + icon circle become blue-haze/gold. */
+.section_faq .h2,
+.section_faq h2.h2,
+.section_faq .faq4_question {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.section_faq .faq4_answer,
+.section_faq .faq4_answer p,
+.section_faq .faq4_answer li {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+/* faq4_accordion already has a decorative faq-line.svg drawn rule
+   under each question — don't add a border-bottom on top of it. */
+.section_faq .faq4_accordion {
+  border-bottom: 0 !important;
+}
+.section_faq .faq4_icon-wrappper {
+  background-color: rgba(201, 168, 76, 0.14) !important;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  color: var(--color-gold) !important;
+}
+.section_faq .faq4_icon-wrappper .icon-embed-small {
+  color: var(--color-gold) !important;
+}
+
+/* ============================================================
+   CTA SYSTEM (canonical) — TWO variants, one rule each
+   ============================================================
+   PRIMARY  → red bg + white label + gold-tinted hover lift.
+              ONE per section, reserved for the highest-intent
+              action (Reserve, Subscribe, Sign up).
+
+   GHOST    → transparent + blue-haze border + white label.
+              All secondary actions (Explore SDK, Join Community,
+              Send Privately, Explore the SDK at hero, etc).
+
+   Unified shape across both: border-radius 10px, sentence-case
+   labels, Inter 600, .18s ease transitions.
+
+   Mockup product CTAs (.how-mockup-cta) and inline ".plan-card"
+   buttons live inside their own UI vocabularies and are not part
+   of this system.
+   ============================================================ */
+
+/* ---------- Primary (red) ---------- */
+/* Base hero "Reserve" already paints red via .cta — formalize the
+   shape and shadow. Footer .af-inf-btn-primary was blue ghost in
+   new-sections.css; flip it to the same red primary so the
+   site has ONE primary visual, full stop. Form .submit-button
+   was Webflow's blue gradient + uppercase; flip to red primary
+   sentence-case so newsletter / waitlist match the system. */
+.cta.hero:not(.cta--ghost):not(.blue),
+.af-inf-btn-primary.cta.hero,
+.af-inf-btn-primary.cta.hero.blue,
+.submit-button {
+  background-color: var(--color-red) !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 12px rgba(221, 30, 33, 0.28) !important;
+  transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease, border-color .18s ease !important;
+}
+
+/* Hover lift — slight rise + warmer shadow. */
+.cta.hero:not(.cta--ghost):not(.blue):hover,
+.af-inf-btn-primary.cta.hero:hover,
+.af-inf-btn-primary.cta.hero.blue:hover,
+.submit-button:hover {
+  background-color: #fa2a34 !important;
+  box-shadow: 0 10px 24px rgba(221, 30, 33, 0.40) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Submit button needs to drop the Webflow uppercase + Sora and
+   use Inter 600 like the rest of the system. Mailerlite's input
+   has its own padding spec; tighten only what we need. */
+.submit-button {
+  padding: 14px 28px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+
+/* ---------- Ghost (transparent + blue-haze border) ---------- */
+/* Hero "Explore the SDK" (.cta.hero.blue without primary), the
+   hide-balance "Send Privately" button, and the footer "Join the
+   Community" — all unified into ONE ghost variant.
+   .af-inf-btn-secondary was painted red in new-sections.css;
+   flip to ghost since it's a secondary action. */
+.cta.cta--ghost,
+.cta.hero.blue:not(.af-inf-btn-primary),
+.af-inf-btn-secondary.cta.hero {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 1px solid rgba(133, 186, 255, 0.55) !important;
+  border-radius: 10px !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease !important;
+}
+
+.cta.cta--ghost:hover,
+.cta.hero.blue:not(.af-inf-btn-primary):hover,
+.af-inf-btn-secondary.cta.hero:hover {
+  background-color: rgba(133, 186, 255, 0.10) !important;
+  border-color: var(--color-blue-haze) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   FOOTER REFRESH — finish the bottom of the page
+   ============================================================
+   Existing footer was on the navy gradient but its sub-elements
+   (text input bg, h3 gradient text-fill, legal-block borders,
+   social hover) still referenced cream / red / Sora-uppercase
+   tokens from the old palette. This block aligns the footer to
+   the navy / gold / blue-haze system the rest of the page now
+   uses, and adds the small finish details that were missing.
+   ============================================================ */
+
+/* Subtle gold hairline marks the top of the footer — small visual
+   "the page ends here" cue. */
+.section_footer {
+  background: linear-gradient(180deg, #182145 0%, #0a1b2b 100%) !important;
+  border-top: 1px solid rgba(201, 168, 76, 0.22);
+  position: relative;
+}
+.section_footer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 280px;
+  max-width: 60%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.55), transparent);
+  transform: translateX(-50%);
+}
+
+/* ---------- Footer headings ---------- */
+/* Drop the dated blue gradient text-fill, use Sora 700 white with
+   a small gold rule under — same anchor as pillar / how-it-works
+   cards so the page reads cohesive top-to-bottom. */
+.h3-footer {
+  background-image: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  font-family: 'Sora', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 8px !important;
+  position: relative;
+  padding-bottom: 12px;
+}
+.h3-footer::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--color-gold);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-left p,
+.footer-right p {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 460px;
+}
+
+/* ---------- Newsletter / waitlist form ---------- */
+/* Was Webflow's cream text-field — flip to dark navy elevated
+   tile with blue-haze border. Submit button is already handled
+   by the CTA system above. */
+.section_footer .form,
+.popup .form {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.section_footer .text-field,
+.popup .text-field {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  background-image: none !important;
+  border: 1px solid rgba(133, 186, 255, 0.30) !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+  padding: 0 16px !important;
+  color: #fff !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 0.95rem !important;
+  flex: 1 1 240px;
+  min-width: 0;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.section_footer .text-field:focus,
+.popup .text-field:focus {
+  border-color: var(--color-blue-haze) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  outline: none !important;
+}
+.section_footer .text-field::placeholder,
+.popup .text-field::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Footer submit button — match form-input height + tighten width */
+.section_footer .submit-button,
+.popup .submit-button {
+  height: 48px !important;
+  padding: 0 24px !important;
+  flex: 0 0 auto;
+}
+
+/* ---------- Social icons ---------- */
+/* Replace the loose color-only icons with bordered circles —
+   parallels the team-card-social treatment elsewhere on the page
+   so the icon vocabulary is consistent. */
+.section_footer .socials {
+  gap: 12px;
+  margin-top: 8px;
+}
+.section_footer .social {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(133, 186, 255, 0.06);
+  border: 1px solid rgba(133, 186, 255, 0.22);
+  color: rgba(255, 255, 255, 0.78);
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.section_footer .social:hover {
+  background: rgba(133, 186, 255, 0.14);
+  border-color: var(--color-blue-haze);
+  color: #fff;
+  transform: translateY(-1px);
+}
+/* Override the original aspect-ratio:1 / fixed width on .social--icon
+   — social SVGs have non-square viewBoxes (Telegram 43×36,
+   Discord 48×36, YouTube 52×36). Constrain height only and let
+   width float so each icon keeps its native proportions and
+   centers cleanly inside the 44px circle. */
+.section_footer .social--icon {
+  width: auto !important;
+  height: 16px !important;
+  aspect-ratio: auto !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.section_footer .social--icon svg {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+/* ---------- Legal links ---------- */
+/* Replace cream borders with blue-haze hairlines, give links a
+   subtle gold-on-hover. */
+.section_footer .legal-block {
+  border-top: 1px solid rgba(133, 186, 255, 0.18) !important;
+  border-bottom: 1px solid rgba(133, 186, 255, 0.18) !important;
+  padding: 22px 0 !important;
+}
+.section_footer .links-wrap {
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  justify-content: flex-start;
+}
+.section_footer .legal-link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72) !important;
+  letter-spacing: 0.01em;
+  transition: color .18s ease;
+}
+.section_footer .legal-link:hover {
+  color: var(--color-gold) !important;
+}
+
+/* ---------- Terms block (copyright row) ---------- */
+.section_footer .terms-block {
+  padding: 18px 0 0 !important;
+}
+.section_footer .terms-block,
+.section_footer .div-block-27-copy {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.section_footer .links-wrap-copy {
+  gap: 24px !important;
+  column-gap: 24px !important;
+}
+.section_footer .links-wrap-copy .legal-link {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.section_footer .links-wrap-copy .legal-link:hover {
+  color: var(--color-gold) !important;
+}
+
+/* Brush-stroke divider images are off-palette in the new clean
+   navy system. Hide them globally wherever they appear (nav
+   bottom, between sections, above the footer). */
+.separator-blue2,
+.image-18,
+.image.divider-1-bottom,
+.section-problem .vector {
+  display: none !important;
+}
+
+/* Per-section padding overrides that intentionally diverge from
+   the canonical 96/96. Comes after the normalizer so it wins. */
+@media screen and (min-width: 992px) {
+  .how-works-section {
+    padding-top: 0 !important;
+    padding-bottom: 144px !important;
+  }
+  .section-problem,
+  .section-2.section-problem {
+    padding-bottom: 32px !important;
+  }
+  .af-pillars-wins {
+    padding-top: 0 !important;
+  }
+  .af-tokenomics-new,
+  .section_tokenomics.af-tokenomics-new {
+    padding-top: 32px !important;
+  }
+  .af-roadmap-new,
+  .section_roadmap.af-roadmap-new {
+    padding-top: 0 !important;
+  }
+  .conf-machine-section {
+    padding-top: 192px !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+/* Drop the divider above the roadmap section. */
+.af-roadmap-new,
+.section_roadmap.af-roadmap-new {
+  border-top: 0 !important;
+}
+.af-roadmap-new::before,
+.section_roadmap.af-roadmap-new::before {
+  display: none !important;
+}
+
+/* Drop the divider above "Why AmericanFortress wins". */
+.af-pillars-wins {
+  border-top: 0 !important;
+}
+.af-pillars-wins::before {
+  display: none !important;
+}
+
+/* ============================================================
+   SECTION HAIRLINE DIVIDER — same gold-fading rule as the
+   footer top. A 60% / 280px hairline centered at the top of
+   each content section, fading transparent → gold → transparent.
+   Reads as a deliberate "this is where a new section begins"
+   marker without being heavy-handed.
+   .how-works-section is excluded because it already runs a
+   vertical center hairline as its staircase decoration.
+   ============================================================ */
+.section-problem,
+.section-2.section-problem,
+.conf-machine-section,
+.af-competitive-section,
+.af-ip-section,
+.af-tokenomics-new,
+.section_tokenomics.af-tokenomics-new,
+.af-roadmap-new,
+.section_roadmap.af-roadmap-new,
+.af-pillars-wins,
+.af-team-section,
+.section_story.af-team-section,
+.af-infrastructure,
+.section_publications,
+.section_faq,
+/* Interior pages */
+.section_contact,
+.section_why,
+.section_how,
+.section_plans,
+.section_testimonials,
+.section_cta-name,
+.section_the-offer,
+.section_why-offer,
+.section_who-for,
+.section_inside-wallet,
+.section_cta,
+.section_pb-sol,
+.section_sdk {
+  position: relative;
+  border-top: 1px solid rgba(201, 168, 76, 0.22);
+}
+
+/* Brighter centered overlay — same gold-fading 280px / 60%
+   accent as the footer top, sits on top of the full-width
+   hairline so the line reads strongest at the page center.
+   `top: 0` (not -1px) keeps the accent inside the parent
+   padding box so sections with overflow:hidden (tokenomics,
+   roadmap, infrastructure) don't clip the bright center.
+   Visually 1px below the border but imperceptible. */
+.section-problem::before,
+.section-2.section-problem::before,
+.conf-machine-section::before,
+.af-competitive-section::before,
+.af-ip-section::before,
+.section_tokenomics.af-tokenomics-new::before,
+.section_roadmap.af-roadmap-new::before,
+.af-pillars-wins::before,
+.af-team-section::before,
+.section_story.af-team-section::before,
+.af-infrastructure::before,
+.section_publications::before,
+.section_faq::before,
+/* Interior pages */
+.section_contact::before,
+.section_why::before,
+.section_how::before,
+.section_plans::before,
+.section_testimonials::before,
+.section_cta-name::before,
+.section_the-offer::before,
+.section_why-offer::before,
+.section_who-for::before,
+.section_inside-wallet::before,
+.section_cta::before,
+.section_pb-sol::before,
+.section_sdk::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 280px;
+  max-width: 60%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.55), transparent);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================
+   SECTION PADDING NORMALIZER — uniform 6rem / 6rem
+   ============================================================
+   Every content section across the homepage gets the same
+   top + bottom padding so the page reads with consistent
+   vertical rhythm. Per-section CSS files shipped values from
+   30px to 190px; this rule overrides them all.
+
+   Hero / hide-balance / footer keep their specialized padding
+   because those have distinct layouts (full-bleed hero, logo
+   strip, multi-block footer).
+
+   Mobile breakpoints in mobile.css continue to handle smaller
+   screens with their own (tighter) values.
+   ============================================================ */
+@media screen and (min-width: 992px) {
+  .section-problem,
+  .section-2.section-problem,
+  .how-works-section,
+  .conf-machine-section,
+  .af-pillars-wins,
+  .af-pillars-section,
+  .af-competitive-section,
+  .af-ip-section,
+  .af-tokenomics-new,
+  .section_tokenomics.af-tokenomics-new,
+  .af-roadmap-new,
+  .section_roadmap.af-roadmap-new,
+  .af-team-section,
+  .section_story.af-team-section,
+  .af-infrastructure,
+  .section_publications,
+  .section_faq {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  /* Sections using Webflow utility wrappers — zero out the
+     wrapper's own padding so the section's normalized value
+     is the only source of vertical space. */
+  .section_publications > .padding-global,
+  .section_faq > .padding-global,
+  .af-team-section > .padding-global,
+  .section_story.af-team-section > .padding-global {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* ---------- Nav buttons (.button-2 family) ---------- */
+/* Nav lives in the cream nav bar — keep its smaller scale but
+   align color logic: .button-2 (Reserve) is the nav primary →
+   red. .button-2.blue (Explore SDK) is ghost → blue-haze border.
+   Existing brand.css rules already cover this; consolidating here
+   to keep the system in one block. */
+.button-2:not(.blue) {
+  background-color: var(--color-red) !important;
+  background-image: none !important;
+  color: #fff !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+}
+.button-2:not(.blue):hover {
+  background-color: #fa2a34 !important;
+  transform: translateY(-1px) !important;
 }
 

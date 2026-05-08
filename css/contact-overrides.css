@@ -11,21 +11,23 @@
   max-width: 1080px;
 }
 
-/* ---------- 1. Contact section (cream beige) ----------
-   Section bg flips to brand cream #f0e0b2. h1 + body copy run
-   dark navy on cream. Form fields styled to read on cream.
+/* ---------- 1. Contact section (deep navy) ----------
+   Section bg is deep navy to match the homepage palette. h1 +
+   body copy run white / off-white. The form block (already navy
+   gradient) gets a slightly stronger stroke so it pops off the
+   navy section instead of blending in.
 */
 .section_contact {
-  background-color: #f0e0b2 !important;
+  background-color: var(--color-deep-navy) !important;
   background-image: none !important;
 }
 .section_contact .h1-contact {
-  color: var(--blue) !important;
-  -webkit-text-fill-color: var(--blue) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
   margin-bottom: 1rem;
 }
 .section_contact .contact-text p {
-  color: var(--blue);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -127,8 +129,5 @@
   gap: 1.25rem;
 }
 .section_footer .socials {
-  grid-column-gap: 22px;
-}
-.section_footer .social--icon {
-  width: 1.75rem;
+  grid-column-gap: 12px;
 }
