@@ -441,20 +441,22 @@
     gap: 28px;
   }
   /* On mobile, every row reads copy-first → mockup-second so the
-     headline + body land before the visual. Override the desktop
-     even-row flip so the order is consistent across all rows. */
-  .how-staircase-row:nth-child(even) .how-staircase-mockup,
-  .how-staircase-row:nth-child(even) .how-staircase-copy,
+     headline + body land before the visual. Use nth-child
+     selectors at the same specificity as the desktop alternation
+     rule so my values actually win — bare class selectors (0,1,0)
+     can't beat the desktop's nth-child (0,3,0). */
+  .how-staircase-row:nth-child(odd) .how-staircase-copy,
+  .how-staircase-row:nth-child(even) .how-staircase-copy {
+    order: 0;
+  }
   .how-staircase-row:nth-child(odd) .how-staircase-mockup,
-  .how-staircase-row:nth-child(odd) .how-staircase-copy {
-    order: initial;
+  .how-staircase-row:nth-child(even) .how-staircase-mockup {
+    order: 1;
   }
   .how-staircase-copy {
-    order: 0;
     max-width: none;
     align-items: flex-start;
   }
-  .how-staircase-mockup { order: 1; }
   .how-staircase-copy h3 { font-size: clamp(1.5rem, 4.5vw, 2rem); }
 }
 
