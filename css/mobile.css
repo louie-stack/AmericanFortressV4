@@ -843,7 +843,34 @@
 }
 @media screen and (max-width: 767px) {
   .af-pillars-wins {
-    padding: 64px 24px 64px !important;
+    /* Tighten top padding so the headline doesn't float in dead
+       space below the preceding "Third-party auditable" callout. */
+    padding: 36px 24px 64px !important;
+  }
+  .af-pillars-head-wins {
+    /* Halve the gap between headline and the pillar grid below.
+       The 991 rule sets 32px; mobile reads tighter at 24px. */
+    margin-bottom: 24px !important;
+  }
+  /* Compose the two lines as a single tight headline. The natural
+     inline flow of <span> + <em> produced a 3-line break ("Why" /
+     "AmericanFortress" / "wins") at 375px because "AmericanFortress
+     wins" together doesn't fit. Force <em> onto its own block-level
+     line so the span flows naturally on one line. */
+  .af-pillars-title-wins {
+    font-size: clamp(1.65rem, 7.2vw, 2.05rem) !important;
+    line-height: 1.0 !important;
+    letter-spacing: -0.01em !important;
+    text-wrap: balance !important;
+  }
+  .af-pillars-title-wins span {
+    display: block;
+  }
+  .af-pillars-title-wins em {
+    display: block;
+    font-size: 1.05em !important;
+    line-height: 1.0 !important;
+    margin-top: 2px !important;
   }
   /* Drop to a single column at 767 (was 599) so the 2x2 grid
      doesn't show stretched, content-clipped cards on most phones
