@@ -1451,7 +1451,7 @@
    ============================================================ */
 @media screen and (max-width: 991px) {
   .af-infrastructure {
-    padding: 72px 24px 72px !important;
+    padding: 120px 24px 130px !important;
   }
   .af-infrastructure-grid {
     grid-template-columns: 1fr !important;
@@ -1463,22 +1463,23 @@
     max-width: 100% !important;
   }
   .af-infrastructure-buttons {
-    align-items: stretch !important;
+    align-items: center !important;
     max-width: 100% !important;
   }
 }
 @media screen and (max-width: 767px) {
   .af-infrastructure {
-    padding: 64px 24px 64px !important;
+    padding: 100px 24px 110px !important;
+  }
+  .af-infrastructure-visual {
+    display: none !important;
   }
   .af-infrastructure-title {
-    font-size: clamp(2rem, 8vw, 2.5rem) !important; /* 32-40px */
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
     line-height: 1.15 !important;
     text-wrap: balance !important;
     letter-spacing: -0.02em !important;
   }
-  /* DM Serif italic 'infrastructure' accent — keep it big enough
-     to clearly read as the editorial pull. */
   .af-infrastructure-title em.editorial-pull {
     font-size: 1em !important;
     line-height: 1 !important;
@@ -1490,7 +1491,6 @@
     max-width: 100% !important;
     text-wrap: balance !important;
   }
-  /* Two CTAs stack full-width with 12px gap */
   .af-infrastructure-buttons {
     flex-direction: column !important;
     gap: 12px !important;
@@ -1499,17 +1499,6 @@
     width: 100% !important;
     min-height: 48px !important;
     padding: 14px 20px !important;
-  }
-  .af-infrastructure-visual img {
-    max-width: 240px !important;
-    margin: 0 auto !important;
-  }
-}
-@media screen and (max-width: 599px) {
-  /* On tiny viewports, hide the decorative castle/flag image
-     to free vertical space for the headline + CTAs. */
-  .af-infrastructure-visual {
-    display: none !important;
   }
 }
 /* ============================================================

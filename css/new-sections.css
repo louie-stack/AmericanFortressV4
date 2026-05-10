@@ -1035,20 +1035,35 @@
 
 .af-infrastructure {
   background: linear-gradient(180deg, #081a3a 0%, #0c2347 100%);
-  padding: 110px 0 120px;
+  padding: 160px 0 180px;
   position: relative;
   overflow: hidden;
 }
 
 .af-infrastructure-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr;
   gap: 48px;
   align-items: center;
+  justify-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .af-infrastructure-content {
-  max-width: 720px;
+  max-width: 760px;
+  text-align: center;
+}
+
+.af-infrastructure-body {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.af-infrastructure-buttons {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .af-infrastructure-title {
@@ -1111,32 +1126,35 @@
 }
 
 .af-infrastructure-visual {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
 }
 
 .af-infrastructure-visual img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 18px;
-  filter: drop-shadow(0 22px 46px rgba(0, 0, 0, 0.5));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0;
+  filter: none;
+  display: block;
 }
 
 @media screen and (max-width: 991px) {
-  .af-infrastructure { padding: 78px 0 84px; }
   .af-infrastructure-grid { grid-template-columns: 1fr; gap: 36px; }
-  .af-infrastructure-visual { justify-content: center; order: -1; }
-  .af-infrastructure-visual img { max-width: 480px; }
   .af-infrastructure-buttons { max-width: 100%; }
 }
 
 @media screen and (max-width: 767px) {
-  .af-infrastructure { padding: 56px 0 64px; }
   .af-infrastructure-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
   .af-infrastructure-body { font-size: 1rem; margin-bottom: 24px; }
   .af-infrastructure-buttons .cta.hero { padding: 16px 22px; }
-  .af-infrastructure-visual img { max-width: 100%; }
 }
 
 .af-logo-text {
