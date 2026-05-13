@@ -10,6 +10,7 @@
   overflow: hidden;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  min-height: min(100vh, 900px) !important;
 }
 
 .section_hero.hero-v2::before {
@@ -18,7 +19,7 @@
   left: 0;
   right: 0;
   top: -36px;
-  height: 58%;
+  height: 520px;
   background-color: #143758;
   opacity: .25;
   mix-blend-mode: screen;
